@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+
+* {
+    background-color: #130335;
+    color: white;
+    font-family: 'Kavoon', cursive;
+}
+
+.linkstyle {
+    text-decoration: none;
+}
+
+.navbarselections {
+    flex: 1 1 auto;
+}
+
+

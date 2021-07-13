@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+* {
+    font-family: 'Patua One', cursive;
+}
+.edituserform {
+    color: #130335;
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: 'Kavoon', cursive;
+}
+
+.form-control {
+    font-family: 'Kavoon', cursive;
+}
+
+.col-form-label {
+    font-weight: bold;
+}

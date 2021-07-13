@@ -1,0 +1,142 @@
+<section class="Form my-2 mx-2 py-5">
+    <div class="container">
+        <div class="row rowshadow">
+            <div class="col-lg-5 lCol">
+                <h2 class="text-center">PickMyVote</h2>
+                <div class="row">
+                  <div class="col-lg-5 d-flex justify-content-center image">
+                    <img src="./assets/img/VoteBox.png" alt="" style="width: 100px; height: 100px;">
+                  </div>
+                  <div class="col-lg-7 text-center par">
+                    <p class="mx-1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum 
+                      eveniet distinctio autem itaque illum dolorum, maiores laboriosam dolorem facilis unde delectus 
+                      atque impedit sequi. Ipsum harum voluptate architecto rem.</p>
+                  </div>
+                </div>
+                
+            </div>
+            <div class="col-lg-7 px-5 py-5">
+              <h2 class="font-weight-bold py-3 text-center">Login</h2>
+              <form #registrationform="ngForm" (ngSubmit)="registerUser()">
+                <small class="text-danger">{{msg}}</small>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="First Name" name="f_name" [(ngModel)] = "user.f_name" required #f_name="ngModel"
+                      [class.is-invalid] = "f_name.invalid && f_name.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="f_name.valid || f_name.untouched">First name is required field</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Last Name" name="l_name" [(ngModel)] = "user.l_name" required #l_name="ngModel"
+                      [class.is-invalid] = "l_name.invalid && l_name.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="l_name.valid || l_name.untouched">Last name is required field</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7">
+                    <input type="email" class="form-control text-center my-3 p-1" placeholder="Email" name="email" [(ngModel)] = "user.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    #email="ngModel"
+                    [class.is-invalid] = "email.invalid && email.touched"
+                    >
+                    <div *ngIf="email.errors && (email.invalid && email.touched)">
+                      <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
+                      <small class="text-danger" *ngIf="email.errors.pattern">Email should be the valid format</small>
+                    </div>
+                  </div>
+                </div>    
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="tel" class="form-control text-center my-3 p-1" placeholder="Contact Number" name="contact_num" [(ngModel)] = "user.contact_num" required pattern="[0-9]{10,13}"
+                      #contact_num="ngModel"
+                      [class.is-invalid] = "contact_num.invalid && contact_num.touched"
+                      >
+                      <div *ngIf="contact_num.errors && (contact_num.invalid && contact_num.touched)">
+                        <small class="text-danger" *ngIf="contact_num.errors.required">Contact number is required field</small>
+                        <small class="text-danger" *ngIf="contact_num.errors.pattern">Contavt number should be the valid format</small>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7">
+                    <input type="password" class="form-control text-center my-3 p-1" placeholder="Password" name="password" [(ngModel)] = "user.password" required #password="ngModel"
+                    [class.is-invalid] = "password.invalid && password.touched"
+                    >
+                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="password" class="form-control text-center my-3 p-1" placeholder="Confirm Password" name="cpassword" (ngModel) = "user.password" required #cpassword="ngModel"
+                      [class.is-invalid] = "cpassword.invalid && cpassword.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="(cpassword.value==password.value) || password.untouched">Password and Confirm password must be the same</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Date of Birth" name="dob" [(ngModel)] = "user.dob" required #dob="ngModel"
+                      [class.is-invalid] = "dob.invalid && dob.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date of birth is required field</small>
+                    </div>
+                </div>
+                <!-- <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Question1" name="ques1" [(ngModel)] = "user.ques1" required #ques1="ngModel"
+                      [class.is-invalid] = "ques1.invalid && ques1.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="ques1.valid || ques1.untouched">Question1 is required field</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Answer1" name="ans1" [(ngModel)] = "user.ans1" required #ans1="ngModel"
+                      [class.is-invalid] = "ans1.invalid && ans1.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="ans1.valid || ans1.untouched">Answer1 is required field</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Question2" name="ques2" [(ngModel)] = "user.ques2" required #ques2="ngModel"
+                      [class.is-invalid] = "ques2.invalid && ques2.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="ques2.valid || ques2.untouched">Question2 is required field</small>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                    <div class="col-lg-7">
+                      <input type="text" class="form-control text-center my-3 p-1" placeholder="Answer2" name="ans2" [(ngModel)] = "user.ans2" required #ans2="ngModel"
+                      [class.is-invalid] = "ans2.invalid && ans2.touched"
+                      >
+                      <small class="text-danger" [class.d-none]="ans2.valid || ans2.untouched">Answer2 is required field</small>
+                    </div>
+                </div> -->
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7">
+                    <div class="checkbox my-3">
+                      <label><input type="checkbox" name="remember"> I read and accept terms and conditions</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row d-flex justify-content-center align-items-center">
+                  <div class="col-lg-7 d-flex justify-content-center align-items-center">
+                    <button [disabled]="registrationform.form.invalid" type="submit" class="btn1 mt-3 mb-5">Submit</button>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="text-center">
+                    <p>Already have an account?<br><a href="#" [routerLink]="['/login']">Log in</a></p>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+  
