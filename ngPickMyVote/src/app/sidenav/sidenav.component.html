@@ -1,0 +1,32 @@
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-list-item >
+            <mat-icon mat-list-icon class="chevron-button" (click)="isExpanded = !isExpanded" [ngClass]="{'rotated' : isExpanded}">chevron_right</mat-icon>
+            <!-- </a> -->
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">home</mat-icon>
+                <span class="nav-caption" *ngIf="isExpanded">Home</span>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">manage_accounts</mat-icon>
+                <span class="nav-caption" *ngIf="isExpanded" (click) = "viewUser()">Manage Account</span>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">corporate_fare</mat-icon>
+                <span class="nav-caption" *ngIf="isExpanded"><a  [routerLink]="['/organization']">Organizations</a></span>
+            </mat-list-item>
+
+            <mat-list-item>
+                <mat-icon mat-list-icon class="">done</mat-icon>
+                <span class="nav-caption" *ngIf="isExpanded"><a  [routerLink]="['/elections']">Elections</a></span>
+            </mat-list-item>
+
+            
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>

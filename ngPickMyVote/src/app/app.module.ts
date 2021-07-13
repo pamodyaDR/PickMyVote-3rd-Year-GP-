@@ -20,8 +20,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { UsertoolbarComponent } from './usertoolbar/usertoolbar.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { UserTableComponent } from './user-table/user-table.component';
+import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import { ElectionsComponent } from './elections/elections.component';
+import { ElectiontableComponent } from './electiontable/electiontable.component';
+import { OrganizationComponent } from './organization/organization.component';
+import { OrganizationtableComponent } from './organizationtable/organizationtable.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +43,15 @@ import { EdituserComponent } from './edituser/edituser.component';
     UserprofileComponent,
     HomeComponent,
     NavbarComponent,
-    EdituserComponent
+    EdituserComponent,
+    UsertoolbarComponent,
+    SidenavComponent,
+    UserTableComponent,
+    NewsfeedComponent,
+    ElectionsComponent,
+    ElectiontableComponent,
+    OrganizationComponent,
+    OrganizationtableComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +64,12 @@ import { EdituserComponent } from './edituser/edituser.component';
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
