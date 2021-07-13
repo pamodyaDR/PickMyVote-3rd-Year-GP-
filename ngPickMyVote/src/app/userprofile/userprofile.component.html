@@ -1,4 +1,32 @@
-<p>userprofile works!</p>
-<!-- {{id}} -->
-<button type="submit" class="btn1 mt-3 mb-5" (click) = "viewUser()">Edit User</button>
-                  
+ <!-- <div class="container"> -->
+    <app-usertoolbar></app-usertoolbar>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col-lg-7">
+           <br><br> <p>Elections due this week</p>
+            <app-user-table></app-user-table>
+            <br><p>News feed</p>
+            <app-newsfeed></app-newsfeed>
+
+        </div>
+        <div class="col-lg-3">  
+            <br><br><br>
+            <div class="row">
+            <div class="col-lg-5 d-flex justify-content-right image mx-5" >
+                
+                <img src="./assets/img/June-2021.jpg" alt="" style="width: 300px; height: 200px;">
+              </div>
+            </div>
+        </div>
+       
+    </div>
+    
+<!-- </div> -->
+    
+
+
+
