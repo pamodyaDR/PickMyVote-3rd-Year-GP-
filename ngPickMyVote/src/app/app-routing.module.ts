@@ -7,6 +7,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { EdituserComponent} from './edituser/edituser.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { ElectionsComponent } from './elections/elections.component';
+import { ElectionshomeComponent} from './electionshome/electionshome.component';
+import { AboutUsComponent} from './about-us/about-us.component';
+
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -15,8 +18,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'edituser/:id',component:EdituserComponent},
   {path:'organization',component:OrganizationComponent},
-  {path:'elections',component:ElectionsComponent}
-
+  {path:'elections',component:ElectionsComponent},
+  {path:'electionshome',component:ElectionshomeComponent},
+  {path:'about-us',component:AboutUsComponent}
 ];
 
 @NgModule({

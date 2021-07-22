@@ -1,6 +1,32 @@
-<mat-toolbar>
-    <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
-    <span class="navbarselections"></span>
-    <a class="linkstyle" [routerLink]="['/login']">Sign In</a>
 
-</mat-toolbar>
+
+<nav class="navbar navbar-expand-lg navbar-light" >
+    <!-- Navbar content -->
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">PickMyVote.Com</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="electionshome">Elections</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about-us">Services</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+
+<router-outlet></router-outlet>

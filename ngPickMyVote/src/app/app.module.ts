@@ -34,6 +34,8 @@ import { ElectionsComponent } from './elections/elections.component';
 import { ElectiontableComponent } from './electiontable/electiontable.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { OrganizationtableComponent } from './organizationtable/organizationtable.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ElectionshomeComponent } from './electionshome/electionshome.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
     ElectionsComponent,
     ElectiontableComponent,
     OrganizationComponent,
-    OrganizationtableComponent
+    OrganizationtableComponent,
+    AboutUsComponent,
+    ElectionshomeComponent
   ],
   imports: [
     BrowserModule,
