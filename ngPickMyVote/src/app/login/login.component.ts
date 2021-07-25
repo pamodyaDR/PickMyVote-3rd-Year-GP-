@@ -16,6 +16,10 @@ export class LoginComponent implements OnInit {
   msg = '';
   userDetails: User = <User>{};
 
+  username!: string;
+  password!: string;
+  message: any
+
   constructor(private _service: RegistrationService, private _router : Router) { }
 
   ngOnInit(): void {
@@ -43,6 +47,27 @@ export class LoginComponent implements OnInit {
       }
     )
     
+  }
+
+  test(){
+    this._service.TestMethod().subscribe(
+      data => {
+        console.log("Response receive");
+      }
+    )
+  }
+
+  doLogin() {
+    let resp = this._service.login(this.username, this.password);
+    resp.subscribe(data => {
+      this.message = data;
+     this._router.navigate(["/userprofile/1"])
+    },
+    error => {
+      console.log("Exception Occured");
+      this.msg = "Bad credentials. Please enter the valid email and password."
+    }
+    );
   }
 
 }

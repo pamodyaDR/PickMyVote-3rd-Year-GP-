@@ -17,6 +17,7 @@ public class User {
     private int contact_num;
     private String password;
     private String dob;
+    private String roles;
 
     public User() {
     }
@@ -29,9 +30,18 @@ public class User {
         this.contact_num = contact_num;
         this.password = password;
         this.dob = dob;
+        this.roles="ROLE_USER";
     }
 
-    public Long getId() {
+    public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+	public Long getId() {
         return id;
     }
 
