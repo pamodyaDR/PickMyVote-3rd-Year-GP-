@@ -2,8 +2,8 @@ package com.pickMyVote.pickMyVote.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.pickMyVote.pickMyVote.model.election;
+import com.pickMyVote.pickMyVote.model.Election;
 
-public interface electionRepository extends JpaRepository<election, Long> {
+public interface ElectionRepository extends JpaRepository<Election, Long> {
 
 }

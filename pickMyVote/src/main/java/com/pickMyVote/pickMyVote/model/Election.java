@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class election {
+public class Election {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,10 @@ public class election {
 	private int sec_type;
 	private Long org_id;
 	
-	public election() {
+	public Election() {
 	}
 	
-	public election(Long id, String title, String start_date_time, String end_date_time, int capacity, int type, int sec_type, Long org_id) {
+	public Election(Long id, String title, String start_date_time, String end_date_time, int capacity, int type, int sec_type, Long org_id) {
 		this.id = id;
 		this.title = title;
 		this.start_date_time = start_date_time;
