@@ -19,7 +19,7 @@
             </div>
             <div class="col-lg-7 px-5 py-5">
               <h2 class="font-weight-bold py-3 text-center">Login</h2>
-              <form #loginform="ngForm" (ngSubmit)="loginUser()">
+              <form #loginform="ngForm" (ngSubmit)="doLogin()">
                 <small class="text-danger">{{msg}}</small>
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
@@ -35,10 +35,8 @@
                 </div>    
                 <div class="form-row d-flex justify-content-center align-items-center">
                   <div class="col-lg-7">
-                    <input type="password" class="form-control text-center my-3 p-1" placeholder="Password" name="password" [(ngModel)] = "user.password" required #password="ngModel"
-                    [class.is-invalid] = "password.invalid && password.touched"
-                    >
-                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                    <input type="password" class="form-control text-center my-3 p-1" placeholder="Password" name="password" [(ngModel)] = "user.password" required >
+                    <!-- <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small> -->
                   </div>
                 </div>
                 <div class="form-row d-flex justify-content-center align-items-center">
@@ -71,3 +69,21 @@
 
 </section>
   
+<!-- <div class="background-wrap">
+  <div class="background"></div>
+</div>
+
+<form id="accesspanel" action="">
+  <h1 id="litheader">Java Techie</h1>
+  <div class="inset">
+    <p>
+      <input type="text" name="username" [(ngModel)]="username" id="email" placeholder="username">
+    </p>
+    <p>
+      <input type="password" name="password" [(ngModel)]="password" id="password" placeholder="password">
+    </p>
+  </div>
+  <p class="p-container">
+    <input type="submit" name="Login" id="go" value="Login" (click)="doLogin()">
+  </p>
+</form> -->
