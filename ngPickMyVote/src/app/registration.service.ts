@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,18 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/login", user);
   }
 
+
   public registerUserFromRemote(user : User):Observable<any> {
     return this._http.post<any>("http://localhost:8080/registerUser", user);
   }
 
   public getUserFromRemote(id : Number):Observable<any>{
     return this._http.get<any>("http://localhost:8080/getUser/"+ id);
+  }
+
+  login(username:string,password:string,user:User):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/getLoggedUser",user,{headers})
   }
 
 }

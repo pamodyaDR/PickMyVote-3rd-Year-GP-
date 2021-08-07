@@ -36,6 +36,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { OrganizationtableComponent } from './organizationtable/organizationtable.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
+import { RegistrationService } from './registration.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,7 @@ import { ElectionshomeComponent } from './electionshome/electionshome.component'
     MatListModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
