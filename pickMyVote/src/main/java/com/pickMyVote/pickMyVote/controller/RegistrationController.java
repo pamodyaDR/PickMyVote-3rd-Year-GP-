@@ -34,8 +34,8 @@ public class RegistrationController {
         return userObj;
     }
 
-    @PostMapping("/login")
-    public User login(@RequestBody User user) throws Exception {
+    @PostMapping("/getLoggedUser")
+    public User getLoggedUser(@RequestBody User user) throws Exception {
         String tempEmail = user.getEmail();
         String tempPassword = user.getPassword();
         User userObj = null;

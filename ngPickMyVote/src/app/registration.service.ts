@@ -14,6 +14,7 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/login", user);
   }
 
+
   public registerUserFromRemote(user : User):Observable<any> {
     return this._http.post<any>("http://localhost:8080/registerUser", user);
   }
@@ -22,13 +23,9 @@ export class RegistrationService {
     return this._http.get<any>("http://localhost:8080/getUser/"+ id);
   }
 
-  public TestMethod() {
-    return this._http.post<any>("http://localhost:8080/greetings",{ headers: { authorization: 'Basic ' + window.btoa("user:4e05a215-4b0b-4362-afc2-ffabe7d6a397") } });
-  }
-
-  login(username:string,password:string){
+  login(username:string,password:string,user:User):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this._http.get("http://localhost:8080/greetings",{headers,responseType: 'text' as 'json'})
+    return this._http.post<any>("http://localhost:8080/getLoggedUser",user,{headers})
   }
 
 }

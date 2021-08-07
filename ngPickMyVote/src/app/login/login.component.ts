@@ -49,19 +49,24 @@ export class LoginComponent implements OnInit {
     
   }
 
-  test(){
-    this._service.TestMethod().subscribe(
-      data => {
-        console.log("Response receive");
-      }
-    )
-  }
 
   doLogin() {
-    let resp = this._service.login(this.username, this.password);
-    resp.subscribe(data => {
+    let resp = this._service.login(this.user.email, this.user.password, this.user);
+
+    resp.subscribe(
+      res => {
+        this.userDetails =res;
+        console.log(this.userDetails);
+        console.log(this.userDetails.f_name);
+      }
+    )
+
+    resp.subscribe(
+      data => {
       this.message = data;
-     this._router.navigate(["/userprofile/1"])
+      sessionStorage.setItem('session_username',this.userDetails.email);
+      sessionStorage.setItem('session_password',this.userDetails.password);
+      this._router.navigate(['/userprofile/', this.userDetails.id])
     },
     error => {
       console.log("Exception Occured");
