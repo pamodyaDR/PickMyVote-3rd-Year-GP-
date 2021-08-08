@@ -1,0 +1,54 @@
+<div class="vote">
+    <app-usertoolbar></app-usertoolbar>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col-lg-8">
+            <p class="p1">Election >>> Vote for an Election >>> Step 3</p>
+            <img src="./assets/img/3progress.png" alt="Progress bar" style="width: 780px; height: 70px; padding-left: 30px;">
+            
+            <p class="p2">Enter your Vote by selecting a Candidate</p>
+            
+            <table class="votetable">
+               
+                <tr>
+                    <td colspan="2">Position:</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center;">Candidates</th>
+                </tr>
+                <tr>
+                    <th>Candidate Name</th>
+                    <th>Vote</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td><div class="container"><input type="radio" id="id" name="id" value=""><span class="checkmark"></span></div></td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td><div class="container"><input type="radio" id="id" name="id" value=""><span class="checkmark"></span></div></td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td><div class="container"><input type="radio" id="id" name="id" value=""><span class="checkmark"></span></div></td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td><div class="container"><input type="radio" id="id" name="id" value=""><span class="checkmark"></span></div></td>
+                </tr>
+            </table>  
+           
+
+            <div class="btn1">
+                <br><br><br><br><br><br><button class="button" type="submit" [routerLink]="['/votepage4']">Submit Your Vote</button> <br><br><br><br><br><br>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+    
