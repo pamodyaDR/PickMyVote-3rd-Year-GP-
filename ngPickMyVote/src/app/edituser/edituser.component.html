@@ -1,11 +1,22 @@
 
+<app-usertoolbar></app-usertoolbar>
+
 <h2 class="font-weight-bold py-3 mx-3 my-4 edituserform">Edit Profile Informations</h2>
 
 <section class="Form my-2 mx-2 py-5">
     <div class="container">
         <div class="row">
-            <form #editUser="ngForm">
+            <form #editUser="ngForm" (ngSubmit)="updateFname()">
         
+                <div class="row"  *ngIf="showMsg">
+                    <div class="col-xs-12">
+                      <p class="alert alert-success">
+                          <strong>User Details Updated!</strong>
+            
+                      </p>
+                    </div>
+                  </div>
+
                 <div class="form-row d-flex justify-content-center align-items-center">
                     <div class="col-lg-7">
                         <div class="form-group row form-row d-flex justify-content-center align-items-center">

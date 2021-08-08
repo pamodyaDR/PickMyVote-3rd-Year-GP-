@@ -60,5 +60,18 @@ public class RegistrationController {
     public String hello() {
     	return "Hello user";
     }
+    
+    //Update user details
+    
+    @PostMapping("/updateUser")
+    public User updateUser(@RequestBody User user) throws Exception {
+    	User userObj = null;
+        userObj = service.updateUserFName(user.getEmail(),user.getF_name());
+        userObj = service.updateUserLName(user.getEmail(),user.getL_name());
+        userObj = service.updateUserContact(user.getEmail(),user.getContact_num());
+        userObj = service.updateUserDOB(user.getEmail(),user.getDob());
+        return userObj;
+    }
+    
 }
 
