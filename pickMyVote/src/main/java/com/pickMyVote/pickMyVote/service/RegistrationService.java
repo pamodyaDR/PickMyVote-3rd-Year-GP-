@@ -29,4 +29,29 @@ public class RegistrationService {
     public Optional<User> fetchUserById(Long id) {
         return repo.findById(id);
     }
+    
+    public User updateUserFName(String email, String fname) {
+    	User user = repo.findByEmail(email);
+        user.setF_name(fname);
+        return repo.save(user);
+    }
+    
+    public User updateUserLName(String email, String lname) {
+    	User user = repo.findByEmail(email);
+        user.setL_name(lname);
+        return repo.save(user);
+    }
+    
+    public User updateUserContact(String email, int contact) {
+    	User user = repo.findByEmail(email);
+        user.setContact_num(contact);
+        return repo.save(user);
+    }
+    
+    public User updateUserDOB(String email, String dob) {
+    	User user = repo.findByEmail(email);
+        user.setDob(dob);
+        return repo.save(user);
+    }
+    
 }

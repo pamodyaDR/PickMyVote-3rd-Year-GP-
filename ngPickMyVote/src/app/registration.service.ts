@@ -19,13 +19,19 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/registerUser", user);
   }
 
-  public getUserFromRemote(id : Number):Observable<any>{
-    return this._http.get<any>("http://localhost:8080/getUser/"+ id);
+  public getUserFromRemote(username:any,password:any,id : Number):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<any>("http://localhost:8080/getUser/"+ id,{headers});
   }
 
   login(username:string,password:string,user:User):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post<any>("http://localhost:8080/getLoggedUser",user,{headers})
+  }
+
+  updateUser(username:string,password:string,user:User):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/updateUser",user,{headers})
   }
 
 }
