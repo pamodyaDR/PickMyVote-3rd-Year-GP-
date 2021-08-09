@@ -37,6 +37,9 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
+import { CreateElectionComponent } from './create-election/create-election.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,8 @@ import { RegistrationService } from './registration.service';
     OrganizationComponent,
     OrganizationtableComponent,
     AboutUsComponent,
-    ElectionshomeComponent
+    ElectionshomeComponent,
+    CreateElectionComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ import { RegistrationService } from './registration.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]
