@@ -14,18 +14,18 @@ public class Organization {
 	private String name;
 	private String type;
 	private String notices;
-	private Long owner_id;
+	private Long ownerID;
 	
 	public Organization() {
 		
 	}
 	
-	public Organization(Long id, String name, String type, String notices, Long owner_id) {
+	public Organization(Long id, String name, String type, String notices, Long ownerID) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.notices = notices;
-		this.owner_id = owner_id;
+		this.ownerID = ownerID;
 	}
 
 	public Long getId() {
@@ -60,12 +60,12 @@ public class Organization {
 		this.notices = notices;
 	}
 
-	public Long getOwner_id() {
-		return owner_id;
+	public Long getOwnerID() {
+		return ownerID;
 	}
 
-	public void setOwner_id(Long owner_id) {
-		this.owner_id = owner_id;
+	public void setOwnerID(Long ownerID) {
+		this.ownerID = ownerID;
 	}
 
 }
