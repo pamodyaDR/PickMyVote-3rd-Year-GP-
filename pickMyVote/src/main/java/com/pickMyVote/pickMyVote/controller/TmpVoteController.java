@@ -1,41 +1,51 @@
 package com.pickMyVote.pickMyVote.controller;
 
-import java.io.Console;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pickMyVote.pickMyVote.model.InvVoteKey;
-import com.pickMyVote.pickMyVote.model.TmpInvisVote;
-import com.pickMyVote.pickMyVote.model.User;
-import com.pickMyVote.pickMyVote.repository.TmpInvisVoteRepository;
-import com.pickMyVote.pickMyVote.service.BallotPaper;
-import com.pickMyVote.pickMyVote.service.RegistrationService;
+import com.pickMyVote.pickMyVote.model.Candidate;
+import com.pickMyVote.pickMyVote.model.Election;
+import com.pickMyVote.pickMyVote.repository.CandidateRepository;
+import com.pickMyVote.pickMyVote.repository.ElectionRepository;
+
 
 @RestController
 @CrossOrigin(origins = "*")
 
 public class TmpVoteController {
 	
-	@Autowired
-	private TmpInvisVoteRepository InvVoteRepo;
 	
 	@Autowired
-    private RegistrationService service; 
+	private ElectionRepository elrepo;
+	
+	@Autowired
+	private CandidateRepository candrepo;
 
-	//Get vote by id
-    @GetMapping("/vote/{elec_id}/{email}")
-    public Optional <BallotPaper> getInvisVote(@PathVariable Long elec_id, @PathVariable String email) {
-    	User userObj = service.fetchUserByEmail(email);
-    	Long user_id = userObj.getId();
-    	Optional<TmpInvisVote> InvisVote = InvVoteRepo.findById(new InvVoteKey(user_id,elec_id));
-    	Optional<BallotPaper> ballot = Optional.of(new BallotPaper(InvisVote,userObj));
-    	//Optional<BallotPaper> opt_ballot = Optional.ofNullable(ballot);
-    	return ballot;
+	//Get election by id
+    @GetMapping("/vote/{elec_id}")
+    public Optional <Election> getElections(@PathVariable Long elec_id) {
+    	Optional<Election> elec = elrepo.findById(elec_id);
+    	return elec;
     }
     
+  //Get candidates by election id
+    @GetMapping("/vote/candidates/{elec_id}")
+    public List <Candidate> getCandidates(@PathVariable Long elec_id) {
+    	List<Candidate> cand = candrepo.findByElecID(elec_id);
+    	return cand;
+    }
+    
+    //add vote by em key
+    @PostMapping("/vote/add/{em_key}/{cand_id}")
+    public void addVote(@PathVariable Long cand_id,@PathVariable String em_key) {
+    	//add vote to emkey on invis_vote table
+    	//add vote to candidate
+    }
 }
