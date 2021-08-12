@@ -14,7 +14,7 @@ public class Candidate {
 	private String name;
 	private String position;
 	private int votes;
-	private Long elec_id;
+	private Long elecID;
 	
 	public Candidate() {
 		
@@ -25,7 +25,15 @@ public class Candidate {
 		this.name = name;
 		this.position = position;
 		this.votes = votes;
-		this.elec_id = elec_id;
+		this.elecID = elec_id;
+	}
+
+	public Long getElecID() {
+		return elecID;
+	}
+
+	public void setElecID(Long elecID) {
+		this.elecID = elecID;
 	}
 
 	public Long getId() {
@@ -60,13 +68,5 @@ public class Candidate {
 		this.votes = votes;
 	}
 
-	public Long getElec_id() {
-		return elec_id;
-	}
-
-	public void setElec_id(Long elec_id) {
-		this.elec_id = elec_id;
-	}
-	
 	
 }
