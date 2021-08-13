@@ -1,20 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
 .election .election-content h1{
     position: absolute;
     top: 15%;
+    font-family: 'Philosopher', sans-serif;
     font-size: 80px;
-    padding-left: 100px;
-    color:rgb(29, 19, 85);
+    align-items: center;
+    color: #130335;
 }
 
 .election img{
     width:100%;
-    height: 650px;
-   
+    height: auto;
+}
 
+.election .election-content .row{
+    width:100%;
+}
+
+.election .election-content p{
+    font-size: 35px;
+    padding-left: 5%;
+    font-family: 'Patua One', cursive;
+    font-style:normal;
+    color: #130335;
+}
+
+.election .election-content ul{
+    font-size: 20px;
+    padding-left: 7%;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #130336;
 }
 
 mat-grid-tile {
     background-color: #C4C4C4;
     text-align: left;
-  }
+}

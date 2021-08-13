@@ -1,49 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+.body {
+  background-color: rgb(0, 0, 0);
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+.rowshadow {
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 12px 12px 22px gray;
+}
 
-    /* *{
-        
-    } */
-    .body{
-      background-color: rgb(0, 0, 0);
-    }
-    .rowshadow{
-      background-color: white;
-      border-radius: 30px;
-      box-shadow: 12px 12px 22px gray;
-    }
-    .btn1{
-      border: none;
-      outline: none;
-      height: 25px;
-      width: 25%;
-      background-color: violet;
-      color: white;
-      border-radius: 20px;
-      font-weight: bold;
-    }
-    .btn1:hover{
-      background-color: white;
-      border: 1px solid;
-      color: black;
-    }
-    .lCol {
-      background-color: #130335;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
-    .lCol>h2{
-      color: white;
-      font-family: 'Kavoon', cursive;
-      padding-top: 10%;
-    }
-    .image>img{
-      padding: 5px;
-      align-self: center;
-    }
-    .par>p {
-      color: white;
-      font-family: 'Patua One', cursive;
-    }
+.formfnt {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fnt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: x-large;
+}
+
+.btn1 {
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 100px;
+  max-width: 100%;
+  background-color: #130227;
+  border: 1px solid #24a0ed;
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn1:not([disabled]):hover {
+  color: #130227;
+  background-color: #9b9a9c;
+  font-weight: bold;
+  border: 1px solid#5b5a5c ;
+}
+
+.lCol {
+  background-color: #130335;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.lCol>h2 {
+  color: white;
+  font-family: 'Philosopher', sans-serif;
+  font-size: xx-large;
+  padding-top: 10%;
+}
+
+.image>img {
+  padding: 10%;
+  align-self: center;
+}
+
+.par>p {
+  padding-top: 25%;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+}
