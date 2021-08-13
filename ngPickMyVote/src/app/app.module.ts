@@ -37,6 +37,7 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
+import { CustomFieldValidatorDirective } from './registration/custom-field-validator.directive';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { RegistrationService } from './registration.service';
     OrganizationComponent,
     OrganizationtableComponent,
     AboutUsComponent,
-    ElectionshomeComponent
+    ElectionshomeComponent,
+    CustomFieldValidatorDirective
   ],
   imports: [
     BrowserModule,

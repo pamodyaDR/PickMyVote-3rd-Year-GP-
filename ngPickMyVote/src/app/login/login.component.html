@@ -1,74 +1,74 @@
 <app-navbar></app-navbar>
 
 <section class="Form my-2 mx-2 py-5">
-    <div class="container">
-        <div class="row rowshadow">
-            <div class="col-lg-5 lCol">
-                <h2 class="text-center">PickMyVote</h2>
-                <div class="row">
-                  <div class="col-lg-5 d-flex justify-content-center image">
-                    <img src="./assets/img/VoteBox.png" alt="" style="width: 100px; height: 100px;">
-                  </div>
-                  <div class="col-lg-7 text-center par">
-                    <p class="mx-1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum 
-                      eveniet distinctio autem itaque illum dolorum, maiores laboriosam dolorem facilis unde delectus 
-                      atque impedit sequi. Ipsum harum voluptate architecto rem.</p>
-                  </div>
-                </div>
-                
-            </div>
-            <div class="col-lg-7 px-5 py-5">
-              <h2 class="font-weight-bold py-3 text-center">Login</h2>
-              <form #loginform="ngForm" (ngSubmit)="doLogin()">
-                <small class="text-danger">{{msg}}</small>
-                <div class="form-row d-flex justify-content-center align-items-center">
-                  <div class="col-lg-7">
-                    <input type="email" class="form-control text-center my-3 p-1" placeholder="Email" name="email" [(ngModel)] = "user.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    #email="ngModel"
-                    [class.is-invalid] = "email.invalid && email.touched"
-                    >
-                    <div *ngIf="email.errors && (email.invalid && email.touched)">
-                      <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
-                      <small class="text-danger" *ngIf="email.errors.pattern">Email should be the valid format</small>
-                    </div>
-                  </div>
-                </div>    
-                <div class="form-row d-flex justify-content-center align-items-center">
-                  <div class="col-lg-7">
-                    <input type="password" class="form-control text-center my-3 p-1" placeholder="Password" name="password" [(ngModel)] = "user.password" required >
-                    <!-- <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small> -->
-                  </div>
-                </div>
-                <div class="form-row d-flex justify-content-center align-items-center">
-                  <div class="col-lg-7">
-                    <div class="checkbox my-3">
-                      <label><input type="checkbox" name="remember"> Remember me</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-row d-flex justify-content-center align-items-center">
-                  <div class="col-lg-7 d-flex justify-content-center align-items-center">
-                    <button [disabled]="loginform.form.invalid" type="submit" class="btn1 mt-3 mb-5">Login</button>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="text-center">
-                    <p><a href="#" [routerLink]="['/registration']">Sign Up</a></p>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="text-center">
-                    <p><a href="#">Forgot your password?</a></p>
-                  </div>
-                </div>
-
-              </form>
-            </div>
+  <div class="container">
+    <div class="row rowshadow">
+      <div class="col-lg-5 lCol">
+        <h2 class="text-center">PickMyVote</h2>
+        <div class="row">
+          <div class="col-lg-5 d-flex justify-content-center image">
+            <img src="./assets/img/voteBoxPanda.png" alt="" style="width: 200px; height: 200px;">
+          </div>
+          <div class="col-lg-7 text-center par">
+            <p class="mx-1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, voluptatum
+              eveniet distinctio autem itaque illum dolorum, maiores laboriosam dolorem facilis unde delectus
+              atque impedit sequi. Ipsum harum voluptate architecto rem.</p>
+          </div>
         </div>
+      </div>
+
+      <div class="col-lg-7 px-5 py-5 loginst">
+        <h2 class="font-weight-bold py-3 text-center fnt">Login</h2>
+        <form #loginform="ngForm" (ngSubmit)="doLogin()">
+          <small class="text-danger">{{msg}}</small>
+          <div class="form-row d-flex justify-content-center align-items-center">
+            <div class="col-lg-7">
+              <input type="email" class="form-control text-center my-3 p-1" placeholder="Email" name="email"
+                [(ngModel)]="user.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched">
+              <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">Email should be the valid format</small>
+              </div>
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-center align-items-center">
+            <div class="col-lg-7">
+              <input type="password" class="form-control text-center my-3 p-1" placeholder="Password" name="password"
+                [(ngModel)]="user.password" required>
+              <!-- <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small> -->
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-center align-items-center">
+            <div class="col-lg-7">
+              <div class="checkbox my-3">
+                <label><input type="checkbox" name="remember"> Remember me</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-center align-items-center">
+            <div class="col-lg-7 d-flex justify-content-center align-items-center btnfnt">
+              <button [disabled]="loginform.form.invalid" type="submit" class="btn1 mt-3 mb-5">Login</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="text-center">
+              <p><a href="#" [routerLink]="['/registration']">Sign Up</a></p>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="text-center">
+              <p><a href="#">Forgot your password?</a></p>
+            </div>
+          </div>
+
+        </form>
+      </div>
     </div>
+  </div>
 
 </section>
-  
+
 <!-- <div class="background-wrap">
   <div class="background"></div>
 </div>
