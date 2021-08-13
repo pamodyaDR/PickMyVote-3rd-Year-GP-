@@ -1,22 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
-
-
 p {
-    color: #130335;
-    font-size: 30px ;
-    font-family: 'Kavoon', cursive;
-  }
+  color: #130335;
+  font-size: 30px;
+  font-family: 'Patua One', cursive;
+}
 
-  mat-grid-tile {
-    background-color: #C4C4C4;
-    text-align: left;
-  }
+.row {
+  width: 100%;
+}
 
-  b{
-      font-size: 20px;
-      color: #3d374b;
-      text-align: left;
-      
-  }
+.btn {
+  font-family: 'Patua One', cursive;
+  background-color: #130335;
+}
+
+.btn:hover {
+  color: #130227;
+  background-color: #9b9a9c;
+  font-weight: bold;
+  border: 1px solid#5b5a5c ;
+}
+
+mat-grid-tile {
+  background-color: #C4C4C4;
+  text-align: left;
+}
+
+b {
+  font-size: 20px;
+  color: #3d374b;
+  text-align: left;
+}

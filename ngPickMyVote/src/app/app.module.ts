@@ -37,10 +37,7 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
-import { ResultComponent } from './result/result.component';
-import { ResultService } from './services/result.service';
-import { ChartsModule } from 'ng2-charts';
-
+import { CustomFieldValidatorDirective } from './registration/custom-field-validator.directive';
 
 @NgModule({
   declarations: [
@@ -61,7 +58,7 @@ import { ChartsModule } from 'ng2-charts';
     OrganizationtableComponent,
     AboutUsComponent,
     ElectionshomeComponent,
-    ResultComponent
+    CustomFieldValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -79,10 +76,9 @@ import { ChartsModule } from 'ng2-charts';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule,
-    ChartsModule
+    MatTableModule
   ],
-  providers: [RegistrationService,ResultService],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
