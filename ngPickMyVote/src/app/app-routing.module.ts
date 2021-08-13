@@ -9,6 +9,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { ElectionsComponent } from './elections/elections.component';
 import { ElectionshomeComponent} from './electionshome/electionshome.component';
 import { AboutUsComponent} from './about-us/about-us.component';
+import { ResultComponent } from './result/result.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'organization',component:OrganizationComponent},
   {path:'elections',component:ElectionsComponent},
   {path:'electionshome',component:ElectionshomeComponent},
-  {path:'about-us',component:AboutUsComponent}
+  {path:'about-us',component:AboutUsComponent},
+  {path:'result/:elid',component:ResultComponent}
 ];
 
 @NgModule({

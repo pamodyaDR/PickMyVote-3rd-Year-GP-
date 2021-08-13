@@ -37,6 +37,10 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
+import { ResultComponent } from './result/result.component';
+import { ResultService } from './services/result.service';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +60,8 @@ import { RegistrationService } from './registration.service';
     OrganizationComponent,
     OrganizationtableComponent,
     AboutUsComponent,
-    ElectionshomeComponent
+    ElectionshomeComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +79,10 @@ import { RegistrationService } from './registration.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    ChartsModule
   ],
-  providers: [RegistrationService],
+  providers: [RegistrationService,ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

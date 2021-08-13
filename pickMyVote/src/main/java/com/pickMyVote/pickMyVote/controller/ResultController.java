@@ -24,5 +24,5 @@ public class ResultController {
     	List<Candidate> cand = candrepo.findByElecID(elec_id);
     	return cand;
     }
-
+	
 }
