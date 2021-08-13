@@ -1,3 +1,4 @@
 /.metadata/
 
 pickMyVote/target/
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/config/SecurityConfig.class
