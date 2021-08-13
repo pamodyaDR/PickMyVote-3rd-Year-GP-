@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
 mat-grid-tile {
-    background-color: #C4C4C4;
-    text-align: left;
-  }
+  background-color: #C4C4C4;
+  text-align: left;
+  font-family: 'Patua One', cursive;
+  font-size: 15px;
+}

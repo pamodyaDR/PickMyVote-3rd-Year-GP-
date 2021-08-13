@@ -1,50 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
+
 .home{
     background-color: #0000;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .home img{
-    width:75%;
-    height: 670px;
+    width:100%;
+    height: auto;
     padding-left: 0px;
     align-items: center;
-  
 }
-
-
 
 .home .home-content h1{
     position: absolute;
     top: 15%;
+    font-family: 'Philosopher', sans-serif;
     font-size: 75px;
-    padding-left: 500px;
+    align-items: center;
     color: #130335;
-    
+}
+
+.home .home-content .row{
+    width:100%;
 }
 
 .home .home-content p{
     position: absolute;
     top: 35%;
     font-size: 20px;
-    padding-left: 1050px;
+    /* padding-left: 1050px; */
     font-style:normal;
     color: #130335;
-    
-
 }
 
 .home .home-content ul{
     position: absolute;
     top: 55%;
     font-size: 20px;
-    padding-left: 1170px;
+    /* padding-left: 1170px; */
     color: #130336;
 }
-
 
 .home .home-content .btn2{
     position: absolute;
     top: 75%;
-    padding-left: 1150px;
+    /* padding-left: 1150px; */
 }
 
 .home .home-content a{
@@ -71,10 +73,4 @@
         top: 100px;
     }
 
-    
- 
-    
- 
-    
-   
 }

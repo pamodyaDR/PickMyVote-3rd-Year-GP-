@@ -37,9 +37,7 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
-import { CreateElectionComponent } from './create-election/create-election.component';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatSelectModule } from '@angular/material/select';
+import { CustomFieldValidatorDirective } from './registration/custom-field-validator.directive';
 
 @NgModule({
   declarations: [
@@ -60,7 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     OrganizationtableComponent,
     AboutUsComponent,
     ElectionshomeComponent,
-    CreateElectionComponent
+    CustomFieldValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -78,9 +76,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule,
-    MatStepperModule,
-    MatSelectModule
+    MatTableModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]
