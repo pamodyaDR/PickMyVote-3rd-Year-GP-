@@ -50,7 +50,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const id = this._route.snapshot.params['elid'];
+    const id = this._route.snapshot.params['elecid'];
     //console.log(id);
 
     if(!this.email){
