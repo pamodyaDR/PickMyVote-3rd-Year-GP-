@@ -41,6 +41,8 @@ import { RegistrationService } from './registration.service';
 import { CustomFieldValidatorDirective } from './registration/custom-field-validator.directive';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import { ChartsModule } from 'ng2-charts';
+import { ResultService } from './services/result.service';
 
 @NgModule({
   declarations: [
@@ -82,9 +84,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatTableModule,
     MatStepperModule,
-    MatSelectModule
+    MatSelectModule,
+    ChartsModule
   ],
-  providers: [RegistrationService],
+  providers: [RegistrationService,ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
