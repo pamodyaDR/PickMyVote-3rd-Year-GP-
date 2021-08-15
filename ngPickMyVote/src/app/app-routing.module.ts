@@ -10,6 +10,13 @@ import { ElectionsComponent } from './elections/elections.component';
 import { ElectionshomeComponent} from './electionshome/electionshome.component';
 import { AboutUsComponent} from './about-us/about-us.component';
 
+import { Votepage1Component} from './votepage1/votepage1.component';
+import { Votepage2Component} from './votepage2/votepage2.component';
+import { Votepage3Component} from './votepage3/votepage3.component';
+import { Votepage4Component} from './votepage4/votepage4.component';
+import { Votepage5Component} from './votepage5/votepage5.component';
+
+
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -20,7 +27,12 @@ const routes: Routes = [
   {path:'organization',component:OrganizationComponent},
   {path:'elections',component:ElectionsComponent},
   {path:'electionshome',component:ElectionshomeComponent},
-  {path:'about-us',component:AboutUsComponent}
+  {path:'about-us',component:AboutUsComponent},
+  {path:'votepage1',component:Votepage1Component},
+  {path:'votepage2',component:Votepage2Component},
+  {path:'votepage3',component:Votepage3Component},
+  {path:'votepage4',component:Votepage4Component},
+  {path:'votepage5',component:Votepage5Component}
 ];
 
 @NgModule({

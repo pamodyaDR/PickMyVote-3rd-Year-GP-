@@ -37,6 +37,13 @@ import { OrganizationtableComponent } from './organizationtable/organizationtabl
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
+import { Votepage1Component } from './votepage1/votepage1.component';
+import { Votepage2Component } from './votepage2/votepage2.component';
+import { Votepage3Component } from './votepage3/votepage3.component';
+import { Votepage4Component } from './votepage4/votepage4.component';
+import { Votepage5Component } from './votepage5/votepage5.component';
+import { ElectionService } from './election.service';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +63,12 @@ import { RegistrationService } from './registration.service';
     OrganizationComponent,
     OrganizationtableComponent,
     AboutUsComponent,
-    ElectionshomeComponent
+    ElectionshomeComponent,
+    Votepage1Component,
+    Votepage2Component,
+    Votepage3Component,
+    Votepage4Component,
+    Votepage5Component
   ],
   imports: [
     BrowserModule,
@@ -76,7 +88,7 @@ import { RegistrationService } from './registration.service';
     MatListModule,
     MatTableModule
   ],
-  providers: [RegistrationService],
+  providers: [RegistrationService,ElectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
