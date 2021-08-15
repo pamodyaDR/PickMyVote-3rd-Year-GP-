@@ -64,7 +64,7 @@ public class Organization {
 		return ownerID;
 	}
 
-	public void setOwnerId(Long ownerID) {
+	public void setOwnerID(Long ownerID) {
 		this.ownerID = ownerID;
 	}
 
