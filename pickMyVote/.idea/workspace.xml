@@ -9,6 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
+      <!-- <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/tsconfig.json" afterDir="false" /> -->
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +29,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -87,6 +93,13 @@
       <workItem from="1626158051371" duration="2289000" />
       <workItem from="1626171046466" duration="333000" />
       <workItem from="1626182577991" duration="1179000" />
+      <workItem from="1628997823185" duration="262000" />
+      <workItem from="1628998270737" duration="253000" />
+      <workItem from="1628998588058" duration="255000" />
+      <workItem from="1628998872048" duration="661000" />
+      <workItem from="1628999744890" duration="564000" />
+      <workItem from="1629001810856" duration="1185000" />
+      <workItem from="1629003530785" duration="405000" />
     </task>
     <servers />
   </component>
@@ -134,39 +147,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1323" height="238" key="GridCell.Tab.0.bottom" timestamp="1626119982720">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.bottom/0.0.1366.736@0.0.1366.736" timestamp="1626119982720" />
-    <state width="1323" height="238" key="GridCell.Tab.0.center" timestamp="1626119982719">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.center/0.0.1366.736@0.0.1366.736" timestamp="1626119982719" />
-    <state width="1323" height="238" key="GridCell.Tab.0.left" timestamp="1626119982719">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.left/0.0.1366.736@0.0.1366.736" timestamp="1626119982719" />
-    <state width="1323" height="238" key="GridCell.Tab.0.right" timestamp="1626119982720">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.right/0.0.1366.736@0.0.1366.736" timestamp="1626119982720" />
-    <state width="1323" height="238" key="GridCell.Tab.1.bottom" timestamp="1626119982721">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.736@0.0.1366.736" timestamp="1626119982721" />
-    <state width="1323" height="238" key="GridCell.Tab.1.center" timestamp="1626119982721">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.736@0.0.1366.736" timestamp="1626119982721" />
-    <state width="1323" height="238" key="GridCell.Tab.1.left" timestamp="1626119982720">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.736@0.0.1366.736" timestamp="1626119982720" />
-    <state width="1323" height="238" key="GridCell.Tab.1.right" timestamp="1626119982721">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.736@0.0.1366.736" timestamp="1626119982721" />
   </component>
 </project>
