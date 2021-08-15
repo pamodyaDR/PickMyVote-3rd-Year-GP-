@@ -8,5 +8,6 @@ import com.pickMyVote.pickMyVote.model.Candidate;
 
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
-	List <Candidate> findByElecID(Long ElecID);
+	List <Candidate> findByElecid(Long Elecid);
+
 }

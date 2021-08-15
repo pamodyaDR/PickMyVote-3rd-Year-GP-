@@ -43,6 +43,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import { ChartsModule } from 'ng2-charts';
 import { ResultService } from './services/result.service';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ResultService } from './services/result.service';
     AboutUsComponent,
     ElectionshomeComponent,
     CustomFieldValidatorDirective,
-    CreateElectionComponent
+    CreateElectionComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

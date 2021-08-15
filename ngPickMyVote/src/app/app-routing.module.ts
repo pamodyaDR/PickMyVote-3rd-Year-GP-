@@ -10,6 +10,7 @@ import { ElectionsComponent } from './elections/elections.component';
 import { ElectionshomeComponent} from './electionshome/electionshome.component';
 import { AboutUsComponent} from './about-us/about-us.component';
 import { CreateElectionComponent } from './create-election/create-election.component';
+import { ResultComponent } from './result/result.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'elections',component:ElectionsComponent},
   {path:'electionshome',component:ElectionshomeComponent},
   {path:'about-us',component:AboutUsComponent},
-  {path:'createElection/:id',component:CreateElectionComponent}
+  {path:'createElection/:id',component:CreateElectionComponent},
+  {path:'result/:elecid',component:ResultComponent}
 ];
 
 @NgModule({

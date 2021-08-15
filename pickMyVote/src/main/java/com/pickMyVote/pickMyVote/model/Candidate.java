@@ -14,26 +14,26 @@ public class Candidate {
 	private String name;
 	private String position;
 	private int votes;
-	private Long elecID;
+	private Long elecid;
 	
 	public Candidate() {
 		
 	}
 	
-	public Candidate(Long id, String name, String position, int votes, Long elec_id) {
+	public Candidate(Long id, String name, String position, int votes, Long elecID) {
 		this.id = id;
 		this.name = name;
 		this.position = position;
 		this.votes = votes;
-		this.elecID = elec_id;
+		this.elecid = elecID;
 	}
 
-	public Long getElecID() {
-		return elecID;
+	public Long getElecid() {
+		return elecid;
 	}
 
-	public void setElecID(Long elecID) {
-		this.elecID = elecID;
+	public void setElecid(Long elecID) {
+		this.elecid = elecID;
 	}
 
 	public Long getId() {
