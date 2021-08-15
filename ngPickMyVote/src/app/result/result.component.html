@@ -1,0 +1,26 @@
+<app-usertoolbar></app-usertoolbar>
+
+<!-- <div class="grafico">
+    <div class="content">
+        <div class="bars" *ngFor="let item of List">
+            <span>{{item.votes}}</span>
+            <div class="bar"  [style.height]=100></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="legends">
+        <span *ngFor="let item of List">{{item.name}}</span>
+    </div>
+</div> -->
+
+<div>
+    <canvas
+        baseChart
+        [chartType]="'bar'"
+        [datasets]="chartData"
+        [labels]="labels"
+        [options]="chartOptions"
+        [legend]="true"
+        [colors]="colors">
+    </canvas>
+  </div>
