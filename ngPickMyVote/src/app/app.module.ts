@@ -45,6 +45,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ResultService } from './services/result.service';
 import { ResultComponent } from './result/result.component';
 import { PaymentchartComponent } from './paymentchart/paymentchart.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PaymentchartComponent } from './paymentchart/paymentchart.component';
     CustomFieldValidatorDirective,
     CreateElectionComponent,
     ResultComponent,
-    PaymentchartComponent
+    PaymentchartComponent,
+    AdminhomeComponent
   ],
   imports: [
     BrowserModule,

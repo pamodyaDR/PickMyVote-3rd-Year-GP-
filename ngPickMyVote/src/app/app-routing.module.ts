@@ -11,7 +11,8 @@ import { ElectionshomeComponent} from './electionshome/electionshome.component';
 import { AboutUsComponent} from './about-us/about-us.component';
 import { CreateElectionComponent } from './create-election/create-election.component';
 import { ResultComponent } from './result/result.component';
-import { PaymentchartComponent } from './paymentchart/paymentchart.component'
+import { PaymentchartComponent } from './paymentchart/paymentchart.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'about-us',component:AboutUsComponent},
   {path:'createElection/:id',component:CreateElectionComponent},
   {path:'result/:elecid',component:ResultComponent},
-  {path: 'paymentchart' , component:PaymentchartComponent}
+  {path:'paymentchart' , component:PaymentchartComponent},
+  {path:'admin' , component:AdminhomeComponent}
 ];
 
 @NgModule({

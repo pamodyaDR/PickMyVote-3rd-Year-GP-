@@ -20,16 +20,16 @@ export class LoginComponent implements OnInit {
   password!: string;
   message: any
 
-  constructor(private _service: RegistrationService, private _router : Router) { }
+  constructor(private _service: RegistrationService, private _router: Router) { }
 
   ngOnInit(): void {
   }
 
-  loginUser(){
+  loginUser() {
 
     this._service.loginUserFromRemote(this.user).subscribe(
       res => {
-        this.userDetails =res;
+        this.userDetails = res;
         console.log(this.userDetails);
         console.log(this.userDetails.id);
       }
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.msg = "Bad credentials. Please enter the valid email and password."
       }
     )
-    
+
   }
 
 
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
 
     resp.subscribe(
       res => {
-        this.userDetails =res;
+        this.userDetails = res;
         console.log(this.userDetails);
         console.log(this.userDetails.f_name);
       }
@@ -63,15 +63,22 @@ export class LoginComponent implements OnInit {
 
     resp.subscribe(
       data => {
-      this.message = data;
-      sessionStorage.setItem('session_username',this.userDetails.email);
-      sessionStorage.setItem('session_password',this.userDetails.password);
-      this._router.navigate(['/userprofile/', this.userDetails.id])
-    },
-    error => {
-      console.log("Exception Occured");
-      this.msg = "Bad credentials. Please enter the valid email and password."
-    }
+        this.message = data;
+        sessionStorage.setItem('session_username', this.userDetails.email);
+        sessionStorage.setItem('session_password', this.userDetails.password);
+
+        if (this.userDetails.roles == "ROLE_USER") {
+          this._router.navigate(['/userprofile/', this.userDetails.id])
+        } else {
+          this._router.navigate(['/admin']);
+        }
+
+      },
+
+      error => {
+        console.log("Exception Occured");
+        this.msg = "Bad credentials. Please enter the valid email and password."
+      }
     );
   }
 
