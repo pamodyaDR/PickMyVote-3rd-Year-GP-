@@ -1,0 +1,12 @@
+<!-- <div style = "width:700px; height:250px;"><app-paymentchart></app-paymentchart></div> -->
+<div>
+    <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="labels"
+        [options]="chartOptions"
+        [legend]="true"
+        [colors]="colors">
+    </canvas>
+</div>
