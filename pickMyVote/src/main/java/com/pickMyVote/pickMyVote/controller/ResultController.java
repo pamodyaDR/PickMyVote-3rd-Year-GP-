@@ -21,7 +21,7 @@ public class ResultController {
 	//Get candidates by election id
 	@GetMapping("/results/{elec_id}")
     public List <Candidate> getCandidates(@PathVariable Long elec_id) {
-    	List<Candidate> cand = candrepo.findByElecID(elec_id);
+    	List<Candidate> cand = candrepo.findByElecid(elec_id);
     	return cand;
     }
 	

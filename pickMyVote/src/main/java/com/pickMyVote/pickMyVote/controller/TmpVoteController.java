@@ -38,7 +38,7 @@ public class TmpVoteController {
   //Get candidates by election id
     @GetMapping("/vote/candidates/{elec_id}")
     public List <Candidate> getCandidates(@PathVariable Long elec_id) {
-    	List<Candidate> cand = candrepo.findByElecID(elec_id);
+    	List<Candidate> cand = candrepo.findByElecid(elec_id);
     	return cand;
     }
     
