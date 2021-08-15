@@ -24,6 +24,7 @@ import { UsertoolbarComponent } from './usertoolbar/usertoolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { CreateElectionComponent } from './create-election/create-election.component';
 
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -38,6 +39,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ElectionshomeComponent } from './electionshome/electionshome.component';
 import { RegistrationService } from './registration.service';
 import { CustomFieldValidatorDirective } from './registration/custom-field-validator.directive';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,8 @@ import { CustomFieldValidatorDirective } from './registration/custom-field-valid
     OrganizationtableComponent,
     AboutUsComponent,
     ElectionshomeComponent,
-    CustomFieldValidatorDirective
+    CustomFieldValidatorDirective,
+    CreateElectionComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,9 @@ import { CustomFieldValidatorDirective } from './registration/custom-field-valid
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]
