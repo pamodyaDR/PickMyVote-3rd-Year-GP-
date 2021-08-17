@@ -13,7 +13,7 @@ import { CreateElectionComponent } from './create-election/create-election.compo
 import { ResultComponent } from './result/result.component';
 import { PaymentchartComponent } from './paymentchart/paymentchart.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
-
+import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewelections.component'; 
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -28,7 +28,8 @@ const routes: Routes = [
   {path:'createElection/:id',component:CreateElectionComponent},
   {path:'result/:elecid',component:ResultComponent},
   {path:'paymentchart' , component:PaymentchartComponent},
-  {path:'admin' , component:AdminhomeComponent}
+  {path:'admin' , component:AdminhomeComponent},
+  {path:'admin/viewElections', component:AdminViewelectionsComponent}
 ];
 
 @NgModule({

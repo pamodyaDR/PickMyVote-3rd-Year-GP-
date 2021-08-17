@@ -50,12 +50,39 @@
 
     <mat-sidenav-content>
         <div class="topic">
-            <h2>Revenue Chart</h2>
+            <h2>Elections</h2>
         </div>
         <div class="content mat-elevation-z8">
-            <div class="chart" style="width:auto; height:250px;">
-                <app-paymentchart></app-paymentchart>
-            </div>
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th> Election Id </th>
+                        <th> Election Title </th>
+                        <th> Start Date & Time </th>
+                        <th> End Date & Time </th>
+                        <th> Capacity </th>
+                        <th> Type </th>
+                        <th> organization </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let elections of elections">
+                        <td> {{ elections.id }} </td>
+                        <td> {{ elections.title }} </td>
+                        <td> {{ elections.start_date_time }} </td>
+                        <td> {{ elections.end_date_time }} </td>
+                        <td> {{ elections.capacity }} </td>
+                        <td *ngIf="elections.type == 1"> Secure Election </td>
+                        <td *ngIf="elections.type == 0"> Public Election </td>
+                        <td> {{ elections.org_name}} </td>
+                        <!-- <td>
+                            <button (click) = "updateEmployee(employee.id)" class = "btn btn-info"> Update</button>
+                            <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                            <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

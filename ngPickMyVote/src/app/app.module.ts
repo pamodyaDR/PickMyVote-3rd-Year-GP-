@@ -46,6 +46,7 @@ import { ResultService } from './services/result.service';
 import { ResultComponent } from './result/result.component';
 import { PaymentchartComponent } from './paymentchart/paymentchart.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewelections.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
     CreateElectionComponent,
     ResultComponent,
     PaymentchartComponent,
-    AdminhomeComponent
+    AdminhomeComponent,
+    AdminViewelectionsComponent
   ],
   imports: [
     BrowserModule,

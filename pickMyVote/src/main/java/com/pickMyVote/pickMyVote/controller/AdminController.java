@@ -1,10 +1,13 @@
 package com.pickMyVote.pickMyVote.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.pickMyVote.pickMyVote.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pickMyVote.pickMyVote.model.Election;
@@ -47,6 +50,14 @@ public class AdminController {
     @GetMapping("/getOrganizations")
     public List<Organization> getOrganizations() {
         List<Organization> orgObj = orgrepo.findAll();
+        return orgObj;
+
+    }
+
+    //Get organizationName by id
+    @GetMapping("/getOrganizationName/{id}")
+    public Optional<Organization> getOrganizationName(@PathVariable Long id) {
+        Optional<Organization> orgObj = orgrepo.findById(id);
         return orgObj;
 
     }

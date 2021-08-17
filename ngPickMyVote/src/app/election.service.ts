@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Election } from './election';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +13,10 @@ export class ElectionService {
   public getOwnerOrgList(username:any, password:any, ownerId:Number):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.get<any>("http://localhost:8080/api/v1/getOrgsOfOwner/"+ ownerId,{headers});
+  }
+
+  getElectionList(username:any,password:any):Observable<Election[]>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<Election[]>("http://localhost:8080/getElections/",{headers})
   }
 }
