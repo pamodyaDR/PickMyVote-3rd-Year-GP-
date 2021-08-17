@@ -9,9 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
-      <!-- <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/tsconfig.json" afterDir="false" /> -->
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +97,7 @@
       <workItem from="1628999744890" duration="564000" />
       <workItem from="1629001810856" duration="1185000" />
       <workItem from="1629003530785" duration="405000" />
+      <workItem from="1629006937395" duration="1887000" />
     </task>
     <servers />
   </component>
