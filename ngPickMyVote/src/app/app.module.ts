@@ -47,6 +47,7 @@ import { ResultComponent } from './result/result.component';
 import { PaymentchartComponent } from './paymentchart/paymentchart.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewelections.component';
+import { AdminVieworganizationsComponent } from './admin-vieworganizations/admin-vieworganizations.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewele
     ResultComponent,
     PaymentchartComponent,
     AdminhomeComponent,
-    AdminViewelectionsComponent
+    AdminViewelectionsComponent,
+    AdminVieworganizationsComponent
   ],
   imports: [
     BrowserModule,

@@ -50,31 +50,28 @@
 
     <mat-sidenav-content>
         <div class="topic">
-            <h2>Elections</h2>
+            <h2>Organizations</h2>
         </div>
         <div class="content mat-elevation-z8">
             <table class = "table table-striped">
                 <thead>
                     <tr>
-                        <th> Election Id </th>
-                        <th> Election Title </th>
-                        <th> Start Date & Time </th>
-                        <th> End Date & Time </th>
-                        <th> Capacity </th>
+                        <th> Organization Id </th>
+                        <th> Organization Name </th>
                         <th> Type </th>
-                        <th> organization </th>
+                        <th> Notices </th>
+                        <th> Manager Id </th>
+                        <th> Owner Id </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let elections of elections">
-                        <td> {{ elections.id }} </td>
-                        <td> {{ elections.title }} </td>
-                        <td> {{ elections.start_date_time }} </td>
-                        <td> {{ elections.end_date_time }} </td>
-                        <td> {{ elections.capacity }} </td>
-                        <td *ngIf="elections.type == 1"> Secure Election </td>
-                        <td *ngIf="elections.type == 0"> Public Election </td>
-                        <td> {{ elections.org_name}} </td>
+                    <tr *ngFor = "let organizations of organizations">
+                        <td> {{ organizations.id }} </td>
+                        <td> {{ organizations.name }} </td>
+                        <td> {{ organizations.type }} </td>
+                        <td> {{ organizations.notices }} </td>
+                        <td> {{ organizations.managerid }} </td>
+                        <td> {{ organizations.ownerid}} </td>
                         <!-- <td>
                             <button (click) = "updateEmployee(employee.id)" class = "btn btn-info"> Update</button>
                             <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
