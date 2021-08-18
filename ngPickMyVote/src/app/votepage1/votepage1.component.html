@@ -1,0 +1,34 @@
+<div class="vote">
+    <app-usertoolbar></app-usertoolbar>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col-lg-8">
+           <p class="p1">Election >>> Vote for an Election >>> Step 1</p>
+           <img src="./assets/img/1progress.png" alt="Progress bar" style="width: 780px; height: 70px; padding-left: 30px;">
+           
+           <p class="p2">Click below button to send the verification code to your email</p> 
+
+           <div class="btn1">
+                <button class="button" type="submit">Submit</button>
+           </div>
+
+           <p class="p2"> Enter the verification code of the Election</p> 
+           <div class="input1">
+                <input type="text" class="form-control text-center my-3 p-1" placeholder="Enter Verification Code" name="">
+           </div>
+
+           <p class="p3"> *Please enter the verification code which is sent by your organization</p> 
+           
+           <div class="btn1">
+                <button class="button" type="submit" [routerLink]="['/votepage2']">Verify</button>
+           </div>
+        </div>
+        
+    </div>
+
+</div>
+    

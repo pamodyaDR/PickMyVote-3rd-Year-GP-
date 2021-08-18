@@ -1,0 +1,33 @@
+<div class="vote">
+    <app-usertoolbar></app-usertoolbar>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col-lg-8">
+            <p class="p1">Election >>> Vote for an Election >>> Step 4</p>
+            <img src="./assets/img/4progress.png" alt="Progress bar" style="width: 780px; height: 70px; padding-left: 30px;">
+
+            <p class="p2">To Submit the vote you have to answer following Questions</p> 
+
+            <p class="p3">Question 01:</p> 
+                <div class="input1">
+                    <input type="text" class="form-control text-center my-3 p-1" placeholder="Type the Answer here" name="">
+                </div>
+            <p class="p3">Question 02:</p> 
+                <div class="input1">
+                    <input type="text" class="form-control text-center my-3 p-1" placeholder="Type the Answer here" name="">
+                </div>
+            <div class="btn1">
+                <br><button class="button" type="submit" [routerLink]="['/votepage5']">Submit</button>
+            </div>
+        
+
+        </div>
+        
+    </div>
+
+</div>
+    

@@ -6,7 +6,14 @@
         <div class="col-lg-2">
             <app-sidenav></app-sidenav>
         </div>
+
         <div class="col-lg-7">
+            <br><br>
+            <p>Elections</p>
+
+            <button type="button" class="btn btn-primary btn-lg mx-5 my-5">Buy an Election</button>
+            <button type="button" class="btn btn-primary btn-lg mx-5 my-5" type="submit" [routerLink]="['/votepage1']">Vote for an Election</button>
+
            <br><br> <p>you have just voted-(result Pending)</p>
             <app-electiontable></app-electiontable>
             <br><p>Scheduled Elections for this week</p>

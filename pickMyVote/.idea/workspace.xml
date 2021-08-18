@@ -9,60 +9,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/custom-field-validator.directive.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/custom-field-validator.directive.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ngPickMyVote/src/assets/img/onlinevote.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ngPickMyVote/src/assets/img/voteBoxPanda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ngPickMyVote/src/assets/img/voteimg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngPickMyVote/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/electionshome/electionshome.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/electionshome/electionshome.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/electionshome/electionshome.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/electionshome/electionshome.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/navbar/navbar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/usertoolbar/usertoolbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/usertoolbar/usertoolbar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickMyVote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pickMyVote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/PickMyVoteApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/PickMyVoteApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/config/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/CandidateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/CandidateController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/PaymentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/PaymentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/TmpVoteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/TmpVoteController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Candidate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Candidate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/CustomUserDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/CustomUserDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Election.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Election.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/InvVoteKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/InvVoteKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/InvVoteKey.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Organization.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Organization.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Payment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/TmpInvisVote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/TmpInvisVote.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/CandidateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/CandidateRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/OrganizationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/OrganizationRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/PaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/PaymentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/TmpInvisVoteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/TmpInvisVoteRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/BallotPaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/BallotPaper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/CandidateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/CandidateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/CustomUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/CustomUserDetailsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/OrganizationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/OrganizationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/PaymentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/pickMyVote/pickMyVote/PickMyVoteApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/pickMyVote/pickMyVote/PickMyVoteApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +113,7 @@
       <workItem from="1628566901167" duration="2089000" />
       <workItem from="1628740050458" duration="1946000" />
       <workItem from="1628833021435" duration="2017000" />
+      <workItem from="1629186220363" duration="1401000" />
     </task>
     <servers />
   </component>
@@ -196,43 +161,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="488" y="52" key="#com.intellij.ide.util.MemberChooser" timestamp="1628536807305">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state x="488" y="52" key="#com.intellij.ide.util.MemberChooser/0.0.1366.736@0.0.1366.736" timestamp="1628536807305" />
-    <state width="1323" height="148" key="GridCell.Tab.0.bottom" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.0.bottom/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.0.center" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.0.center/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.0.left" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.0.left/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.0.right" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.0.right/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.1.bottom" timestamp="1628795297109">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.1.bottom/0.0.1366.736@0.0.1366.736" timestamp="1628795297109" />
-    <state width="1323" height="148" key="GridCell.Tab.1.center" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.1.center/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.1.left" timestamp="1628795297108">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.1.left/0.0.1366.736@0.0.1366.736" timestamp="1628795297108" />
-    <state width="1323" height="148" key="GridCell.Tab.1.right" timestamp="1628795297109">
-      <screen x="0" y="0" width="1366" height="736" />
-    </state>
-    <state width="1323" height="148" key="GridCell.Tab.1.right/0.0.1366.736@0.0.1366.736" timestamp="1628795297109" />
   </component>
 </project>
