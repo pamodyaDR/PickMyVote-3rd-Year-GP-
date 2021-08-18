@@ -48,6 +48,13 @@ import { PaymentchartComponent } from './paymentchart/paymentchart.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewelections.component';
 import { AdminVieworganizationsComponent } from './admin-vieworganizations/admin-vieworganizations.component';
+import { Votepage1Component } from './votepage1/votepage1.component';
+import { Votepage2Component } from './votepage2/votepage2.component';
+import { Votepage3Component } from './votepage3/votepage3.component';
+import { Votepage4Component } from './votepage4/votepage4.component';
+import { Votepage5Component } from './votepage5/votepage5.component';
+import { VoteService } from './vote.service';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +81,12 @@ import { AdminVieworganizationsComponent } from './admin-vieworganizations/admin
     PaymentchartComponent,
     AdminhomeComponent,
     AdminViewelectionsComponent,
-    AdminVieworganizationsComponent
+    AdminVieworganizationsComponent,
+    Votepage1Component,
+    Votepage2Component,
+    Votepage3Component,
+    Votepage4Component,
+    Votepage5Component
   ],
   imports: [
     BrowserModule,
@@ -97,7 +109,7 @@ import { AdminVieworganizationsComponent } from './admin-vieworganizations/admin
     MatSelectModule,
     ChartsModule
   ],
-  providers: [RegistrationService,ResultService],
+  providers: [RegistrationService,ResultService,VoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
