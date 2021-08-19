@@ -23,7 +23,7 @@
 
             <mat-list-item>
                 <mat-icon mat-list-icon class="">done</mat-icon>
-                <span class="nav-caption" *ngIf="isExpanded"><a  [routerLink]="['/elections']">Elections</a></span>
+                <span class="nav-caption" *ngIf="isExpanded" (click)="viewElection()">Elections</span>
             </mat-list-item>
 
             

@@ -28,4 +28,9 @@ export class SidenavComponent implements OnInit {
     this._router.navigate(['/edituser', id]);
   }
 
+  viewElection() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/elections', id]);
+  }
+
 }

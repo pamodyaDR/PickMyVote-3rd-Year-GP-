@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'edituser/:id',component:EdituserComponent},
   {path:'organization',component:OrganizationComponent},
-  {path:'elections',component:ElectionsComponent},
+  {path:'elections/:id',component:ElectionsComponent},
   {path:'electionshome',component:ElectionshomeComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'createElection/:id',component:CreateElectionComponent},
