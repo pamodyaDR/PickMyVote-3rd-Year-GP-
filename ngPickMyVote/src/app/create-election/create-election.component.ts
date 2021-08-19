@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElectionService } from '../election.service';
+import { Organization } from '../organization';
 
 @Component({
   selector: 'app-create-election',
@@ -14,8 +15,10 @@ import { ElectionService } from '../election.service';
 })
 export class CreateElectionComponent implements OnInit {
 
-  email = sessionStorage.getItem('session_username');
+  username = sessionStorage.getItem('session_username');
   password = sessionStorage.getItem('session_password');
+
+  organizations : Organization[];
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -27,12 +30,20 @@ export class CreateElectionComponent implements OnInit {
     const id = this._route.snapshot.params['id'];
     console.log(id);
 
+    this.getOrganization(this.username, this.password, id)
+
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+  }
+
+  private getOrganization(username:any, password:any, id:Number){
+    this._service.getOwnerOrgList(username, password, id).subscribe(data => {
+      this.organizations = data;
+    })
   }
 
 }
