@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-elections',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router : Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+  }
+
+  goToCreateElection() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/createElection', id]);
   }
 
 }
