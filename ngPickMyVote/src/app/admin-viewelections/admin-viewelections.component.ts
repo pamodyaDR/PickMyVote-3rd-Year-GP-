@@ -19,6 +19,7 @@ export class AdminViewelectionsComponent implements OnInit {
 
   email = sessionStorage.getItem('session_username');
   password = sessionStorage.getItem('session_password');
+  uRole = sessionStorage.getItem('user_role');
 
   elections: Election[] = [];
   orgID:any[] = [];
@@ -26,6 +27,15 @@ export class AdminViewelectionsComponent implements OnInit {
   constructor(private observer: BreakpointObserver, private Reg_service: RegistrationService, private Election_service: ElectionService, private Organization_service: OrganizationService,  private _router : Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    //check browser session for admin login
+    if(!this.email){
+      this._router.navigate(['/login'])
+    }
+    if(this.uRole!="ROLE_ADMIN"){
+      this._router.navigate(['/login'])
+    }
+    
     this.getElections();
     // this.getOrgName();
   }

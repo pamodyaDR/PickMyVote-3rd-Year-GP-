@@ -15,10 +15,20 @@ export class AdminhomeComponent implements OnInit {
 
   email = sessionStorage.getItem('session_username');
   password = sessionStorage.getItem('session_password');
+  uRole = sessionStorage.getItem('user_role');
 
   constructor(private observer: BreakpointObserver, private _router : Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    //check browser session for admin login
+    if(!this.email){
+      this._router.navigate(['/login'])
+    }
+    if(this.uRole!="ROLE_ADMIN"){
+      this._router.navigate(['/login'])
+    }
+    
   }
 
   ngAfterViewInit() {

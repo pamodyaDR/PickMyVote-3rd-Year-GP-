@@ -66,10 +66,11 @@ export class LoginComponent implements OnInit {
         this.message = data;
         sessionStorage.setItem('session_username', this.userDetails.email);
         sessionStorage.setItem('session_password', this.userDetails.password);
+        sessionStorage.setItem('user_role', this.userDetails.roles);
 
-        if (this.userDetails.roles == "ROLE_USER") {
+        if (sessionStorage.getItem('user_role') == "ROLE_USER") {
           this._router.navigate(['/userprofile/', this.userDetails.id])
-        } else {
+        } else if(sessionStorage.getItem('user_role') == "ROLE_ADMIN") {
           this._router.navigate(['/admin']);
         }
 
