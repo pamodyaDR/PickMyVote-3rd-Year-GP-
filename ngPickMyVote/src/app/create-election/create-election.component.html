@@ -1,17 +1,17 @@
 <app-usertoolbar></app-usertoolbar>
 
 <mat-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Organization is required.">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Choose organization</ng-template>
         <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <mat-select>
-              <mat-option *ngFor = "let organization of organizations" value="{{organization.id}}">{{organization.name}}</mat-option>
+            <mat-label>Select Organization</mat-label>
+            <mat-select formControlName="org">
+              <mat-option matInput *ngFor = "let organization of organizations" [value]="organization.id">{{organization.name}}</mat-option>
             </mat-select>
         </mat-form-field>
         <div>
-          <p>Go to a different step to see the error state</p>
+          <p>If required organization haven't in the list. please create new organization for that.</p>
           <button mat-button matStepperNext>Next</button>
         </div>
       </form>
