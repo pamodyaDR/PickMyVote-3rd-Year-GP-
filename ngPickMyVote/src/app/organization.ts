@@ -3,7 +3,6 @@ export class Organization {
     name:string;
     type:string;
     notices:string;
-    managerid:number;
     ownerid:number;
     constructor(){}
 }
