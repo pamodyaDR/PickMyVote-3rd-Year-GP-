@@ -53,7 +53,7 @@ export class CreateElectionComponent implements OnInit {
     this.newOrganization.ownerID = id;
     this._service.createNewOrganization(username, password, this.newOrganization).subscribe(data => {
       console.log(data);
-      this._router.navigate(['/createElection', id]);
+      window.location.reload();
     },
     error => console.log(error));
   }
