@@ -20,6 +20,8 @@ export class CreateElectionComponent implements OnInit {
 
   organizations : Organization[];
 
+  newOrganization : Organization = new Organization();
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
@@ -44,6 +46,16 @@ export class CreateElectionComponent implements OnInit {
     this._service.getOwnerOrgList(username, password, id).subscribe(data => {
       this.organizations = data;
     })
+  }
+
+  createNewOrganization(username:any, password:any){
+    const id = this._route.snapshot.params['id'];
+    this.newOrganization.ownerID = id;
+    this._service.createNewOrganization(username, password, this.newOrganization).subscribe(data => {
+      console.log(data);
+      this._router.navigate(['/createElection', id]);
+    },
+    error => console.log(error));
   }
 
 }

@@ -12,32 +12,36 @@
               </mat-option>
             </mat-select>
         </mat-form-field>
+        
+        <br><br>
+      </form>
+      <form>
         <p>If required organization haven't in the list. please create new organization for that.</p>
         <div>          
           <mat-form-field appearance="fill">            
             <mat-label>Organization Name</mat-label>
-            <input matInput placeholder="Organization name" required>            
+            <input matInput placeholder="Organization name" [(ngModel)] = "newOrganization.name" name="newOrgName" required>            
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="fill">            
             <mat-label>Organization Type</mat-label>
-            <input matInput placeholder="Organization type" required>            
+            <input matInput placeholder="Organization type" [(ngModel)] = "newOrganization.type" name="newOrgType" required>            
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="fill">            
             <mat-label>Organization Notices</mat-label>
-            <input matInput placeholder="Organization notices">            
+            <input matInput placeholder="Organization notices" [(ngModel)] = "newOrganization.notices" name="newOrgNotices">            
           </mat-form-field>
         </div>
-        <button mat-raised-button color="primary">Create organization</button>
-        <br><br>
-        <div>
-          <p>Click Next Button to go to next step</p>
-          <button mat-button matStepperNext>Next</button>
-        </div>
+        <button mat-raised-button color="primary" (click) = "createNewOrganization(username,password)">Create organization</button>
       </form>
+      <br><br>
+      <div>
+        <p>Click Next Button to go to next step</p>
+        <button mat-button matStepperNext>Next</button>
+      </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
       <form [formGroup]="secondFormGroup">
