@@ -55,6 +55,7 @@ import { Votepage4Component } from './votepage4/votepage4.component';
 import { Votepage5Component } from './votepage5/votepage5.component';
 import { VoteService } from './vote.service';
 import { RegistrationverifyComponent } from './registrationverify/registrationverify.component';
+import { AdminprofileComponent } from './adminprofile/adminprofile.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { RegistrationverifyComponent } from './registrationverify/registrationve
     Votepage3Component,
     Votepage4Component,
     Votepage5Component,
-    RegistrationverifyComponent
+    RegistrationverifyComponent,
+    AdminprofileComponent
   ],
   imports: [
     BrowserModule,
