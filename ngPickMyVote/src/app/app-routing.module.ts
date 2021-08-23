@@ -21,6 +21,7 @@ import { Votepage2Component} from './votepage2/votepage2.component';
 import { Votepage3Component} from './votepage3/votepage3.component';
 import { Votepage4Component} from './votepage4/votepage4.component';
 import { Votepage5Component} from './votepage5/votepage5.component';
+import {RegistrationverifyComponent} from './registrationverify/registrationverify.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
   {path:'votepage2',component:Votepage2Component},
   {path:'votepage3',component:Votepage3Component},
   {path:'votepage4',component:Votepage4Component},
-  {path:'votepage5',component:Votepage5Component}
+  {path:'votepage5',component:Votepage5Component},
+  {path: 'verify',component:RegistrationverifyComponent}
 ];
 
 @NgModule({

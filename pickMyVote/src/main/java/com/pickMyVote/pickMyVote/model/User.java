@@ -1,9 +1,8 @@
 package com.pickMyVote.pickMyVote.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -24,6 +23,12 @@ public class User {
     private String q2;
     private String a1;
     private String a2;
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
+
+//    @Column(nullable = false)
+//    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private Integer enabled;
 
     public User() {
     }
@@ -132,5 +137,22 @@ public class User {
     public String getA2() { return a2; }
 
     public void setA2(String a2) { this.a2 = a2; }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+
+    public Integer getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Integer enabled) {
+        this.enabled = enabled;
+    }
 }
 

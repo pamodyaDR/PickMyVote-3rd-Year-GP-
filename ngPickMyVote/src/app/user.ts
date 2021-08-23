@@ -13,6 +13,8 @@ export class User {
     country:string;
     gender:string;
     roles:string;
+    enabled:boolean;
+    verification_code:string;
     constructor(){}
     
 }

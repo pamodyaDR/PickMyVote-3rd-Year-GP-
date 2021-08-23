@@ -3,8 +3,12 @@ package com.pickMyVote.pickMyVote.controller;
 
 import com.pickMyVote.pickMyVote.model.User;
 import com.pickMyVote.pickMyVote.service.RegistrationService;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 
@@ -15,8 +19,8 @@ public class RegistrationController {
     @Autowired
     private RegistrationService service;        //object of the RegistrationService
 
-    @PostMapping("/registerUser")                       //to map the below method to particulier url
-    public User registerUser(@RequestBody User user) throws Exception {
+    @PostMapping("/registerUser")                       //to map the below method to particular url
+    public User registerUser(@RequestBody User user,  HttpServletRequest request) throws MessagingException,Exception {
 
         String tempEmail = user.getEmail();
 
@@ -30,18 +34,33 @@ public class RegistrationController {
         }
 
         User userObj = null;
-        userObj = service.saveUser(user);
+        userObj = service.saveUser(user,  getSiteURL(request));
         return userObj;
+    }
+
+    private String getSiteURL(HttpServletRequest request) {
+        String siteURL = request.getRequestURL().toString();
+        return siteURL.replace(request.getServletPath(), "");
     }
 
     @PostMapping("/getLoggedUser")
     public User getLoggedUser(@RequestBody User user) throws Exception {
         String tempEmail = user.getEmail();
         String tempPassword = user.getPassword();
+        User userObject = service.fetchUserByEmail(tempEmail);
+        Integer tempEnabled = userObject.getEnabled();
+       // System.out.println(tempEnabled);
         User userObj = null;
-        if(tempEmail != null && tempPassword != null) {
-            userObj = service.fetchUserByEmailAndPassword(tempEmail, tempPassword);
+        if(tempEmail != null && tempPassword != null ) {
+          if(tempEnabled==0){
+               throw new Exception("Please Verify your Account.Verification Link has sent to your Email");
+            } else {
+                userObj = service.fetchUserByEmailAndPassword(tempEmail, tempPassword);
+
+            }
+
         }
+       // System.out.println(tempEnabled);
         if(userObj == null) {
             throw new Exception("User does mot exist");
         }
@@ -71,6 +90,18 @@ public class RegistrationController {
         userObj = service.updateUserContact(user.getEmail(),user.getContact_num());
         userObj = service.updateUserDOB(user.getEmail(),user.getDob());
         return userObj;
+    }
+
+    @GetMapping("/verify")
+    public String verifyUser(@Param("code") String code) {
+        System.out.println("Hi controller");
+        if (service.verify(code)) {
+            System.out.println("Verify Success");
+            return "verify_success";
+        } else {
+            System.out.println("Verify Fail");
+            return "verify_fail";
+        }
     }
     
 }

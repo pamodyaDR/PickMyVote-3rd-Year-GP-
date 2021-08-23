@@ -34,4 +34,9 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/updateUser",user,{headers})
   }
 
+  verifyUserFromRemote(code:String):Observable<any>{
+    
+    return this._http.post<any>("http://localhost:8080/verify",code)
+  }
+
 }
