@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-elections',
@@ -7,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./elections.component.css']
 })
 export class ElectionsComponent implements OnInit {
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+  observer: any;
 
   constructor(private _router : Router, private _route: ActivatedRoute) { }
 
@@ -19,4 +24,19 @@ export class ElectionsComponent implements OnInit {
     this._router.navigate(['/createElection', id]);
   }
 
-}
+
+  ngAfterViewInit() {
+    this.observer.observe(['(max-width: 800px)']).subscribe((res: { matches: any; }) => {
+      if (res.matches) {
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      } else {
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }
+    });
+  }
+  
+  }
+
+

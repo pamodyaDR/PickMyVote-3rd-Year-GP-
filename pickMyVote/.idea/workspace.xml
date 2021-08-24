@@ -9,25 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/registration/registration.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pickMyVote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pickMyVote.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/repository/RegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/repository/RegistrationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +89,8 @@
       <workItem from="1629612319347" duration="11684000" />
       <workItem from="1629696196251" duration="2451000" />
       <workItem from="1629701053940" duration="802000" />
-      <workItem from="1629702993586" duration="725000" />
+      <workItem from="1629702993586" duration="1244000" />
+      <workItem from="1629787025127" duration="1052000" />
     </task>
     <servers />
   </component>

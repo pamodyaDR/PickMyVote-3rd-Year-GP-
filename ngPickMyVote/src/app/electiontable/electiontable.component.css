@@ -7,4 +7,5 @@ mat-grid-tile {
   text-align: left;
   font-family: 'Patua One', cursive;
   font-size: 15px;
+  column-width: 10px;
 }

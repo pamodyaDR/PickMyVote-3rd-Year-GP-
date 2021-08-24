@@ -1,32 +1,88 @@
- <!-- <div class="container"> -->
-    <app-usertoolbar></app-usertoolbar>
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
 
+    <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
+    <span class="navbarselections"></span>
 
-    <div class="row">
-        <div class="col-lg-2">
-            <app-sidenav></app-sidenav>
-        </div>
-        <div class="col-lg-7">
-           <br><br> <p>Elections due this week</p>
-            <app-user-table></app-user-table>
-            <br><p>News feed</p>
-            <app-newsfeed></app-newsfeed>
-
-        </div>
-        <div class="col-lg-3">  
-            <br><br><br>
-            <div class="row">
-            <div class="col-lg-5 d-flex justify-content-right image mx-5" >
-                
-                <img src="./assets/img/June-2021.jpg" alt="" style="width: 300px; height: 200px;">
-              </div>
-            </div>
-        </div>
-       
+    <div class="topnav">
+        <a class="active" [routerLink]="['/']">
+            <mat-icon>logout</mat-icon>
+        </a>
+        <!-- <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt=""
+                style="width: 20px; height: 20px;"></a>
+        <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
+                style="width: 20px; height: 20px;"></a>
+        <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
+                style="width: 20px; height: 20px;"></a> -->
     </div>
-    
-<!-- </div> -->
-    
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+
+        <button mat-button class="menu-button active">
+            <mat-icon>home</mat-icon>
+            <span><a [routerLink]="['/userprofile/id']">Home</a></span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span><a (click)="viewUser()">Profile</a></span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>done</mat-icon>
+            <span><a (click)="viewElection()">Elections</a></span>
+        </button>
+
+        <button mat-button class="menu-button">
+            <mat-icon>corporate_fare</mat-icon>
+            <span><a [routerLink]="['/admin/viewOrganizations']">Organizations</a></span>
+        </button>
+
+        <mat-divider></mat-divider>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <div class="content mat-elevation-z8" style="overflow: auto">
+
+            <div class="row">
+
+                <div class="col-lg-8 ">
+                    <br><br>
+                    <p class="d-flex justify-content-center">Elections due this week</p>
+
+                    <div class="mx-5">
+                        <app-user-table></app-user-table>
+                    </div>
+
+                    <br>
+                    <p class="d-flex justify-content-center">News feed</p>
+                    <div class="mx-5">
+                        <app-newsfeed></app-newsfeed>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <br><br><br>
+                    <div class="row">
+                        <div class="col-lg-5 d-flex justify-content-right image mx-5">
+
+                            <img src="./assets/img/June-2021.jpg" alt="" style="width: 300px; height: 200px;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
 
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
