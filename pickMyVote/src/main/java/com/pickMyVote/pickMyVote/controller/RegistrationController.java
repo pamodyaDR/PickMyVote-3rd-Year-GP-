@@ -96,11 +96,11 @@ public class RegistrationController {
     public String verifyUser(@Param("code") String code) {
         System.out.println("Hi controller");
         if (service.verify(code)) {
-            System.out.println("Verify Success");
-            return "verify_success";
+           // System.out.println("Verification Successful.Please Login to your Account");
+            return "Verification Successful.Please Login to your Account";
         } else {
-            System.out.println("Verify Fail");
-            return "verify_fail";
+           // System.out.println("Verify Fail");
+            return "verification fail.Please re Register";
         }
     }
     
