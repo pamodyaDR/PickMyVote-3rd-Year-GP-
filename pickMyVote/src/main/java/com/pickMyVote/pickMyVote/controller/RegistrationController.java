@@ -103,6 +103,13 @@ public class RegistrationController {
             return "verification fail.Please re Register";
         }
     }
+
+    //Get user by email
+    @GetMapping("/getUserbyEmail/{email}")
+    public User getUserbyEmail(@PathVariable String email) {
+        User userObj = service.fetchUserByEmail(email);
+        return userObj;
+    }
     
 }
 

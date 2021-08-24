@@ -36,11 +36,10 @@ export class AdminprofileComponent implements OnInit {
       this._router.navigate(['/login'])
     }
 
-    const id = this._route.snapshot.params['id'];
-    console.log(id);
-    
-    this._service.getUserFromRemote(this.email,this.password,id).subscribe(
-      res => {this.user =res;
+    this._service.getUserbyEmail(this.email,this.password,this.email).subscribe(
+      res => {
+        this.user =res;
+        console.log(this.user);
       } 
     )
   }

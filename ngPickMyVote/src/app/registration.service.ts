@@ -39,4 +39,10 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/verify",code)
   }
 
+  
+  getUserbyEmail(username:any,password:any,email:any):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<any>("http://localhost:8080/getUserbyEmail/"+ email, {headers});
+  }
+
 }
