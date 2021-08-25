@@ -15,12 +15,6 @@
         <a class="active" [routerLink]="['/']">
             <mat-icon>logout</mat-icon>
         </a>
-        <!-- <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a>
-        <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a>
-        <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a> -->
     </div>
 </mat-toolbar>
 
@@ -49,10 +43,10 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <div class="topic">
-            <h2>Elections</h2>
-        </div>
         <div class="content mat-elevation-z8" style="overflow: auto">
+            <div class="topic">
+                <h2>Elections</h2>
+            </div><br>
             <table class = "table table-striped">
                 <thead>
                     <tr>
@@ -75,11 +69,6 @@
                         <td *ngIf="elections.type == 1"> Secure Election </td>
                         <td *ngIf="elections.type == 0"> Public Election </td>
                         <td> {{ elections.org_name}} </td>
-                        <!-- <td>
-                            <button (click) = "updateEmployee(employee.id)" class = "btn btn-info"> Update</button>
-                            <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                            <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-                        </td> -->
                     </tr>
                 </tbody>
             </table>
