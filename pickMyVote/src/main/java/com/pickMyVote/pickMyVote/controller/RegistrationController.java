@@ -3,7 +3,7 @@ package com.pickMyVote.pickMyVote.controller;
 
 import com.pickMyVote.pickMyVote.model.User;
 import com.pickMyVote.pickMyVote.service.RegistrationService;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;

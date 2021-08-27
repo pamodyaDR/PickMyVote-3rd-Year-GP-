@@ -13,24 +13,17 @@ export class UserprofileComponent implements OnInit {
   sidenav!: MatSidenav;
   observer: any;
 
-  // user = new User ;
-  
-  // userDetails: User = <User>{};
-
-  // constructor(private _service: RegistrationService, private _router : Router, private _route: ActivatedRoute) { }
-
-  // ngOnInit(): void {
-  // }
-
-  // viewUser() {
-  //   const id = this._route.snapshot.params['id'];
-  //   this._router.navigate(['/edituser', id]);
-
-  // }
+  email = sessionStorage.getItem('session_username');
+  password = sessionStorage.getItem('session_password');
+  uRole = sessionStorage.getItem('user_role');
 
   constructor( private _router : Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //check browser session for admin login
+    if(!this.email){
+      this._router.navigate(['/login'])
+    }
   }
 
   ngAfterViewInit() {
