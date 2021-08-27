@@ -13,7 +13,7 @@
             </mat-select>
         </mat-form-field>
 
-        <button (click)="checkelection()">check</button>
+        <!--<button (click)="checkelection()">check</button>-->
         
         <br><br>
       </form>
@@ -42,7 +42,7 @@
       <br><br>
       <div>
         <p>Click Next Button to go to next step</p>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
