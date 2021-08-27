@@ -32,8 +32,8 @@
 <!-- <dependency>
 	<groupId>com.sun.xml.messaging.saaj</groupId>
 	<artifactId>saaj-impl</artifactId>
-	</dependency>
-		<dependency> -->
+	</dependency> -->
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
