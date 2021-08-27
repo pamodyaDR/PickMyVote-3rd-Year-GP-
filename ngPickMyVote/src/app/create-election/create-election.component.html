@@ -6,12 +6,14 @@
         <ng-template matStepLabel>Choose organization</ng-template>
         <mat-form-field appearance="fill">
             <mat-label>Select Organization</mat-label>
-            <mat-select matInput formControlName="org">
+            <mat-select matInput formControlName="firstCtrl" [(ngModel)] = "newElection.org_id">
               <mat-option *ngFor = "let organization of organizations" [value]="organization.id">
                 {{organization.name}}
               </mat-option>
             </mat-select>
         </mat-form-field>
+
+        <button (click)="checkelection()">check</button>
         
         <br><br>
       </form>

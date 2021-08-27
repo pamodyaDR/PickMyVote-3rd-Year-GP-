@@ -4,6 +4,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ElectionService } from '../election.service';
 import { Organization } from '../organization';
+import { Election } from '../election';
 
 @Component({
   selector: 'app-create-election',
@@ -21,6 +22,8 @@ export class CreateElectionComponent implements OnInit {
   organizations : Organization[];
 
   newOrganization : Organization = new Organization();
+
+  newElection : Election = new Election();
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -56,6 +59,10 @@ export class CreateElectionComponent implements OnInit {
       window.location.reload();
     },
     error => console.log(error));
+  }
+
+  checkelection(){
+    console.log(this.newElection.org_id);
   }
 
 }
