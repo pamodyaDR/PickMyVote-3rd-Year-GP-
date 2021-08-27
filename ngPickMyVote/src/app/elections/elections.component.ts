@@ -13,7 +13,7 @@ export class ElectionsComponent implements OnInit {
   sidenav!: MatSidenav;
   observer: any;
 
-  constructor(private _router : Router, private _route: ActivatedRoute) { }
+  constructor(private _router : Router, private _route: ActivatedRoute,) { }
 
   ngOnInit(): void {
 
@@ -36,6 +36,17 @@ export class ElectionsComponent implements OnInit {
       }
     });
   }
+
+  viewUser() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/edituser', id]);
+  }
+
+  viewElection() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/elections', id]);
+  }
+
   
   }
 

@@ -17,20 +17,20 @@
                 <mat-icon>logout</mat-icon>
             </a>
             <!-- <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt=""
-                    style="width: 20px; height: 20px;"></a>
-            <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
-                    style="width: 20px; height: 20px;"></a>
-            <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
-                    style="width: 20px; height: 20px;"></a> -->
+                        style="width: 20px; height: 20px;"></a>
+                <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
+                        style="width: 20px; height: 20px;"></a>
+                <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
+                        style="width: 20px; height: 20px;"></a> -->
         </div>
     </mat-toolbar>
-
+    
     <mat-sidenav-container>
         <mat-sidenav #sidenav="matSidenav" mode="side" opened>
     
             <button mat-button class="menu-button active">
                 <mat-icon>home</mat-icon>
-                <span><a [routerLink]="['/userpr']">Home</a></span>
+                <span><a [routerLink]="['/userprofile/id']">Home</a></span>
             </button>
             <button mat-button class="menu-button">
                 <mat-icon>person</mat-icon>
@@ -50,54 +50,34 @@
         </mat-sidenav>
     
         <mat-sidenav-content>
-            <div class="topic">
-                <h2>Election</h2>
-            </div>
+    
             <div class="content mat-elevation-z8">
-                <div class="chart" style="width:auto; height:250px;" >
+                <div class="chart" style="width:auto; height:250px;">
+                    <div class="d-flex justify-content-center"><button type="button" class="btn btn-primary btn-lg mx-5 my-5"  (click)="goToCreateElection()">Buy an
+                        Election</button>
+                    <button type="button" class="btn btn-primary btn-lg mx-5 my-5" type="submit"
+                        [routerLink]="['/votepage1']">Vote for an Election</button>
+                    </div>
+    
                     
-                    <button type="button" class="btn btn-primary btn-lg mx-5 my-5"  (click) = "goToCreateElection()">Buy an Election</button>
-            <button type="button" class="btn btn-primary btn-lg mx-5 my-5" type="submit" [routerLink]="['/votepage1']">Vote for an Election</button>
-           <br><br> <p>you have just voted-(result Pending)</p>
-            <app-electiontable></app-electiontable>
-            <br><p>Scheduled Elections for this week</p>
-            <app-electiontable></app-electiontable>
-            <br><p>View results of old Elections</p>
-            <app-electiontable></app-electiontable>
-        
-
+                    <br><br>
+                    <p>you have just voted-(result Pending)</p>
+                    <div class="mx-5">
+                    <app-electiontable></app-electiontable>
+                    </div>
+                    <br>
+                    <p>Scheduled Elections for this week</p>
+                    <div class="mx-5">
+                    <app-electiontable></app-electiontable>
+                    </div>
+                    <br>
+                    <p>View results of old Elections</p>
+                    <div class="mx-5">
+                    <app-electiontable></app-electiontable>
+                    </div>
+    
+    
                 </div>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
-
-
-    <!-- <div class="row">
-        <div class="col-lg-2">
-            <app-sidenav></app-sidenav>
-        </div>
-
-        <div class="col-lg-7">
-            <br><br>
-            <p>Elections</p>
-
-            <button type="button" class="btn btn-primary btn-lg mx-5 my-5" (click) = "goToCreateElection()">Buy an Election</button>
-            <button type="button" class="btn btn-primary btn-lg mx-5 my-5" type="submit" [routerLink]="['/votepage1']">Vote for an Election</button>
-
-           <br><br> <p>you have just voted-(result Pending)</p>
-            <app-electiontable></app-electiontable>
-            <br><p>Scheduled Elections for this week</p>
-            <app-electiontable></app-electiontable>
-            <br><p>View results of old Elections</p>
-            <app-electiontable></app-electiontable>
-
-        </div>
-       
-       
-    </div>
-    
-<!-- </div> -->
-     -->
-
-
-
