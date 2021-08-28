@@ -65,8 +65,12 @@ export class CreateElectionComponent implements OnInit {
     error => console.log(error));
   }
 
-  checkelection(){
-    console.log(this.newElection.type);
+  createNewElection(username:any, password:any){
+    //console.log(this.newElection);
+    this._service.createNewElection(username, password, this.newElection).subscribe(data => {
+      console.log(data);
+    },
+    error => console.log(error));
   }
 
 }
