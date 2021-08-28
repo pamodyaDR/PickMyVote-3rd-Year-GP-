@@ -1,6 +1,7 @@
 <app-usertoolbar></app-usertoolbar>
 
 <mat-stepper #stepper>
+    <!--1st Form group-->
     <mat-step [stepControl]="firstFormGroup" errorMessage="Organization is required.">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Choose organization</ng-template>
@@ -11,12 +12,10 @@
                 {{organization.name}}
               </mat-option>
             </mat-select>
-        </mat-form-field>
-
-        <!--<button (click)="checkelection()">check</button>-->
-        
+        </mat-form-field>        
         <br><br>
       </form>
+
       <form>
         <p>If required organization haven't in the list. please create new organization for that.</p>
         <div>          
@@ -39,20 +38,25 @@
         </div>
         <button mat-raised-button color="primary" (click) = "createNewOrganization(username,password)">Create organization</button>
       </form>
+
       <br><br>
       <div>
         <p>Click Next Button to go to next step</p>
         <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+
+    <!-- 2nd form group -->
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Election type is required.">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
+        <ng-template matStepLabel>Select an election type</ng-template>
+
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
           <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
                  required>
         </mat-form-field>
+
         <div>
           <p>Go to a different step to see the error state</p>
           <button mat-button matStepperPrevious>Back</button>
@@ -60,6 +64,7 @@
         </div>
       </form>
     </mat-step>
+
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <p>You are now done.</p>
