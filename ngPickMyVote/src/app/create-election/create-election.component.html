@@ -1,6 +1,6 @@
 <app-usertoolbar></app-usertoolbar>
 
-<mat-stepper #stepper>
+<mat-stepper #stepper class="m-4">
     <!--1st Form group-->
     <mat-step [stepControl]="firstFormGroup" errorMessage="Organization is required.">
       <form [formGroup]="firstFormGroup">
@@ -129,12 +129,26 @@
       </form>
     </mat-step>
 
+    <!-- Fourth group of stepper payment -->
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <ng-template matStepLabel>Payment</ng-template>
+      <p>Pay the election payment</p>
+
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button color="primary" class="m-2" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" class="m-2" matStepperNext>Next</button>
+        <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+      </div>
+    </mat-step>
+
+    <!-- fifth step of stepper add the voters email -->
+    <mat-step>
+      <ng-template matStepLabel>Add voters</ng-template>
+      <p>Add voters Emails</p>
+
+      <div>
+        <button mat-raised-button color="primary" class="m-2" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" class="m-2" matStepperNext>Next</button>
       </div>
     </mat-step>
   </mat-stepper>
