@@ -62,7 +62,7 @@ export class CreateElectionComponent implements OnInit {
   }
 
   checkelection(){
-    console.log(this.newElection.org_id);
+    console.log(this.newElection.type);
   }
 
 }

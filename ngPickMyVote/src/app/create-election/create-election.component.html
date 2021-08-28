@@ -58,13 +58,24 @@
                  required>
         </mat-form-field>-->
 
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-          <mat-button-toggle value="bold">Bold</mat-button-toggle>
-          <mat-button-toggle value="italic">Italic</mat-button-toggle>
-          <mat-button-toggle value="underline">Underline</mat-button-toggle>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" formControlName="secondCtrl" [(ngModel)]="newElection.type">
+
+          <mat-button-toggle [value]="1">
+            <div class="m-3">
+              <p>Election package 1</p>
+              <p>Prize 8$</p>
+            </div>
+          </mat-button-toggle>
+
+          <mat-button-toggle [value]="2">
+            <div class="m-3">
+              <p>Election package 2</p>
+              <p>Prize 6$</p>
+            </div>
+          </mat-button-toggle>
         </mat-button-toggle-group>
 
-        <div>
+        <div class="mt-3">
           <p>Go to a different step to see the error state</p>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
