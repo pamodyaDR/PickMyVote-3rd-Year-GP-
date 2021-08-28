@@ -51,11 +51,18 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Select an election type</ng-template>
 
+        <!--
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
           <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
                  required>
-        </mat-form-field>
+        </mat-form-field>-->
+
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="bold">Bold</mat-button-toggle>
+          <mat-button-toggle value="italic">Italic</mat-button-toggle>
+          <mat-button-toggle value="underline">Underline</mat-button-toggle>
+        </mat-button-toggle-group>
 
         <div>
           <p>Go to a different step to see the error state</p>

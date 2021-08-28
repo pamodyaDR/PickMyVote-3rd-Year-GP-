@@ -56,6 +56,7 @@ import { Votepage5Component } from './votepage5/votepage5.component';
 import { VoteService } from './vote.service';
 import { RegistrationverifyComponent } from './registrationverify/registrationverify.component';
 import { AdminprofileComponent } from './adminprofile/adminprofile.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -111,7 +112,8 @@ import { AdminprofileComponent } from './adminprofile/adminprofile.component';
     MatTableModule,
     MatStepperModule,
     MatSelectModule,
-    ChartsModule
+    ChartsModule,
+    MatButtonToggleModule
   ],
   providers: [RegistrationService,ResultService,VoteService],
   bootstrap: [AppComponent]
