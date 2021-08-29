@@ -2,10 +2,13 @@ package com.pickMyVote.pickMyVote.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
+
 public class OrgSubscribedUser {
     @Id
+    private Long uorgid;
     private Long orgid;
 
     private Long userid;
@@ -34,5 +37,13 @@ public class OrgSubscribedUser {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Long getUorgid() {
+        return uorgid;
+    }
+
+    public void setUorgid(Long uorgid) {
+        this.uorgid = uorgid;
     }
 }

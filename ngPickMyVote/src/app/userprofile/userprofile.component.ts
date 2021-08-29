@@ -4,7 +4,8 @@ import { ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserelectionService } from '../services/userelection.service';
 import { OrgSubscribedUser } from '../org-subscribed-user';
-
+import { Election } from '../election';
+import { ElectionService } from '../election.service';
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
@@ -19,17 +20,20 @@ export class UserprofileComponent implements OnInit {
   password = sessionStorage.getItem('session_password');
   uRole = sessionStorage.getItem('user_role');
 
-  constructor( private UserElc_service: UserelectionService, private _router : Router, private _route: ActivatedRoute) { }
+  constructor(private UserElc_service: UserelectionService, private _router: Router, private _route: ActivatedRoute, private Election_service: ElectionService) { }
 
   organizations: OrgSubscribedUser[] = [];
+  elections: Election[] = [];
 
   ngOnInit(): void {
-    this.getElections();
+
     //check browser session for admin login
-    if(!this.email){
+    if (!this.email) {
       this._router.navigate(['/login'])
-      
+
     }
+    this.getElections();
+
   }
 
   ngAfterViewInit() {
@@ -42,7 +46,7 @@ export class UserprofileComponent implements OnInit {
         this.sidenav.open();
       }
     });
-    
+
   }
 
   viewUser() {
@@ -55,19 +59,19 @@ export class UserprofileComponent implements OnInit {
     this._router.navigate(['/elections', id]);
   }
 
-  private getElections(){
+  private getElections() {
     const id = this._route.snapshot.params['id'];
-    this.UserElc_service.getOrganizations(this.email,this.password,id).subscribe(
+    this.UserElc_service.getOrganizations(this.email, this.password, id).subscribe(
       res => {
         this.organizations = res;
-         console.log("res");
-        // for(let i = 0; i <= this.organizations.length; i++) {
-        //   this.Organization_service.getOrganizationName(this.email,this.password, res[i].org_id).subscribe(
-        //     name => {
-        //       this.elections[i].org_name = name.name;
-        //     }
-        //   );
-        // }
+        console.log("res");
+        //   for(let i = 0; i <= this.organizations.length; i++) {
+        //     this.Election_service.getelections(this.email,this.password, res[i].orgid).subscribe(
+        //       res2 => {
+        //         this.elections[i].id = res2.id;
+        //       }
+        //     );
+        //   }
       }
     );
   }

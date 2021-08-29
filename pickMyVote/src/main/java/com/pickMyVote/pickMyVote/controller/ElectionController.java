@@ -1,5 +1,6 @@
 package com.pickMyVote.pickMyVote.controller;
 
+import com.pickMyVote.pickMyVote.model.OrgSubscribedUser;
 import com.pickMyVote.pickMyVote.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.pickMyVote.pickMyVote.model.Election;
 import com.pickMyVote.pickMyVote.service.ElectionService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,7 +29,12 @@ public class ElectionController {
 	}
 
 
-
+	@GetMapping("/userelection/{id}")
+	public List<Election> getElection(@PathVariable Long id) throws Exception {
+		List<Election> elecList = null;
+		elecList = service.fetchByOrgId(id);
+		return elecList;
+	}
 
 
 }

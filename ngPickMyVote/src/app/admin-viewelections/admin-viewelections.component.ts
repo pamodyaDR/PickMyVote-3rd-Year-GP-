@@ -56,11 +56,11 @@ export class AdminViewelectionsComponent implements OnInit {
     this.Election_service.getElectionList(this.email,this.password).subscribe(
       res => {
         this.elections = res;
-        // console.log(res[0].org_id);
+        // console.log(res[0].orgid);
         for(let i = 0; i <= this.elections.length; i++) {
-          this.Organization_service.getOrganizationName(this.email,this.password, res[i].org_id).subscribe(
+          this.Organization_service.getOrganizationName(this.email,this.password, res[i].orgid).subscribe(
             name => {
-              this.elections[i].org_name = name.name;
+              this.elections[i].orgname = name.name;
             }
           );
         }
@@ -73,7 +73,7 @@ export class AdminViewelectionsComponent implements OnInit {
   //   for(let i = 0; i <= this.elections.length; i++) {
   //     this.Organization_service.getOrganizationName(this.email,this.password, id).subscribe(
   //         name => {
-  //           this.elections[i].org_name = name.name;
+  //           this.elections[i].orgname = name.name;
   //           console.log("111");
   //         }
   //       );

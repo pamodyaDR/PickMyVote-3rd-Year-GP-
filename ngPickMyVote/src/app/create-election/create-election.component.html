@@ -7,7 +7,7 @@
         <ng-template matStepLabel>Choose organization</ng-template>
         <mat-form-field appearance="fill">
             <mat-label>Select Organization</mat-label>
-            <mat-select matInput formControlName="firstCtrl" [(ngModel)] = "newElection.org_id">
+            <mat-select matInput formControlName="firstCtrl" [(ngModel)] = "newElection.orgid">
               <mat-option *ngFor = "let organization of organizations" [value]="organization.id">
                 {{organization.name}}
               </mat-option>
@@ -102,14 +102,14 @@
           <div>          
             <mat-form-field appearance="fill">            
               <mat-label>Election start date</mat-label>
-              <input matInput type="date" placeholder="Election start date" [(ngModel)] = "newElection.start_date_time" name="newElecStartDate" required>            
+              <input matInput type="date" placeholder="Election start date" [(ngModel)] = "newElection.startdatetime" name="newElecStartDate" required>            
             </mat-form-field>
           </div>
 
           <div>          
             <mat-form-field appearance="fill">            
               <mat-label>Election end date</mat-label>
-              <input matInput type="date" placeholder="Election end date" [(ngModel)] = "newElection.end_date_time" name="newElecEndDate" required>            
+              <input matInput type="date" placeholder="Election end date" [(ngModel)] = "newElection.enddatetime" name="newElecEndDate" required>            
             </mat-form-field>
           </div>
 

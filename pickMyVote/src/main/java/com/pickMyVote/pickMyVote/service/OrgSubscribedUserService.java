@@ -3,9 +3,11 @@ package com.pickMyVote.pickMyVote.service;
 import com.pickMyVote.pickMyVote.model.OrgSubscribedUser;
 import com.pickMyVote.pickMyVote.repository.OrgSubscribedUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrgSubscribedUserService {
 
     @Autowired

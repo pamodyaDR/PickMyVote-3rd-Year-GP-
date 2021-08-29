@@ -30,4 +30,10 @@ export class ElectionService {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post<any>("http://localhost:8080/api/v1/createElection",election,{headers})
   }
+
+  getelections(username:any,password:any,orgid:number):Observable<Election[]>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<Election[]>("http://localhost:8080/userelection/"+orgid,{headers})
+  }
+
 }

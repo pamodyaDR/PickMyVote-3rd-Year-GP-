@@ -51,7 +51,16 @@
     <mat-sidenav-content>
 
         <div class="content mat-elevation-z8" style="overflow: auto">
-
+            <table>
+                <tbody>
+                    <tr *ngFor = "let organizations of organizations">
+                        <td>{{organizations.role}}</td>
+                        <td> {{ organizations.orgid }} </td>
+                        <td> {{ organizations.role }} </td>
+                    </tr>
+                </tbody>
+                
+            </table>
             <div class="row">
 
                 <div class="col-lg-8 ">
