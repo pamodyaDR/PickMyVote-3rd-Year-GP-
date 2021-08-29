@@ -104,6 +104,18 @@ public class RegistrationService {
         return repo.save(user);
     }
 
+    public User updateUserCountry(String email, String country) {
+        User user = repo.findByEmail(email);
+        user.setCountry(country);
+        return repo.save(user);
+    }
+
+    public User updateUserGender(String email, String gender){
+        User user = repo.findByEmail(email);
+        user.setGender(gender);
+        return repo.save(user);
+    }
+
     public boolean verify(String verificationCode) {
         User user = repo.findByVerificationCode(verificationCode);
         System.out.println("hi service");

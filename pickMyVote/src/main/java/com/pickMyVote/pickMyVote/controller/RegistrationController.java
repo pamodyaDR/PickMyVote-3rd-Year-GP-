@@ -90,6 +90,8 @@ public class RegistrationController {
         userObj = service.updateUserLName(user.getEmail(),user.getL_name());
         userObj = service.updateUserContact(user.getEmail(),user.getContact_num());
         userObj = service.updateUserDOB(user.getEmail(),user.getDob());
+        userObj = service.updateUserCountry(user.getEmail(),user.getCountry());
+        userObj = service.updateUserGender(user.getEmail(),user.getGender());
         return userObj;
     }
 

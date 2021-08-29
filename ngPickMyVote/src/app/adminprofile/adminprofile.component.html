@@ -101,7 +101,7 @@
                                             <input type="email" class="form-control text-center my-3 p-1"
                                                 placeholder="Email" name="email" [(ngModel)]="user.email" required
                                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
-                                                [class.is-invalid]="email.invalid && email.touched">
+                                                [class.is-invalid]="email.invalid && email.touched" disabled>
                                             <div *ngIf="email.errors && (email.invalid && email.touched)">
                                                 <small class="text-danger" *ngIf="email.errors.required">Email is required
                                                     field</small>
@@ -137,13 +137,51 @@
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
                                     <div class="form-group row form-row d-flex justify-content-center align-items-center">
-                                        <label class="col-lg-2 col-form-label my-3 p-1">Date of Birth</label>
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">Date of Birth</label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control text-center my-3 p-1"
-                                                placeholder="Date of Birth" name="dob" [(ngModel)]="user.dob" required
+                                            <input type="date" max="{{maxDate}}" class="form-control text-center my-3 p-1"
+                                                placeholder="Date of Birth" id="dob" name="dob" [(ngModel)]="user.dob" required
                                                 #dob="ngModel" [class.is-invalid]="dob.invalid && dob.touched">
                                             <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date of
                                                 birth is required field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">Country</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="Country" name="country"
+                                                [(ngModel)]="user.country" required #country="ngModel"
+                                                [class.is-invalid]="country.invalid && country.touched">
+                                            <small class="text-danger" [class.d-none]="country.valid || country.untouched">Country is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                  
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label for="gender" class="col-lg-2 col-form-label my-3 p-1">Geneder </label>
+                                        <div class="col-lg-5">
+                                            <div class="fnt">
+                                                <input type="radio" style="font-size: small;"  value="male" id="gender" name="gender" [(ngModel)]="user.gender" checked
+                                                #gender="ngModel"><span> Male</span>
+                                            </div>
+                                            <div>
+                                                <input type="radio" class="fnt" value="female" id="gender" name="gender" [(ngModel)]="user.gender"
+                                                #gender="ngModel"><span> Female</span> 
+                                            </div>
+                                            <input type="hidden" class="form-control text-center my-3 p-1" placeholder="Gender" name="gender"
+                                                [(ngModel)]="user.gender" required #gender="ngModel"
+                                                [class.is-invalid]="gender.invalid && gender.touched">
+                                            <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is required
+                                                field</small>
                                         </div>
                                     </div>
                                 </div>
@@ -156,9 +194,9 @@
                                     <button type="submit" class="btn my-5 mx-2">Update</button>
                                 </div>
                             </div>
+                            
                         </form>
                     </div>
-    
                 </div>
             </section>
         </div>
