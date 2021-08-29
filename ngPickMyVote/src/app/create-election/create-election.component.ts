@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ElectionService } from '../election.service';
 import { Organization } from '../organization';
 import { Election } from '../election';
+import { Payment } from '../payment';
 
 @Component({
   selector: 'app-create-election',
@@ -24,6 +25,10 @@ export class CreateElectionComponent implements OnInit {
   newOrganization : Organization = new Organization();
 
   newElection : Election = new Election();
+
+  newPayment : Payment = new Payment();
+
+  newElecId = 1; newElecType = 1;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -68,9 +73,15 @@ export class CreateElectionComponent implements OnInit {
   createNewElection(username:any, password:any){
     //console.log(this.newElection);
     this._service.createNewElection(username, password, this.newElection).subscribe(data => {
+      this.newElecId = data.id;
+      this.newElecType = data.type;
       console.log(data);
     },
     error => console.log(error));
+  }
+
+  createNewPayment(){
+    
   }
 
 }
