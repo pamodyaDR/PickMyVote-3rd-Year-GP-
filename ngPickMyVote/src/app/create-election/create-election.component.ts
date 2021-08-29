@@ -35,6 +35,8 @@ export class CreateElectionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
+  
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -90,7 +92,11 @@ export class CreateElectionComponent implements OnInit {
         this.newPayment.amount = 6;
       }
       this.newPayment.elec_id = this.newElecId;
-      //this.newPayment.date = this.todayDate;
+
+      let myDate = new Date();
+      let someDateVar = this.datepipe.transform(myDate, 'yyyy-MM-dd');
+
+      this.newPayment.date = someDateVar;
       //console.log(this.newPayment);
 
       this._service.createNewPayment(username, password, this.newPayment).subscribe(data => {
