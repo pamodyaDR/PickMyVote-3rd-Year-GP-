@@ -6,6 +6,7 @@ import { ElectionService } from '../election.service';
 import { Organization } from '../organization';
 import { Election } from '../election';
 import { Payment } from '../payment';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-election',
@@ -28,18 +29,18 @@ export class CreateElectionComponent implements OnInit {
 
   newPayment : Payment = new Payment();
 
-  newElecId = 1; newElecType = 1;
+  newElecId = 0; newElecType = 0;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder) { }
+  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 
     const id = this._route.snapshot.params['id'];
-    console.log(id);
+    //console.log(id);
 
     this.getOrganization(this.username, this.password, id)
 
@@ -80,8 +81,23 @@ export class CreateElectionComponent implements OnInit {
     error => console.log(error));
   }
 
-  createNewPayment(){
-    
+  createNewPayment(username:any, password:any){
+    if(this.newElecId != 0){
+      if(this.newElecType == 1){
+        this.newPayment.amount = 8;
+      }
+      else if(this.newElecType == 2 ){
+        this.newPayment.amount = 6;
+      }
+      this.newPayment.elec_id = this.newElecId;
+      //this.newPayment.date = this.todayDate;
+      //console.log(this.newPayment);
+
+      this._service.createNewPayment(username, password, this.newPayment).subscribe(data => {
+        console.log(data);
+      },
+      error => console.log(error));
+    }
   }
 
 }
