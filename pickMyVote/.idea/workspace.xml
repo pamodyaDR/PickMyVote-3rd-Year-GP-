@@ -9,22 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrgSubscribedUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/OrgSubscribedUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/repository/OrgSubscribedUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/OrgSubscribedUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/elections/elections.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/ElectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/ElectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrganizationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/OrganizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/OrganizationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/OrganizationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/OrganizationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +105,7 @@
       <workItem from="1629701053940" duration="802000" />
       <workItem from="1629702993586" duration="1244000" />
       <workItem from="1629787025127" duration="1052000" />
+      <workItem from="1630218865736" duration="2714000" />
     </task>
     <servers />
   </component>
@@ -163,5 +153,39 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1323" height="207" key="GridCell.Tab.0.bottom" timestamp="1630229761140">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.bottom/0.0.1366.736@0.0.1366.736" timestamp="1630229761140" />
+    <state width="1323" height="207" key="GridCell.Tab.0.center" timestamp="1630229761140">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.center/0.0.1366.736@0.0.1366.736" timestamp="1630229761140" />
+    <state width="1323" height="207" key="GridCell.Tab.0.left" timestamp="1630229761140">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.left/0.0.1366.736@0.0.1366.736" timestamp="1630229761140" />
+    <state width="1323" height="207" key="GridCell.Tab.0.right" timestamp="1630229761140">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.right/0.0.1366.736@0.0.1366.736" timestamp="1630229761140" />
+    <state width="1323" height="207" key="GridCell.Tab.1.bottom" timestamp="1630229761156">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.1.bottom/0.0.1366.736@0.0.1366.736" timestamp="1630229761156" />
+    <state width="1323" height="207" key="GridCell.Tab.1.center" timestamp="1630229761156">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.1.center/0.0.1366.736@0.0.1366.736" timestamp="1630229761156" />
+    <state width="1323" height="207" key="GridCell.Tab.1.left" timestamp="1630229761156">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.1.left/0.0.1366.736@0.0.1366.736" timestamp="1630229761156" />
+    <state width="1323" height="207" key="GridCell.Tab.1.right" timestamp="1630229761156">
+      <screen x="0" y="0" width="1366" height="736" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.1.right/0.0.1366.736@0.0.1366.736" timestamp="1630229761156" />
   </component>
 </project>
