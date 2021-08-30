@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ElectionService } from '../election.service';
 import { Organization } from '../organization';
 import { Election } from '../election';
+import { Payment } from '../payment';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-election',
@@ -25,16 +27,22 @@ export class CreateElectionComponent implements OnInit {
 
   newElection : Election = new Election();
 
+  newPayment : Payment = new Payment();
+
+  newElecId = 0; newElecType = 0;
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder) { }
+  
+
+  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 
     const id = this._route.snapshot.params['id'];
-    console.log(id);
+    //console.log(id);
 
     this.getOrganization(this.username, this.password, id)
 
@@ -68,9 +76,34 @@ export class CreateElectionComponent implements OnInit {
   createNewElection(username:any, password:any){
     //console.log(this.newElection);
     this._service.createNewElection(username, password, this.newElection).subscribe(data => {
+      this.newElecId = data.id;
+      this.newElecType = data.type;
       console.log(data);
     },
     error => console.log(error));
+  }
+
+  createNewPayment(username:any, password:any){
+    if(this.newElecId != 0){
+      if(this.newElecType == 1){
+        this.newPayment.amount = 8;
+      }
+      else if(this.newElecType == 2 ){
+        this.newPayment.amount = 6;
+      }
+      this.newPayment.elec_id = this.newElecId;
+
+      let myDate = new Date();
+      let someDateVar = this.datepipe.transform(myDate, 'yyyy-MM-dd');
+
+      this.newPayment.date = someDateVar;
+      //console.log(this.newPayment);
+
+      this._service.createNewPayment(username, password, this.newPayment).subscribe(data => {
+        console.log(data);
+      },
+      error => console.log(error));
+    }
   }
 
 }

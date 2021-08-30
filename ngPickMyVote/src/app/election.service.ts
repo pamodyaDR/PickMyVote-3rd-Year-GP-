@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Election } from './election';
 import { Organization } from './organization';
+import { Payment } from './payment';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,11 @@ export class ElectionService {
   getelections(username:any,password:any,orgid:number):Observable<Election[]>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.get<Election[]>("http://localhost:8080/userelection/"+orgid,{headers})
+  }
+
+  createNewPayment(username:string,password:string,payment:Payment):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/api/v1/createPayment",payment,{headers})
   }
 
 }

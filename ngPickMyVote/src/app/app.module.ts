@@ -57,6 +57,7 @@ import { VoteService } from './vote.service';
 import { RegistrationverifyComponent } from './registrationverify/registrationverify.component';
 import { AdminprofileComponent } from './adminprofile/adminprofile.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -115,7 +116,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ChartsModule,
     MatButtonToggleModule
   ],
-  providers: [RegistrationService,ResultService,VoteService],
+  providers: [RegistrationService,ResultService,VoteService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
