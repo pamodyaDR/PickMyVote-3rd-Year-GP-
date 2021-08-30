@@ -33,7 +33,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String f_name, String l_name, String email, int contact_num, String password, String dob, String roles, String country, String gender, String q1, String q2, String a1, String a2) {
+    public User(Long id, String f_name, String l_name, String email, int contact_num, String password, String dob, String roles, String country, String gender, String q1, String q2, String a1, String a2,String verificationCode) {
         this.id = id;
         this.f_name = f_name;
         this.l_name = l_name;
@@ -48,6 +48,7 @@ public class User {
         this.q2 = q2;
         this.a1 = a1;
         this.a2 = a2;
+        this.verificationCode = verificationCode;
     }
 
     public String getRoles() {
