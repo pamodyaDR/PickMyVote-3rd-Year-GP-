@@ -4,6 +4,7 @@ package com.pickMyVote.pickMyVote.controller;
 import com.pickMyVote.pickMyVote.model.User;
 import com.pickMyVote.pickMyVote.service.RegistrationService;
 //import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -80,11 +81,18 @@ public class RegistrationController {
     public String hello() {
     	return "Hello user";
     }
-    
+
+
+    @PostMapping("/sendotp")
+    public User sendotp(@RequestBody User user) throws MessagingException,Exception {
+        User userObj = null;
+        userObj = service.sendOTP(user);
+        return userObj;
+    }
+
     //Update user details
-    
     @PostMapping("/updateUser")
-    public User updateUser(@RequestBody User user) throws Exception {
+    public User updateUser(@RequestBody User user) {
     	User userObj = null;
         userObj = service.updateUserFName(user.getEmail(),user.getF_name());
         userObj = service.updateUserLName(user.getEmail(),user.getL_name());

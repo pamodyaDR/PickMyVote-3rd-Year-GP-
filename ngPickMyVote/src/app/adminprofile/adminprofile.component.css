@@ -186,3 +186,7 @@ span {
     font-size: large;
     color: #212529;
 }
+
+p {
+    font-size: small;
+}

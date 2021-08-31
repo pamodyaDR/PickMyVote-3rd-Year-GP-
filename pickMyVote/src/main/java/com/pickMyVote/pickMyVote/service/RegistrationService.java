@@ -79,11 +79,52 @@ public class RegistrationService {
     public Optional<User> fetchUserById(Long id) {
         return repo.findById(id);
     }
+
+    public User sendOTP(User user) throws MessagingException, UnsupportedEncodingException {
+        String randomCode = RandomString.make(6);
+        user.setOtpcode(randomCode);
+
+        repo.saveOTPcode(randomCode, user.getId());
+        sendUpdateVerificationEmail(user);
+
+        return user;
+    }
     
-    public User updateUserFName(String email, String fname) {
-    	User user = repo.findByEmail(email);
+    public User updateUserFName(String email, String fname){
+
+        User user = repo.findByEmail(email);
         user.setF_name(fname);
         return repo.save(user);
+    }
+
+    private void sendUpdateVerificationEmail(User user)
+            throws MessagingException, UnsupportedEncodingException {
+        String toAddress = user.getEmail();
+        String fromAddress = "pickmyvote@gmail.com";
+        String senderName = "PickMyVote";
+        String subject = "Verification Code - Update Profile";
+        String content = "Dear [[name]],<br>"
+                + "Verification Code<br>"
+                + "<h3>"+user.getOtpcode()+"</h3>"
+                + "Thank you,<br>"
+                + "PickMyVote Team.";
+
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+
+        helper.setFrom(fromAddress, senderName);
+        helper.setTo(toAddress);
+        helper.setSubject(subject);
+
+        content = content.replace("[[name]]", user.getF_name());
+       // String verifyURL = siteURL + "/verify?code=" + user.getVerificationCode();
+
+       // content = content.replace("[[URL]]", verifyURL);
+
+        helper.setText(content, true);
+
+        mailSender.send(message);
+
     }
     
     public User updateUserLName(String email, String lname) {

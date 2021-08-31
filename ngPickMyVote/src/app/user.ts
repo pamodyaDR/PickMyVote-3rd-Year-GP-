@@ -14,7 +14,9 @@ export class User {
     gender:string;
     roles:string;
     enabled:boolean;
-    verification_code:string;
+    verificationcode:string;
+    otpcode:string;
+    enteredverificationcode:string;
     constructor(){}
     
 }

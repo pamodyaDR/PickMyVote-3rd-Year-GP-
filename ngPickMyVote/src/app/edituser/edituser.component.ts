@@ -44,19 +44,15 @@ export class EdituserComponent implements OnInit {
         this.userDetails =res;
         console.log(this.userDetails);
         console.log(this.userDetails.f_name);
-      }
-    )
+        console.log(this.userDetails.verificationcode);
+        this.message = res;
+        this.showMsg= true;
+      },
 
-    resp.subscribe(
-      data => {
-      this.message = data;
-      this.showMsg= true;
-      //this._router.navigate(['/userprofile/', this.userDetails.id])
-    },
-    error => {
-      console.log("Exception Occured");
-      this.msg = "Error occured"
-    }
+      error => {
+        console.log("Exception Occured");
+        this.msg = "Error occured"
+      }
     );
   }
 

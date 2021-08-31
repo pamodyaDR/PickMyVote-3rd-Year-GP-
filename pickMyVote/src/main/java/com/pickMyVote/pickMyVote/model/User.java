@@ -26,6 +26,8 @@ public class User {
     @Column(name = "verification_code", length = 64)
     private String verificationCode;
 
+    private String otpcode;
+
 //    @Column(nullable = false)
 //    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Integer enabled;
@@ -33,7 +35,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String f_name, String l_name, String email, int contact_num, String password, String dob, String roles, String country, String gender, String q1, String q2, String a1, String a2,String verificationCode) {
+    public User(Long id, String f_name, String l_name, String email, int contact_num, String password, String dob, String roles, String country, String gender, String q1, String q2, String a1, String a2,String verificationCode, String otpcode) {
         this.id = id;
         this.f_name = f_name;
         this.l_name = l_name;
@@ -49,6 +51,7 @@ public class User {
         this.a1 = a1;
         this.a2 = a2;
         this.verificationCode = verificationCode;
+        this.otpcode = otpcode;
     }
 
     public String getRoles() {
@@ -154,6 +157,14 @@ public class User {
 
     public void setEnabled(Integer enabled) {
         this.enabled = enabled;
+    }
+
+    public String getOtpcode() {
+        return otpcode;
+    }
+
+    public void setOtpcode(String otpcode) {
+        this.otpcode = otpcode;
     }
 }
 

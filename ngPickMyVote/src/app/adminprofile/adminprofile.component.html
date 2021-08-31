@@ -163,35 +163,35 @@
                                     </div>
                                 </div>
                             </div>
-                  
+
                             <div class="form-row d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn my-5 mx-2" (click)="sendOTP()"> Send OTP Code</button>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <p>The OTP Code is sent to your email. Please Enter the code.</p>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
                                     <div class="form-group row form-row d-flex justify-content-center align-items-center">
-                                        <label for="gender" class="col-lg-2 col-form-label my-3 p-1">Geneder </label>
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">OTP Code</label>
                                         <div class="col-lg-5">
-                                            <div class="fnt">
-                                                <input type="radio" style="font-size: small;"  value="male" id="gender" name="gender" [(ngModel)]="user.gender" checked
-                                                #gender="ngModel"><span> Male</span>
-                                            </div>
-                                            <div>
-                                                <input type="radio" class="fnt" value="female" id="gender" name="gender" [(ngModel)]="user.gender"
-                                                #gender="ngModel"><span> Female</span> 
-                                            </div>
-                                            <input type="hidden" class="form-control text-center my-3 p-1" placeholder="Gender" name="gender"
-                                                [(ngModel)]="user.gender" required #gender="ngModel"
-                                                [class.is-invalid]="gender.invalid && gender.touched">
-                                            <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">Gender is required
+                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="OTP Code" name="enteredverificationcode"
+                                                [(ngModel)]="user.enteredverificationcode" required #enteredverificationcode="ngModel"
+                                                [class.is-invalid]="enteredverificationcode.invalid && enteredverificationcode.touched">
+                                            <small class="text-danger" [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP Code is required
                                                 field</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
-                            <div class="form-row d-flex justify-content-center align-items-center">
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10 d-flex justify-content-center align-items-center">
-                                    <button type="submit" class="btn my-5 mx-2"
-                                        [routerLink]="['/userprofile', user.id]">Cancel</button>
-                                    <button type="submit" class="btn my-5 mx-2">Update</button>
+                                    <button type="button" class="btn my-5 mx-2"
+                                        [routerLink]="['/admin']">Cancel</button>
+                                    <button [disabled]="!user.enteredverificationcode" type="submit" class="btn my-5 mx-2">Update</button>
                                 </div>
                             </div>
                             
