@@ -36,7 +36,7 @@
             <input matInput placeholder="Organization notices" [(ngModel)] = "newOrganization.notices" name="newOrgNotices">            
           </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" (click) = "createNewOrganization(username,password)">Create organization</button>
+        <button mat-stroked-button color="primary" (click) = "createNewOrganization(username,password)">Create organization</button>
       </form>
 
       <br><br>
@@ -210,12 +210,12 @@
         </table>
 
         <div class="mb-3">
-          <input type="text" [(ngModel)]="candidateName" placeholder="Candidates name">
-          <input type="text" [(ngModel)]="candidatePosition" placeholder="Candidates position">
+          <input type="text" [(ngModel)]="candidateName" placeholder="Candidates name" class="m-2">
+          <input type="text" [(ngModel)]="candidatePosition" placeholder="Candidates position" class="m-2">
         </div>
 
-        <button (click)="addCandidate(candidateName, candidatePosition)">Add candidate</button>
-        <button (click)="deleteCandidte()">Delete candidate</button>
+        <button mat-stroked-button color="primary" class="m-2" (click)="addCandidate(candidateName, candidatePosition)">Add candidate</button>
+        <button mat-stroked-button color="primary" class="m-2" (click)="deleteCandidte()">Delete candidate</button>
       </div>
 
       <div>
