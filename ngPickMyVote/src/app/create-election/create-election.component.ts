@@ -115,14 +115,22 @@ export class CreateElectionComponent implements OnInit {
   addCandidate(cName:string, cPosition:string){
     let cd = new Candidate();
     cd.name = cName;
-    cd.position = cPosition
+    cd.position = cPosition;
+    cd.elecid = this.newElecId;
     this.newCandidatesArray.push(cd);
-    console.log(this.newCandidatesArray);
+    //console.log(this.newCandidatesArray);
     this.candidateName = ""; this.candidatePosition = "";
   }
 
   deleteCandidte(){
     this.newCandidatesArray.pop();
+  }
+
+  createNewCandidates(username:any, password:any){
+    this._service.createNewCandidates(username, password, this.newCandidatesArray).subscribe(data => {
+      console.log(data);
+    },
+    error => console.log(error));
   }
 
 }

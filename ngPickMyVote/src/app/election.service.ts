@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Candidate } from './candidate';
 import { Election } from './election';
 import { Organization } from './organization';
 import { Payment } from './payment';
@@ -40,6 +41,11 @@ export class ElectionService {
   createNewPayment(username:string,password:string,payment:Payment):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post<any>("http://localhost:8080/api/v1/createPayment",payment,{headers})
+  }
+
+  createNewCandidates(username:string,password:string,candidates:Candidate[]):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/api/v1/createCandidate",candidates,{headers})
   }
 
 }
