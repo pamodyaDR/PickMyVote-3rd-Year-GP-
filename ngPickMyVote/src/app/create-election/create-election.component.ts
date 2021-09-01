@@ -35,6 +35,8 @@ export class CreateElectionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
+  j = 2;
+
   
 
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
@@ -104,6 +106,18 @@ export class CreateElectionComponent implements OnInit {
       },
       error => console.log(error));
     }
+  }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  addrow(){
+    this.j += 1;
+  }
+
+  deleteRow(){
+    this.j -= 1;
   }
 
 }
