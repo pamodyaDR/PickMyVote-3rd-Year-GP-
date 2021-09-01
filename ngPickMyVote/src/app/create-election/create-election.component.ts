@@ -7,6 +7,7 @@ import { Organization } from '../organization';
 import { Election } from '../election';
 import { Payment } from '../payment';
 import { DatePipe } from '@angular/common';
+import { Candidate } from '../candidate';
 
 @Component({
   selector: 'app-create-election',
@@ -35,7 +36,10 @@ export class CreateElectionComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  j = 2;
+  newCandidatesArray : Array<Candidate> = [];
+  newCandidate : Candidate = new Candidate();
+  candidateName : string;
+  candidatePosition: string;
 
   
 
@@ -108,16 +112,17 @@ export class CreateElectionComponent implements OnInit {
     }
   }
 
-  counter(i: number) {
-    return new Array(i);
+  addCandidate(cName:string, cPosition:string){
+    let cd = new Candidate();
+    cd.name = cName;
+    cd.position = cPosition
+    this.newCandidatesArray.push(cd);
+    console.log(this.newCandidatesArray);
+    this.candidateName = ""; this.candidatePosition = "";
   }
 
-  addrow(){
-    this.j += 1;
-  }
-
-  deleteRow(){
-    this.j -= 1;
+  deleteCandidte(){
+    this.newCandidatesArray.pop();
   }
 
 }

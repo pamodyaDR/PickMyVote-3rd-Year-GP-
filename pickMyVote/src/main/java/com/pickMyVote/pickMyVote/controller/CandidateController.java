@@ -1,5 +1,7 @@
 package com.pickMyVote.pickMyVote.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +22,9 @@ public class CandidateController {
 	
 	//create new candidate
 	@PostMapping("/createCandidate")
-	public Candidate createCandidate(@RequestBody Candidate candidate) throws Exception{
+	public List<Candidate> createCandidate(@RequestBody List<Candidate> candidate) throws Exception{
 		
-		Candidate candidateObj = null;
+		List<Candidate> candidateObj = null;
 		candidateObj = service.saveCandidate(candidate);
 		return candidateObj;
 	}

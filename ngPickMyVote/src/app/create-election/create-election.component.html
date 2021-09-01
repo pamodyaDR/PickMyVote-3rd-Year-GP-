@@ -186,7 +186,7 @@
       <p>Add candidates details</p>
 
       <div>
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered w-50">
           <thead>
             <tr>
               <th></th>
@@ -195,21 +195,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let in of counter(j);let k = index">
+            <tr *ngFor="let in of newCandidatesArray;let k = index">
               <td>
                 {{k+1}}
               </td>
               <td>
-                <input type="text">
+                {{newCandidatesArray[k].name}}
               </td>
               <td>
-                <input type="text">
+                {{newCandidatesArray[k].position}}
               </td>
             </tr>
           </tbody>
         </table>
-        <button (click)="addrow()">Add new row</button>
-        <button (click)="deleteRow()">Delete row</button>
+
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="candidateName" placeholder="Candidates name">
+          <input type="text" [(ngModel)]="candidatePosition" placeholder="Candidates position">
+        </div>
+
+        <button (click)="addCandidate(candidateName, candidatePosition)">Add candidate</button>
+        <button (click)="deleteCandidte()">Delete candidate</button>
       </div>
 
       <div>

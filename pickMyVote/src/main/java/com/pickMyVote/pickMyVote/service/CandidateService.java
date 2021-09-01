@@ -1,5 +1,7 @@
 package com.pickMyVote.pickMyVote.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,8 @@ public class CandidateService {
 	@Autowired
 	private CandidateRepository candiRepo;
 	
-	public Candidate saveCandidate(Candidate candidate) {
-		return candiRepo.save(candidate);
+	public List<Candidate> saveCandidate(List<Candidate> candidate) {
+		return candiRepo.saveAll(candidate);
 	}
 
 }
