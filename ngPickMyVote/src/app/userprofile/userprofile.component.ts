@@ -78,8 +78,7 @@ export class UserprofileComponent implements OnInit {
             this.Organization_service.getOrganizationName(this.email,this.password, res[i].orgid).subscribe(
               name => {
                 this.oranizationname = name.name;
-                this.org[i].name = name.name;
-                this.org[i].notices= name.notices;
+                this.org[i] = name;
               }
             );
 
