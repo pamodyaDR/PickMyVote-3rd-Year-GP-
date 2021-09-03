@@ -1,9 +1,13 @@
 package com.pickMyVote.pickMyVote.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
+
+import java.sql.Time;
+import java.sql.Timestamp;
 
 @Entity
 public class Election {
@@ -12,8 +16,11 @@ public class Election {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
+
 	private String startdatetime;
+
 	private String enddatetime;
+
 	private int capacity;
 	private int type;
 	private int sectype;
@@ -84,13 +91,6 @@ public class Election {
 		this.sectype = sectype;
 	}
 
-	public String getStartdatetime() {
-		return startdatetime;
-	}
-
-	public void setStartdatetime(String startdatetime) {
-		this.startdatetime = startdatetime;
-	}
 
 	public String getEnddatetime() {
 		return enddatetime;
@@ -98,5 +98,13 @@ public class Election {
 
 	public void setEnddatetime(String enddatetime) {
 		this.enddatetime = enddatetime;
+	}
+
+	public String getStartdatetime() {
+		return startdatetime;
+	}
+
+	public void setStartdatetime(String startdatetime) {
+		this.startdatetime = startdatetime;
 	}
 }

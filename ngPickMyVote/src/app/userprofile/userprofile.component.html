@@ -51,16 +51,7 @@
     <mat-sidenav-content>
 
         <div class="content mat-elevation-z8" style="overflow: auto">
-            <table>
-                <tbody>
-                    <tr *ngFor = "let organizations of organizations">
-                        <td>{{organizations.role}}</td>
-                        <td> {{ organizations.orgid }} </td>
-                        <td> {{ organizations.role }} </td>
-                    </tr>
-                </tbody>
-                
-            </table>
+           
             <div class="row">
 
                 <div class="col-lg-8 ">
@@ -68,7 +59,13 @@
                     <p class="d-flex justify-content-center">Elections due this week</p>
 
                     <div class="mx-5">
-                        <app-user-table></app-user-table>
+                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let elections of elections1">
+                            <p></p>
+                            <br>
+                            <mat-grid-tile text-align="left" align-items="left">{{ elections.startdatetime }} - {{elections.orgname}} - {{ elections.title }} </mat-grid-tile><br>
+                            
+                          
+                          </mat-grid-list>
                     </div>
 
                     <br>

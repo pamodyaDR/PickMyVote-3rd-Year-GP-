@@ -29,12 +29,14 @@ public class ElectionController {
 	}
 
 
-	@GetMapping("/userelection/{id}")
-	public List<Election> getElection(@PathVariable Long id) throws Exception {
-		List<Election> elecList = null;
-		elecList = service.fetchByOrgId(id);
-		return elecList;
-	}
+//	@GetMapping("/userelection/{id}")
+//	public List<Election> userelection(@PathVariable Long id) throws Exception {
+//		List<Election> elecList = null;
+//		elecList = service.fetchByOrgId(id);
+//		System.out.println("elecList");
+//		System.out.println(elecList);
+//		return elecList;
+//	}
 
 
 }
