@@ -9,14 +9,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22b84d82-9174-45ee-b1f4-000ce4e95cc1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/election.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/election.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/services/userelection.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/services/userelection.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../ngPickMyVote/src/app/userprofile/userprofile.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrganizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrganizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/PickMyVoteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/PickMyVoteApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/ElectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/ElectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrgSubscribedUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/controller/OrgSubscribedUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/Election.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/model/Election.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/repository/OrgSubscribedUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/repository/OrgSubscribedUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/OrgSubscribedUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pickMyVote/pickMyVote/service/OrgSubscribedUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/PickMyVoteApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/PickMyVoteApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/ElectionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Election.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/Election.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/repository/RegistrationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +114,8 @@
       <workItem from="1630218865736" duration="2714000" />
       <workItem from="1630433625160" duration="1385000" />
       <workItem from="1630473270986" duration="14131000" />
-      <workItem from="1630653349379" duration="2518000" />
+      <workItem from="1630553230650" duration="9286000" />
+      <workItem from="1630648010381" duration="1219000" />
     </task>
     <servers />
   </component>
