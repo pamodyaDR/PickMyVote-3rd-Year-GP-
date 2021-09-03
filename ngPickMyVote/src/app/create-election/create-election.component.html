@@ -250,7 +250,9 @@
         </table>
 
         <div class="mb-3">
-          <input type="text" [(ngModel)]="voterEmail" placeholder="Voter Email" class="m-2">
+          <input type="text" [(ngModel)]="voterEmail" placeholder="Voter Email" class="m-2"><br>
+          <input type="file" accept=".csv" [(ngModel)]="csvFile" class="m-2">
+          <button mat-stroked-button color="primary" class="m-2" (click)="uploadAndConvertCSVIntoVotersArray(csvFile)">Upload</button>
         </div>
 
         <button mat-stroked-button color="primary" class="m-2" (click)="addVoter(voterEmail)">Add voter</button>

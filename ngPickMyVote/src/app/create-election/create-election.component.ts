@@ -44,6 +44,7 @@ export class CreateElectionComponent implements OnInit {
   newVotersArray : Array<Voter> = [];
   voterEmail : string;
 
+  csvFile : File;
 
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
 
@@ -147,6 +148,10 @@ export class CreateElectionComponent implements OnInit {
 
   deleteVoter(){
     this.newVotersArray.pop();
+  }
+
+  uploadAndConvertCSVIntoVotersArray(csvFile : File){
+
   }
 
   createNewVoters(username:any, password:any){
