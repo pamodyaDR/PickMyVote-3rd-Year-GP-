@@ -5,6 +5,7 @@ import { Candidate } from './candidate';
 import { Election } from './election';
 import { Organization } from './organization';
 import { Payment } from './payment';
+import { Voter } from './voter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,11 @@ export class ElectionService {
   createNewCandidates(username:string,password:string,candidates:Candidate[]):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post<any>("http://localhost:8080/api/v1/createCandidate",candidates,{headers})
+  }
+
+  createNewVoters(username:string,password:string,voters:Voter[]):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/createVoters",voters,{headers})
   }
 
 }

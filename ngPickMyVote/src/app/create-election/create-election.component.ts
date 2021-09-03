@@ -8,6 +8,7 @@ import { Election } from '../election';
 import { Payment } from '../payment';
 import { DatePipe } from '@angular/common';
 import { Candidate } from '../candidate';
+import { Voter } from '../voter.model';
 
 @Component({
   selector: 'app-create-election',
@@ -37,11 +38,12 @@ export class CreateElectionComponent implements OnInit {
   thirdFormGroup: FormGroup;
 
   newCandidatesArray : Array<Candidate> = [];
-  newCandidate : Candidate = new Candidate();
   candidateName : string;
   candidatePosition: string;
 
-  
+  newVotersArray : Array<Voter> = [];
+  voterEmail : string;
+
 
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
 
@@ -128,6 +130,27 @@ export class CreateElectionComponent implements OnInit {
 
   createNewCandidates(username:any, password:any){
     this._service.createNewCandidates(username, password, this.newCandidatesArray).subscribe(data => {
+      console.log(data);
+    },
+    error => console.log(error));
+  }
+
+  //new Voters add functions for the election
+  addVoter(voterEmail : string){
+    let nv = new Voter();
+    nv.emkey = voterEmail;
+    nv.elecID = this.newElecId;
+    nv.count  = 0;
+    this.newVotersArray.push(nv);
+    this.voterEmail = "";
+  }
+
+  deleteVoter(){
+    this.newVotersArray.pop();
+  }
+
+  createNewVoters(username:any, password:any){
+    this._service.createNewVoters(username, password, this.newVotersArray).subscribe(data => {
       console.log(data);
     },
     error => console.log(error));
