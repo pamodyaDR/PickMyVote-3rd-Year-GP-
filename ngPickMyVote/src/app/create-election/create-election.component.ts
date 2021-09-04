@@ -150,8 +150,30 @@ export class CreateElectionComponent implements OnInit {
     this.newVotersArray.pop();
   }
 
-  uploadAndConvertCSVIntoVotersArray(csvFile : File){
+  csvFileUploadListner(event : any){
+    this.csvFile = event.target.files[0]
+  }
 
+  uploadAndConvertCSVIntoVotersArray(){
+    //console.log(this.csvFile)
+    let reader: FileReader = new FileReader()
+    reader.readAsText(this.csvFile)
+    reader.onload = (e) => {
+      let csvData:any = reader.result
+      let emailsInCSV = []
+      emailsInCSV = csvData.split(",")
+      //console.log(emailsInCSV)
+
+      //push data to this.newVotersArray
+      for(var oneEmail of emailsInCSV){
+        //console.log(oneEmail)
+        let nv = new Voter();
+        nv.emkey = oneEmail;
+        nv.elecID = this.newElecId;
+        nv.count  = 0;
+        this.newVotersArray.push(nv);
+      }
+    }
   }
 
   createNewVoters(username:any, password:any){
