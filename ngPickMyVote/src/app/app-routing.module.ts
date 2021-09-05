@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'registration',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
   {path:'edituser/:id',component:EdituserComponent},
-  {path:'organization',component:OrganizationComponent},
+  {path:'organization/:id',component:OrganizationComponent},
   {path:'elections/:id',component:ElectionsComponent},
   {path:'electionshome',component:ElectionshomeComponent},
   {path:'about-us',component:AboutUsComponent},

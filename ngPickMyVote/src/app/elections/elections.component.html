@@ -30,20 +30,20 @@
     
             <button mat-button class="menu-button active">
                 <mat-icon>home</mat-icon>
-                <span><a [routerLink]="['/userprofile/id']">Home</a></span>
+                <span><a (click)="viewHome()">Home</a></span>
             </button>
             <button mat-button class="menu-button">
                 <mat-icon>person</mat-icon>
-                <span><a [routerLink]="['/editprofile']">Profile</a></span>
+                <span><a (click)="viewUser()">Profile</a></span>
             </button>
             <button mat-button class="menu-button">
                 <mat-icon>done</mat-icon>
-                <span><a [routerLink]="['/admin/viewElections']">Elections</a></span>
+                <span><a (click)="viewElection()">Elections</a></span>
             </button>
     
             <button mat-button class="menu-button">
                 <mat-icon>corporate_fare</mat-icon>
-                <span><a [routerLink]="['/admin/viewOrganizations']">Organizations</a></span>
+                <span><a (click)="viewOrganization()">Organizations</a></span>
             </button>
     
             <mat-divider></mat-divider>

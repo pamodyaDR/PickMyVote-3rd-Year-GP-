@@ -55,6 +55,11 @@ export class UserprofileComponent implements OnInit {
 
   }
 
+  viewHome(){
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/userprofile', id]);
+  }
+
   viewUser() {
     const id = this._route.snapshot.params['id'];
     this._router.navigate(['/edituser', id]);
@@ -64,6 +69,12 @@ export class UserprofileComponent implements OnInit {
     const id = this._route.snapshot.params['id'];
     this._router.navigate(['/elections', id]);
   }
+
+  viewOrganization() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/organization', id]);
+  }
+
 
   private getElections() {
     const id = this._route.snapshot.params['id'];
@@ -99,10 +110,7 @@ export class UserprofileComponent implements OnInit {
               }
             )
           }
-          //console.log("KKKKKKKKKKKKK");
-          for(let i = 0; i <= this.elections1.length; i++) {
-            console.log(this.elections1[i]);
-          }
+        
       }
     );
   }

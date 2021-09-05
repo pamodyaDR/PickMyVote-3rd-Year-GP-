@@ -37,6 +37,11 @@ export class ElectionsComponent implements OnInit {
     });
   }
 
+  viewHome(){
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/userprofile', id]);
+  }
+
   viewUser() {
     const id = this._route.snapshot.params['id'];
     this._router.navigate(['/edituser', id]);
@@ -45,6 +50,11 @@ export class ElectionsComponent implements OnInit {
   viewElection() {
     const id = this._route.snapshot.params['id'];
     this._router.navigate(['/elections', id]);
+  }
+
+  viewOrganization() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/organization', id]);
   }
 
   

@@ -36,6 +36,26 @@ export class EdituserComponent implements OnInit {
     
   }
 
+  viewHome(){
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/userprofile', id]);
+  }
+
+  viewUser() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/edituser', id]);
+  }
+
+  viewElection() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/elections', id]);
+  }
+
+  viewOrganization() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/organization', id]);
+  }
+
   updateFname() {
     let resp = this._service.updateUser(this.user.email, this.user.password, this.user);
 
