@@ -116,26 +116,6 @@ export class EdituserComponent implements OnInit {
     console.log(this.otpcode);
   }
 
-  viewHome(){
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/userprofile', id]);
-  }
-
-  viewUser() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/edituser', id]);
-  }
-
-  viewElection() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/elections', id]);
-  }
-
-  viewOrganization() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/organization', id]);
-  }
-
   updateFname() {
 
     const id = this._route.snapshot.params['id'];
