@@ -44,6 +44,7 @@
 
     <mat-sidenav-content>
         <div class="content mat-elevation-z8" style="overflow: auto">
+            <!-- Edit Profile -->
             <div class="topic">
                 <h2>Edit Profile</h2>
             </div><br>
@@ -199,6 +200,220 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Edit Password -->
+            <div class="topic">
+                <h2>Change Password</h2>
+            </div><br>
+            <section class="Form my-2 mx-2 py-5">
+                <div class="container">
+                    <div class="row">
+                        <form #editUser="ngForm" (ngSubmit)="updateFname()">
+
+                            <div class="row" *ngIf="showMsg">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong>User Details Updated!</strong>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">First Name</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center " placeholder="First Name"
+                                                name="f_name" [(ngModel)]="user.f_name" required #f_name="ngModel"
+                                                [class.is-invalid]="f_name.invalid && f_name.touched">
+                                            <small class="text-danger"
+                                                [class.d-none]="f_name.valid || f_name.untouched">First name is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Last Name</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1"
+                                                placeholder="Last Name" name="l_name" [(ngModel)]="user.l_name" required
+                                                #l_name="ngModel" [class.is-invalid]="l_name.invalid && l_name.touched">
+                                            <small class="text-danger"
+                                                [class.d-none]="l_name.valid || l_name.untouched">Last name is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Email</label>
+                                        <div class="col-lg-5">
+                                            <input type="email" class="form-control text-center my-3 p-1"
+                                                placeholder="Email" name="email" [(ngModel)]="user.email" required
+                                                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+                                                [class.is-invalid]="email.invalid && email.touched" disabled>
+                                            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                                                <small class="text-danger" *ngIf="email.errors.required">Email is required
+                                                    field</small>
+                                                <small class="text-danger" *ngIf="email.errors.pattern">Email should be the
+                                                    valid format</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn my-5 mx-2" (click)="sendOTP()"> Send OTP Code</button>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <p>The OTP Code is sent to your email. Please Enter the code.</p>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">OTP Code</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="OTP Code" name="enteredverificationcode"
+                                                [(ngModel)]="user.enteredverificationcode" required #enteredverificationcode="ngModel"
+                                                [class.is-invalid]="enteredverificationcode.invalid && enteredverificationcode.touched">
+                                            <small class="text-danger" [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP Code is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10 d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn my-5 mx-2"
+                                        [routerLink]="['/admin']">Cancel</button>
+                                    <button [disabled]="!user.enteredverificationcode" type="submit" class="btn my-5 mx-2">Update</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Edit Email -->
+            <div class="topic">
+                <h2>Change Email</h2>
+            </div><br>
+            <section class="Form my-2 mx-2 py-5">
+                <div class="container">
+                    <div class="row">
+                        <form #editUser="ngForm" (ngSubmit)="updateFname()">
+
+                            <div class="row" *ngIf="showMsg">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong>User Details Updated!</strong>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">First Name</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center " placeholder="First Name"
+                                                name="f_name" [(ngModel)]="user.f_name" required #f_name="ngModel"
+                                                [class.is-invalid]="f_name.invalid && f_name.touched">
+                                            <small class="text-danger"
+                                                [class.d-none]="f_name.valid || f_name.untouched">First name is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Last Name</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1"
+                                                placeholder="Last Name" name="l_name" [(ngModel)]="user.l_name" required
+                                                #l_name="ngModel" [class.is-invalid]="l_name.invalid && l_name.touched">
+                                            <small class="text-danger"
+                                                [class.d-none]="l_name.valid || l_name.untouched">Last name is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Email</label>
+                                        <div class="col-lg-5">
+                                            <input type="email" class="form-control text-center my-3 p-1"
+                                                placeholder="Email" name="email" [(ngModel)]="user.email" required
+                                                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
+                                                [class.is-invalid]="email.invalid && email.touched" disabled>
+                                            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                                                <small class="text-danger" *ngIf="email.errors.required">Email is required
+                                                    field</small>
+                                                <small class="text-danger" *ngIf="email.errors.pattern">Email should be the
+                                                    valid format</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn my-5 mx-2" (click)="sendOTP()"> Send OTP Code</button>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <p>The OTP Code is sent to your email. Please Enter the code.</p>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">OTP Code</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="OTP Code" name="enteredverificationcode"
+                                                [(ngModel)]="user.enteredverificationcode" required #enteredverificationcode="ngModel"
+                                                [class.is-invalid]="enteredverificationcode.invalid && enteredverificationcode.touched">
+                                            <small class="text-danger" [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP Code is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10 d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn my-5 mx-2"
+                                        [routerLink]="['/admin']">Cancel</button>
+                                    <button [disabled]="!user.enteredverificationcode" type="submit" class="btn my-5 mx-2">Update</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
         </div>
+        
     </mat-sidenav-content>
 </mat-sidenav-container>
