@@ -31,30 +31,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  
 	}
 	
-	@Bean
-	public DaoAuthenticationProvider authProvider() {
-	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-	    authProvider.setUserDetailsService(userDetailsService);
-	    authProvider.setPasswordEncoder(encoder());
-	    return authProvider;
-	}
+//	@Bean
+//	public DaoAuthenticationProvider authProvider() {
+//	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//	    authProvider.setUserDetailsService(userDetailsService);
+//	    authProvider.setPasswordEncoder(encoder());
+//	    return authProvider;
+//	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		//auth.inMemoryAuthentication().withUser("buddhi@gmail.com").password("{noop}123").roles("USER");
-		//auth.userDetailsService(userDetailsService);
-		auth.authenticationProvider(authProvider());
+		auth.userDetailsService(userDetailsService);
+			//.passwordEncoder(encoder());
+		//auth.authenticationProvider(authProvider());
 		
 	}
 	
-//	@Bean
-//    public PasswordEncoder getPasswordEncoder() {
-//        return NoOpPasswordEncoder.getInstance();
-//    }
-	
 	@Bean
-	public PasswordEncoder encoder() {
-	    return new BCryptPasswordEncoder();
-	}
+    public PasswordEncoder getPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+	
+//	@Bean
+//	public PasswordEncoder encoder() {
+//	    return new BCryptPasswordEncoder();
+//	}
 
 }

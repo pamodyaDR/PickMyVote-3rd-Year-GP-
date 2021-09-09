@@ -21,8 +21,6 @@ public class RegistrationService {
     private RegistrationRepository repo;       //object of the RegistrationRepository
     @Autowired
     private JavaMailSender mailSender;
-    @Autowired
-    private PasswordEncoder passwordEncorder;
 
     //take inputs as a User object and then save this object to the database
     public User saveUser(User user, String siteURL)
@@ -76,7 +74,6 @@ public class RegistrationService {
     }
 
     public User fetchUserByEmailAndPassword(String email, String password) {
-    	//String tempPass = passwordEncorder.encode(password);
         return repo.findByEmailAndPassword(email, password);
     }
 

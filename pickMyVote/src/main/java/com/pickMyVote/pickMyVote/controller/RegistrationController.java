@@ -22,14 +22,11 @@ public class RegistrationController {
     @Autowired
     private RegistrationService service;        //object of the RegistrationService
     
-    @Autowired
-    private PasswordEncoder passwordEncorder;
 
     @PostMapping("/registerUser")                       //to map the below method to particular url
     public User registerUser(@RequestBody User user,  HttpServletRequest request) throws MessagingException,Exception {
 
         String tempEmail = user.getEmail();
-        String tempPass = user.getPassword();
         if(tempEmail != null && !"".equals(tempEmail)){
             if(tempEmail != null && !"".equals(tempEmail)) {
                 User userObject = service.fetchUserByEmail(tempEmail);
@@ -40,7 +37,6 @@ public class RegistrationController {
         }
 
         User userObj = null;
-        user.setPassword(passwordEncorder.encode(tempPass));
         userObj = service.saveUser(user,  getSiteURL(request));
         return userObj;
     }
@@ -54,8 +50,6 @@ public class RegistrationController {
     public User getLoggedUser(@RequestBody User user) throws Exception {
         String tempEmail = user.getEmail();      
         String tempPassword = user.getPassword();
-        user.setPassword(passwordEncorder.encode(tempPassword));
-        String encPass = user.getPassword();
         User userObject = service.fetchUserByEmail(tempEmail);
         Integer tempEnabled = userObject.getEnabled();
        //System.out.println(tempEnabled);
@@ -65,7 +59,6 @@ public class RegistrationController {
                throw new Exception("Please Verify your Account.Verification Link has sent to your Email");
             } else {
                 userObj = service.fetchUserByEmail(tempEmail);
-                System.out.println(tempEnabled);
             }
 
         }
