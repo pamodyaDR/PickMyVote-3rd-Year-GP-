@@ -2,3 +2,13 @@
 
 pickMyVote/target/
 pickMyVote/target/classes/com/pickMyVote/pickMyVote/config/SecurityConfig.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/config/SecurityConfig.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/controller/CandidateController.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/controller/OrganizationController.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/controller/RegistrationController.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/controller/TmpVoteController.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/model/Organization.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepository.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/CandidateService.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class
+pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class
