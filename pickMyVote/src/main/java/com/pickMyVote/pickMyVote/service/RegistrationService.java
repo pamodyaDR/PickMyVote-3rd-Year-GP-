@@ -95,6 +95,7 @@ public class RegistrationService {
 
         User user = repo.findByEmail(email);
         user.setF_name(fname);
+        user.setOtpcode(null);
         return repo.save(user);
     }
 
@@ -155,6 +156,13 @@ public class RegistrationService {
     public User updateUserGender(String email, String gender){
         User user = repo.findByEmail(email);
         user.setGender(gender);
+        return repo.save(user);
+    }
+
+    public User changeUserPassword(String email, String newpassword){
+        User user = repo.findByEmail(email);
+        user.setPassword(newpassword);
+        user.setOtpcode(null);
         return repo.save(user);
     }
 

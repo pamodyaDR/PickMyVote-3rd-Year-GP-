@@ -58,6 +58,7 @@ import { RegistrationverifyComponent } from './registrationverify/registrationve
 import { AdminprofileComponent } from './adminprofile/adminprofile.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { DatePipe } from '@angular/common';
+import { NewPasswordValidatorDirective } from './adminprofile/new-password-validator.directive';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { DatePipe } from '@angular/common';
     Votepage4Component,
     Votepage5Component,
     RegistrationverifyComponent,
-    AdminprofileComponent
+    AdminprofileComponent,
+    NewPasswordValidatorDirective
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,8 @@ export class User {
     verificationcode:string;
     otpcode:string;
     enteredverificationcode:string;
+    currentpassword:string;
+    newpassword:string;
     constructor(){}
     
 }

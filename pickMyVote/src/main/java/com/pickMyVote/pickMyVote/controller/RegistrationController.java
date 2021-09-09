@@ -103,6 +103,15 @@ public class RegistrationController {
         return userObj;
     }
 
+
+    //Change user password
+    @PostMapping("/changePassword")
+    public User changePassword(@RequestBody User user) {
+        User userObj = null;
+        userObj = service.changeUserPassword(user.getEmail(), user.getPassword());
+        return userObj;
+    }
+
     @GetMapping("/verify")
     public String verifyUser(@Param("code") String code) {
         System.out.println("Hi controller");

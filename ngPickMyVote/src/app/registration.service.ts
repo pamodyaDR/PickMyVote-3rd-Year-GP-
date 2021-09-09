@@ -50,4 +50,8 @@ export class RegistrationService {
     return this._http.post<any>("http://localhost:8080/sendotp",user,{headers})
   }
 
+  changeUserPassword(username:string,password:string,user:User):Observable<any>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.post<any>("http://localhost:8080/changePassword",user,{headers})
+  }
 }
