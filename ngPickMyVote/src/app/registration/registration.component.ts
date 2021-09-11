@@ -3,6 +3,7 @@ import { NgForm} from '@angular/forms'
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
+import { EncrDecrServiceService } from '../services/encr-decr-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -24,7 +25,7 @@ export class RegistrationComponent implements OnInit {
 
   roles = "ROLE_USER";
 
-  constructor(private _service: RegistrationService, private _router : Router) { }
+  constructor(private _service: RegistrationService, private _router : Router, private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
     this.user.roles = "ROLE_USER";
@@ -51,6 +52,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser() {
+
+    var enc_pass = this.EncrDecr.hash(this.user.password);
+    this.user.password = enc_pass;
+
     this.step = this.step +1;
     console.log("Next");
     console.log(this.step);

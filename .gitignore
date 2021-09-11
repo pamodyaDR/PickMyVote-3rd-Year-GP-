@@ -12,3 +12,4 @@ pickMyVote/target/classes/com/pickMyVote/pickMyVote/repository/ElectionRepositor
 pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/CandidateService.class
 pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/ElectionService.class
 pickMyVote/target/classes/com/pickMyVote/pickMyVote/service/RegistrationService.class
+*.class
