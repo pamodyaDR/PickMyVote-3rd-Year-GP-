@@ -53,8 +53,7 @@ export class RegistrationComponent implements OnInit {
 
   registerUser() {
 
-    var enc_pass = this.EncrDecr.hash(this.user.password);
-    this.user.password = enc_pass;
+    
 
     this.step = this.step +1;
     console.log("Next");
@@ -62,6 +61,10 @@ export class RegistrationComponent implements OnInit {
     
     if(this.step == 4){
 
+      var enc_pass = this.EncrDecr.hash(this.user.password);
+    this.user.password = enc_pass;
+
+    console.log(this.user.password);
       this._service.registerUserFromRemote(this.user).subscribe(
         data => {
           console.log("Response receive");
