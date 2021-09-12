@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RegistrationService } from '../registration.service';
+import { EncrDecrServiceService } from '../services/encr-decr-service.service';
 import { User } from '../user';
 
 @Component({
@@ -39,7 +40,7 @@ export class AdminprofileComponent implements OnInit {
 
   otpcode = '';
 
-  constructor(private _service: RegistrationService, private observer: BreakpointObserver, private _router: Router, private _route: ActivatedRoute) { }
+  constructor(private _service: RegistrationService, private observer: BreakpointObserver, private EncrDecr: EncrDecrServiceService, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
     //check browser session for admin login
@@ -111,7 +112,14 @@ export class AdminprofileComponent implements OnInit {
 
   sendOTPToChangePswd() {
 
-    if(this.user.password != this.user.currentpassword) {
+    var enc_pass_curr = this.EncrDecr.hash(this.user.currentpassword);
+    
+    console.log("this.user.password");
+    console.log(this.user.password);
+    console.log("this.user.currentpassword");
+    console.log(enc_pass_curr);
+
+    if(this.user.password != enc_pass_curr) {
       this.showMsgError = true;
       console.log("Invalid Current Password!");
     
@@ -202,7 +210,7 @@ export class AdminprofileComponent implements OnInit {
       console.log("Correct OTP");
 
       const pswd = this.user.password;
-      this.user.password = this.user.newpassword;
+      this.user.password = this.EncrDecr.hash(this.user.newpassword);
       console.log(this.user.password);
 
       let resp = this._service.changeUserPassword(this.user.email, pswd, this.user);
