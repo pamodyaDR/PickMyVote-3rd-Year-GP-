@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
+import { EncrDecrServiceService } from '../services/encr-decr-service.service';
 import { User } from '../user';
 
 
@@ -20,9 +21,19 @@ export class LoginComponent implements OnInit {
   password!: string;
   message: any
 
-  constructor(private _service: RegistrationService, private _router: Router) { }
+  constructor(private _service: RegistrationService, private _router: Router, private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
+
+    // var encrypted = this.EncrDecr.set('123456$#@$^@1ERF', 'password@123456');
+    // var decrypted = this.EncrDecr.get('123456$#@$^@1ERF', encrypted);
+
+    // console.log('Encrypted :' + encrypted);
+    // console.log('Encrypted :' + decrypted);
+
+    // var enc = this.EncrDecr.hash('pass123');
+    // console.log(this.EncrDecr.hash('pass123'));
+
   }
 
   loginUser() {
@@ -51,6 +62,10 @@ export class LoginComponent implements OnInit {
 
 
   doLogin() {
+
+    var enc_pass = this.EncrDecr.hash(this.user.password);
+    this.user.password = enc_pass;
+    console.log(this.user.password);
     let resp = this._service.login(this.user.email, this.user.password, this.user);
 
     resp.subscribe(
@@ -58,29 +73,46 @@ export class LoginComponent implements OnInit {
         this.userDetails = res;
         console.log(this.userDetails);
         console.log(this.userDetails.f_name);
-      }
-    )
-
-    resp.subscribe(
-      data => {
-        this.message = data;
+        sessionStorage.setItem('session_uid', this.userDetails.id.toString());
         sessionStorage.setItem('session_username', this.userDetails.email);
         sessionStorage.setItem('session_password', this.userDetails.password);
         sessionStorage.setItem('user_role', this.userDetails.roles);
 
         if (sessionStorage.getItem('user_role') == "ROLE_USER") {
           this._router.navigate(['/userprofile/', this.userDetails.id])
-        } else if(sessionStorage.getItem('user_role') == "ROLE_ADMIN") {
+        } else if (sessionStorage.getItem('user_role') == "ROLE_ADMIN") {
           this._router.navigate(['/admin']);
         }
-
       },
-
       error => {
-        console.log("Exception Occured");
-        this.msg = "Bad credentials. Please enter the valid email and password."
-      }
-    );
+            console.log("Exception Occured");
+            this.user.password="";
+            this.msg = "Bad credentials. Please enter the valid email and password."
+          }
+
+    )
+
+    // resp.subscribe(
+    //   data => {
+    //     this.message = data;
+    //     sessionStorage.setItem('session_username', this.userDetails.email);
+    //     sessionStorage.setItem('session_password', this.userDetails.password);
+    //     //console.log(sessionStorage.getItem('session_password'));
+    //     sessionStorage.setItem('user_role', this.userDetails.roles);
+
+    //     if (sessionStorage.getItem('user_role') == "ROLE_USER") {
+    //       this._router.navigate(['/userprofile/', this.userDetails.id])
+    //     } else if(sessionStorage.getItem('user_role') == "ROLE_ADMIN") {
+    //       this._router.navigate(['/admin']);
+    //     }
+
+    //   },
+
+    //   error => {
+    //     console.log("Exception Occured");
+    //     this.msg = "Bad credentials. Please enter the valid email and password."
+    //   }
+    // );
   }
 
 }

@@ -13,10 +13,14 @@ export class ElectionsComponent implements OnInit {
   sidenav!: MatSidenav;
   observer: any;
 
+  email = sessionStorage.getItem('session_username');
+
   constructor(private _router : Router, private _route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-
+    if(!this.email){
+          this._router.navigate(['/login'])
+        }
   }
 
   goToCreateElection() {

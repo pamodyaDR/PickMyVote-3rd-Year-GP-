@@ -1,13 +1,17 @@
-<mat-toolbar>
-    <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
-    <span class="navbarselections"></span>
+<mat-toolbar class="mat-elevation-z8">
 
-    <!-- <a class="linkstyle" [routerLink]="['/login']">Sign In</a> -->
-    <div class="topnav">
-        <a class="active" [routerLink]="['/']">Log Out</a>
-        <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt="" style="width: 20px; height: 20px;"></a>
-        <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt="" style="width: 20px; height: 20px;"></a>
-        <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt="" style="width: 20px; height: 20px;"></a>
-      </div>
+  <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
+  <span class="navbarselections"></span>
 
+  <div class="topnav">
+      <a class="active" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+      </a>
+      <!-- <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt=""
+              style="width: 20px; height: 20px;"></a>
+      <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
+              style="width: 20px; height: 20px;"></a>
+      <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
+              style="width: 20px; height: 20px;"></a> -->
+  </div>
 </mat-toolbar>
