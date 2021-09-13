@@ -23,20 +23,20 @@
 
         <button mat-button class="menu-button active">
             <mat-icon>home</mat-icon>
-            <span><a (click) = "viewHome()">Home</a></span>
+            <span><a (click)="viewHome()">Home</a></span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>person</mat-icon>
-            <span><a (click) = "viewUser()">Profile</a></span>
+            <span><a (click)="viewUser()">Profile</a></span>
         </button>
         <button mat-button class="menu-button">
             <mat-icon>done</mat-icon>
-            <span><a (click) = "viewElection()">Elections</a></span>
+            <span><a (click)="viewElection()">Elections</a></span>
         </button>
 
         <button mat-button class="menu-button">
             <mat-icon>corporate_fare</mat-icon>
-            <span><a (click) = "viewOrganization()">Organizations</a></span>
+            <span><a (click)="viewOrganization()">Organizations</a></span>
         </button>
 
         <mat-divider></mat-divider>
@@ -51,23 +51,25 @@
                 <div class="container">
                     <div class="row">
                         <form #editUser="ngForm" (ngSubmit)="updateFname()">
-    
+
                             <div class="row" *ngIf="showMsg">
                                 <div class="col-xs-12">
                                     <p class="alert alert-success">
                                         <strong>User Details Updated!</strong>
-    
+
                                     </p>
                                 </div>
                             </div>
-    
+
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label class="col-lg-2 col-form-label my-3 p-1">First Name</label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control text-center " placeholder="First Name"
-                                                name="f_name" [(ngModel)]="user.f_name" required #f_name="ngModel"
+                                            <input type="text" class="form-control text-center "
+                                                placeholder="First Name" name="f_name" [(ngModel)]="user.f_name"
+                                                required #f_name="ngModel"
                                                 [class.is-invalid]="f_name.invalid && f_name.touched">
                                             <small class="text-danger"
                                                 [class.d-none]="f_name.valid || f_name.untouched">First name is required
@@ -76,10 +78,11 @@
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label class="col-lg-2 col-form-label my-3 p-1">Last Name</label>
                                         <div class="col-lg-5">
                                             <input type="text" class="form-control text-center my-3 p-1"
@@ -92,10 +95,11 @@
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label class="col-lg-2 col-form-label my-3 p-1">Email</label>
                                         <div class="col-lg-5">
                                             <input type="email" class="form-control text-center my-3 p-1"
@@ -103,19 +107,22 @@
                                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel"
                                                 [class.is-invalid]="email.invalid && email.touched" disabled>
                                             <div *ngIf="email.errors && (email.invalid && email.touched)">
-                                                <small class="text-danger" *ngIf="email.errors.required">Email is required
+                                                <small class="text-danger" *ngIf="email.errors.required">Email is
+                                                    required
                                                     field</small>
-                                                <small class="text-danger" *ngIf="email.errors.pattern">Email should be the
+                                                <small class="text-danger" *ngIf="email.errors.pattern">Email should be
+                                                    the
                                                     valid format</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label class="col-lg-2 col-form-label my-3 p-1">Contact Number</label>
                                         <div class="col-lg-5">
                                             <input type="tel" class="form-control text-center my-3 p-1"
@@ -123,26 +130,31 @@
                                                 [(ngModel)]="user.contact_num" required pattern="[0-9]{10,13}"
                                                 #contact_num="ngModel"
                                                 [class.is-invalid]="contact_num.invalid && contact_num.touched">
-                                            <div *ngIf="contact_num.errors && (contact_num.invalid && contact_num.touched)">
+                                            <div
+                                                *ngIf="contact_num.errors && (contact_num.invalid && contact_num.touched)">
                                                 <small class="text-danger" *ngIf="contact_num.errors.required">Contact
                                                     number is required field</small>
-                                                <small class="text-danger" *ngIf="contact_num.errors.pattern">Contavt number
+                                                <small class="text-danger" *ngIf="contact_num.errors.pattern">Contavt
+                                                    number
                                                     should be the valid format</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label for="dob" class="col-lg-2 col-form-label my-3 p-1">Date of Birth</label>
                                         <div class="col-lg-5">
-                                            <input type="date" max="{{maxDate}}" class="form-control text-center my-3 p-1"
-                                                placeholder="Date of Birth" id="dob" name="dob" [(ngModel)]="user.dob" required
-                                                #dob="ngModel" [class.is-invalid]="dob.invalid && dob.touched">
-                                            <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date of
+                                            <input type="date" max="{{maxDate}}"
+                                                class="form-control text-center my-3 p-1" placeholder="Date of Birth"
+                                                id="dob" name="dob" [(ngModel)]="user.dob" required #dob="ngModel"
+                                                [class.is-invalid]="dob.invalid && dob.touched">
+                                            <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date
+                                                of
                                                 birth is required field</small>
                                         </div>
                                     </div>
@@ -151,13 +163,16 @@
 
                             <div class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label for="dob" class="col-lg-2 col-form-label my-3 p-1">Country</label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="Country" name="country"
-                                                [(ngModel)]="user.country" required #country="ngModel"
+                                            <input type="text" class="form-control text-center my-3 p-1"
+                                                placeholder="Country" name="country" [(ngModel)]="user.country" required
+                                                #country="ngModel"
                                                 [class.is-invalid]="country.invalid && country.touched">
-                                            <small class="text-danger" [class.d-none]="country.valid || country.untouched">Country is required
+                                            <small class="text-danger"
+                                                [class.d-none]="country.valid || country.untouched">Country is required
                                                 field</small>
                                         </div>
                                     </div>
@@ -174,16 +189,29 @@
 
                             <div *ngIf="isShown" class="form-row d-flex justify-content-center align-items-center">
                                 <div class="col-lg-10">
-                                    <div class="form-group row form-row d-flex justify-content-center align-items-center">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
                                         <label for="dob" class="col-lg-2 col-form-label my-3 p-1">OTP Code</label>
                                         <div class="col-lg-5">
-                                            <input type="text" class="form-control text-center my-3 p-1" placeholder="OTP Code" name="enteredverificationcode"
-                                                [(ngModel)]="user.enteredverificationcode" required #enteredverificationcode="ngModel"
+                                            <input type="text" class="form-control text-center my-3 p-1"
+                                                placeholder="OTP Code" name="enteredverificationcode"
+                                                [(ngModel)]="user.enteredverificationcode" required
+                                                #enteredverificationcode="ngModel"
                                                 [class.is-invalid]="enteredverificationcode.invalid && enteredverificationcode.touched">
-                                            <small class="text-danger" [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP Code is required
+                                            <small class="text-danger"
+                                                [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP
+                                                Code is required
                                                 field</small>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row" *ngIf="errorOTPProfile">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong class="text-danger">Invalid OTP</strong>
+                                    </p>
                                 </div>
                             </div>
 
@@ -191,14 +219,179 @@
                                 <div class="col-lg-10 d-flex justify-content-center align-items-center">
                                     <button type="button" class="btn my-5 mx-2"
                                         [routerLink]="['/admin']">Cancel</button>
-                                    <button [disabled]="!user.enteredverificationcode" type="submit" class="btn my-5 mx-2">Update</button>
+                                    <button [disabled]="!user.enteredverificationcode" type="submit"
+                                        class="btn my-5 mx-2">Update</button>
                                 </div>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>
             </section>
+
+            <!-- Change Password -->
+            <div class="topic">
+                <h2>Change Password</h2>
+            </div><br>
+            <section class="Form my-2 mx-2 py-5">
+                <div class="container">
+                    <div class="row">
+                        <form #changePswd="ngForm" (ngSubmit)="changePassword()" appNewPasswordValidator>
+
+                            <div class="row" *ngIf="showMsg2">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong>Password changed successfully!</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Current Password</label>
+                                        <div class="col-lg-5">
+                                            <div class="input-group">
+                                                <input type="password" class="form-control text-center my-3 p-1"
+                                                    placeholder="Current Password" name="currentpassword"
+                                                    [(ngModel)]="user.currentpassword" required
+                                                    #currentpassword="ngModel" id="currentpassword"
+                                                    [class.is-invalid]="currentpassword.invalid && currentpassword.touched">
+                                            </div>
+
+                                            <div
+                                                *ngIf="currentpassword.errors && (currentpassword.invalid && currentpassword.touched)">
+                                                <small class="text-danger"
+                                                    *ngIf="currentpassword.errors.required">Current Password is required
+                                                    field</small>
+                                                <!-- <small class="text-danger" *ngIf="password.errors.pattern">Password should be
+                                        atleast 8 characters
+                                        long including at least one uppercase letter,
+                                        one lowercase letter, one number and one special character.
+                                    </small> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">New Password</label>
+                                        <div class="col-lg-5">
+                                            <div class="input-group">
+                                                <input type="password" class="form-control text-center my-3 p-1"
+                                                    placeholder="New Password" name="newpassword"
+                                                    [(ngModel)]="user.newpassword" required
+                                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                                                    #newpassword="ngModel" id="newpassword"
+                                                    [class.is-invalid]="newpassword.invalid && newpassword.touched">
+                                            </div>
+
+                                            <div
+                                                *ngIf="newpassword.errors && (newpassword.invalid && newpassword.touched)">
+                                                <small class="text-danger" *ngIf="newpassword.errors.required">New
+                                                    Password is required
+                                                    field</small>
+                                                <small class="text-danger" *ngIf="newpassword.errors.pattern">New
+                                                    Password should be
+                                                    atleast 8 characters
+                                                    long including at least one uppercase letter,
+                                                    one lowercase letter, one number and one special character.
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label class="col-lg-2 col-form-label my-3 p-1">Confirm New Password</label>
+                                        <div class="col-lg-5">
+                                            <input type="password" class="form-control text-center my-3 p-1"
+                                                placeholder="Confirm New Password" name="cpassword"
+                                                (ngModel)="user.newpassword" required #cpassword="ngModel"
+                                                [class.is-invalid]="cpassword.invalid && cpassword.touched">
+                                            <div *ngIf="cpassword.errors && (cpassword.invalid && cpassword.touched)">
+                                                <small class="text-danger" *ngIf="cpassword.errors.required">Confirm New
+                                                    Password is
+                                                    required
+                                                    field</small>
+                                                <small class="text-danger"
+                                                    *ngIf="cpassword.errors.compareFieldValodator">New Password and
+                                                    Confirm
+                                                    New Password must be the same</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" *ngIf="showMsgError">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong class="text-danger">Invalid Current Password!</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn my-5 mx-2" (click)="sendOTPToChangePswd()"> Send OTP
+                                    Code</button>
+                            </div>
+
+                            <div *ngIf="isShown2" class="form-row d-flex justify-content-center align-items-center">
+                                <p>The OTP Code is sent to your email. Please Enter the code.</p>
+                            </div>
+
+                            <div *ngIf="isShown2" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10">
+                                    <div
+                                        class="form-group row form-row d-flex justify-content-center align-items-center">
+                                        <label for="dob" class="col-lg-2 col-form-label my-3 p-1">OTP Code</label>
+                                        <div class="col-lg-5">
+                                            <input type="text" class="form-control text-center my-3 p-1"
+                                                placeholder="OTP Code" name="enteredverificationcode"
+                                                [(ngModel)]="user.enteredverificationcode" required
+                                                #enteredverificationcode="ngModel"
+                                                [class.is-invalid]="enteredverificationcode.invalid && enteredverificationcode.touched">
+                                            <small class="text-danger"
+                                                [class.d-none]="enteredverificationcode.valid || enteredverificationcode.untouched">OTP
+                                                Code is required
+                                                field</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" *ngIf="errorOTPPswd">
+                                <div class="col-xs-12">
+                                    <p class="alert alert-success">
+                                        <strong class="text-danger">Invalid OTP</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div *ngIf="isShown2" class="form-row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-10 d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn my-5 mx-2"
+                                        [routerLink]="['/admin']">Cancel</button>
+                                    <button [disabled]="!user.enteredverificationcode" type="submit"
+                                        class="btn my-5 mx-2">Update</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

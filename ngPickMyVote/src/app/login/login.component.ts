@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   password!: string;
   message: any
 
+  ischangedpsw : boolean = false;
+
   constructor(private _service: RegistrationService, private _router: Router, private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
@@ -33,6 +35,11 @@ export class LoginComponent implements OnInit {
 
     // var enc = this.EncrDecr.hash('pass123');
     // console.log(this.EncrDecr.hash('pass123'));
+
+    if(sessionStorage.getItem('ispswdchanged') == 'Password Changed Successfully!') {
+      this.ischangedpsw = true;
+    }
+
 
   }
 
@@ -67,6 +74,7 @@ export class LoginComponent implements OnInit {
     this.user.password = enc_pass;
     console.log(this.user.password);
     let resp = this._service.login(this.user.email, this.user.password, this.user);
+    this.ischangedpsw = false;
 
     resp.subscribe(
       res => {

@@ -1,6 +1,15 @@
 <app-navbar></app-navbar>
 
 <section class="Form my-2 mx-2 py-5">
+
+  <div class="row" *ngIf="ischangedpsw">
+    <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong class="text-danger">Password Changed Successfully!</strong>
+        </p>
+    </div>
+  </div>
+
   <div class="container">
     <div class="row rowshadow">
       <div class="col-lg-5 lCol">

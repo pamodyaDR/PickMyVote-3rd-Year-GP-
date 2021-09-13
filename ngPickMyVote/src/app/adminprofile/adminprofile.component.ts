@@ -20,6 +20,8 @@ export class AdminprofileComponent implements OnInit {
   password = sessionStorage.getItem('session_password');
   uRole = sessionStorage.getItem('user_role');
 
+  ispswdchanged = 'Password Changed Successfully!';
+
   user = new User;
   user2 = new User;
   msg = '';
@@ -108,6 +110,14 @@ export class AdminprofileComponent implements OnInit {
       }
     );
     console.log(this.otpcode);
+
+    this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
+      res => {
+        this.user2 = res;
+        console.log("this.user2");
+        console.log(this.user2);
+      }
+    )
   }
 
   sendOTPToChangePswd() {
@@ -135,6 +145,14 @@ export class AdminprofileComponent implements OnInit {
       console.log("Valid Current Password.");
       console.log(this.otpcode);
     }
+
+    this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
+      res => {
+        this.user2 = res;
+        console.log(this.user2);
+      }
+    )
+    
   }
 
   sendOTPToChangeEmail() {
@@ -143,16 +161,13 @@ export class AdminprofileComponent implements OnInit {
 
   updateFname() {
 
-    this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
-      res => {
-        this.user2 = res;
-        console.log(this.user2);
-      }
-    )
-
     if (this.user.enteredverificationcode != this.user2.otpcode) {
       this.errorOTPProfile = true;
       console.log("Invalid OTP code!");
+      console.log("enteredverificationcode");
+      console.log(this.user.enteredverificationcode);
+      console.log("otpcode");
+      console.log(this.user2.otpcode);
 
     } else {
       console.log("Correct OTP");
@@ -195,13 +210,6 @@ export class AdminprofileComponent implements OnInit {
 
   changePassword() {
 
-    this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
-      res => {
-        this.user2 = res;
-        console.log(this.user2);
-      }
-    )
-
     if (this.user.enteredverificationcode != this.user2.otpcode) {
       this.errorOTPPswd = true;
       console.log("Invalid OTP code!");
@@ -225,6 +233,8 @@ export class AdminprofileComponent implements OnInit {
           this.errorOTPPswd = false;
           this.isShown2 = false;
           this.user.enteredverificationcode = '';
+          sessionStorage.setItem('ispswdchanged', this.ispswdchanged);
+          this._router.navigate(['/login']);
           
         },
 
