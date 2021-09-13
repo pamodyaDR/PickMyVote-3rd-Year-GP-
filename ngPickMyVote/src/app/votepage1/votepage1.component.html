@@ -7,21 +7,25 @@
             <app-sidenav></app-sidenav>
         </div>
         <div class="col-lg-8">
-           <p class="p1">Election >>> Vote for an Election >>> Step 1</p>
+           <p class="p1">Election >>> Vote for an Election >>> Authentication</p>
            <img src="./assets/img/1progress.png" alt="Progress bar" style="width: 780px; height: 70px; padding-left: 30px;">
            
-           <p class="p2">Click below button to send the verification code to your email</p> 
+           <p class="p2">If you are invited person to an election then you have a mail with authentication details for election.</p> 
 
-           <div class="btn1">
+           <!-- <div class="btn1">
                 <button class="button" type="submit">Submit</button>
-           </div>
+           </div> -->
 
-           <p class="p2"> Enter the verification code of the Election</p> 
+           <p class="p2"> Enter the Election ID</p> 
            <div class="input1">
-                <input type="text" class="form-control text-center my-3 p-1" placeholder="Enter Verification Code" name="">
+                <input type="text" class="form-control text-center my-3 p-1" placeholder="Election ID" name="electID">
+           </div>
+           <p class="p2"> Enter the Private Key</p> 
+           <div class="input1">
+                <input type="text" class="form-control text-center my-3 p-1" placeholder="Private Key" name="prvKey">
            </div>
 
-           <p class="p3"> *Please enter the verification code which is sent by your organization</p> 
+           <p class="p3"> *If you haven't feed with these details please contact you organization staff.</p> 
            
            <div class="btn1">
                 <button class="button" type="submit" [routerLink]="['/votepage2']">Verify</button>
