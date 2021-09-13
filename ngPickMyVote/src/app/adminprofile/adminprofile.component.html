@@ -128,7 +128,7 @@
                                         <div class="col-lg-5">
                                             <input type="tel" class="form-control text-center my-3 p-1"
                                                 placeholder="Contact Number" name="contact_num"
-                                                [(ngModel)]="user.contact_num" required pattern="[0-9]{10,13}"
+                                                [(ngModel)]="user.contact_num" required pattern="[0-9]{9,13}"
                                                 #contact_num="ngModel"
                                                 [class.is-invalid]="contact_num.invalid && contact_num.touched">
                                             <div
@@ -220,7 +220,7 @@
                                 <div class="col-lg-10 d-flex justify-content-center align-items-center">
                                     <button type="button" class="btn my-5 mx-2"
                                         [routerLink]="['/admin']">Cancel</button>
-                                    <button [disabled]="!user.enteredverificationcode" type="submit"
+                                    <button [disabled]="editUser.form.invalid" type="submit"
                                         class="btn my-5 mx-2">Update</button>
                                 </div>
                             </div>
@@ -371,7 +371,7 @@
                                 <div class="col-lg-10 d-flex justify-content-center align-items-center">
                                     <button type="button" class="btn my-5 mx-2"
                                         [routerLink]="['/admin']">Cancel</button>
-                                    <button [disabled]="!user.enteredverificationcode" type="submit"
+                                    <button [disabled]="changePswd.form.invalid" type="submit"
                                         class="btn my-5 mx-2">Update</button>
                                 </div>
                             </div>
