@@ -93,6 +93,11 @@ export class EdituserComponent implements OnInit {
     this._router.navigate(['/organizations', id]);
   }
 
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
+  }
+
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {

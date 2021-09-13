@@ -61,6 +61,11 @@ export class ElectionsComponent implements OnInit {
     this._router.navigate(['/organization', id]);
   }
 
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
+  }
+
   
   }
 
