@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Votepage1Component implements OnInit {
 
+  electionID: Number;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  nextStep(){
+    
   }
 
 }

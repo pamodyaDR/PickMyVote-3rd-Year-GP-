@@ -11,8 +11,8 @@ import { Votes } from './votes';
 export class VoteService {
 
   constructor(private httpclient: HttpClient) { }
-  getElectionDetails(username:any,password:any,votes:Votes):Observable<any>{
+  getElectionDetails(username:any,password:any,id:Number):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpclient.get<Votes>("http://localhost:8080//vote/{elec_id}",{headers});
+    return this.httpclient.get<Votes>("http://localhost:8080/vote/"+id,{headers});
   }
 }

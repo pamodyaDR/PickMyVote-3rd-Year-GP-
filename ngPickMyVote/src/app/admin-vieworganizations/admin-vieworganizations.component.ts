@@ -58,4 +58,9 @@ export class AdminVieworganizationsComponent implements OnInit {
     );
   }
 
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
+  }
+  
 }

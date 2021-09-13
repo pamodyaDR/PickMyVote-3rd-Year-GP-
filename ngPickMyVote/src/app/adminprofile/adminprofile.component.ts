@@ -247,6 +247,11 @@ export class AdminprofileComponent implements OnInit {
 
   }
 
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
+  }
+
   changeEmail() {
 
   }

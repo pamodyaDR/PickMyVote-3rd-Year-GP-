@@ -20,6 +20,7 @@ import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
 import { Votes } from '../votes';
 import { VoteService } from '../vote.service';
+import { Election } from '../election';
 
 @Component({
   selector: 'app-votepage2',
@@ -36,7 +37,7 @@ export class Votepage2Component implements OnInit {
   email = sessionStorage.getItem('session_username');
   password = sessionStorage.getItem('session_password');
   msg = '';
-  userDetails: Votes = <Votes>{};
+  electionData = new Election;
   message: any
   showMsg: boolean = false;
 
@@ -52,8 +53,10 @@ export class Votepage2Component implements OnInit {
     }
 
 
-    this.voteService.getElectionDetails(this.email,this.password,this.votes).subscribe(
-      res => {this.votes =res;
+    this.voteService.getElectionDetails(this.email,this.password,id).subscribe(
+      res => {
+        this.electionData =res;
+        console.log(this.electionData);
       } 
     )
   }

@@ -68,6 +68,11 @@ export class AdminViewelectionsComponent implements OnInit {
     );
   }
 
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
+  }
+
   // private getOrgName(){
   //   let id = 1;
   //   for(let i = 0; i <= this.elections.length; i++) {
