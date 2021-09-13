@@ -24,6 +24,7 @@ export class AdminprofileComponent implements OnInit {
 
   user = new User;
   user2 = new User;
+  user3 = new User;
   msg = '';
   userDetails: User = <User>{};
   message: any
@@ -148,11 +149,12 @@ export class AdminprofileComponent implements OnInit {
 
     this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
       res => {
-        this.user2 = res;
-        console.log(this.user2);
+        this.user3 = res;
+        console.log("this.user3");
+        console.log(this.user3);
       }
     )
-    
+
   }
 
   sendOTPToChangeEmail() {
@@ -210,7 +212,7 @@ export class AdminprofileComponent implements OnInit {
 
   changePassword() {
 
-    if (this.user.enteredverificationcode != this.user2.otpcode) {
+    if (this.user.enteredverificationcode != this.user3.otpcode) {
       this.errorOTPPswd = true;
       console.log("Invalid OTP code!");
 
