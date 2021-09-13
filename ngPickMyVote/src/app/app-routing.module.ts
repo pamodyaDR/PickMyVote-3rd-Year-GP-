@@ -42,7 +42,7 @@ const routes: Routes = [
   {path:'admin/viewElections', component:AdminViewelectionsComponent},
   {path:'admin/viewOrganizations', component:AdminVieworganizationsComponent},
   {path:'votepage1',component:Votepage1Component},
-  {path:'votepage2',component:Votepage2Component},
+  {path:'votepage2/:id',component:Votepage2Component},
   {path:'votepage3',component:Votepage3Component},
   {path:'votepage4',component:Votepage4Component},
   {path:'votepage5',component:Votepage5Component},
