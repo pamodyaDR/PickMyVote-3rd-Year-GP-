@@ -3,7 +3,7 @@
 <mat-stepper #stepper class="m-4">
     <!--1st Form group-->
     <mat-step [stepControl]="firstFormGroup" errorMessage="Organization is required.">
-      <form [formGroup]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" class="mx-auto" style="width: 600px;">
         <ng-template matStepLabel>Choose organization</ng-template>
         <mat-form-field appearance="fill">
             <mat-label>Select Organization</mat-label>
@@ -16,7 +16,7 @@
         <br><br>
       </form>
 
-      <form>
+      <form class="mx-auto" style="width: 600px;">
         <p>If required organization haven't in the list. please create new organization for that.</p>
         <div>          
           <mat-form-field appearance="fill">            
@@ -40,7 +40,7 @@
       </form>
 
       <br><br>
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <p>Click Next Button to go to next step</p>
         <button mat-raised-button color="primary" class="m-2" matStepperNext>Next</button>
       </div>
@@ -48,7 +48,7 @@
 
     <!-- 2nd form group -->
     <mat-step [stepControl]="secondFormGroup" errorMessage="Election type is required.">
-      <form [formGroup]="secondFormGroup">
+      <form [formGroup]="secondFormGroup" class="mx-auto" style="width: 600px;">
         <ng-template matStepLabel>Select an election type</ng-template>
 
         <!--
@@ -85,7 +85,7 @@
 
     <!--Third form group-->
     <mat-step [stepControl]="thirdFormGroup" errorMessage="Filling election details is required.">
-      <form [formGroup]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup" class="mx-auto" style="width: 600px;">
         <ng-template matStepLabel>Fill the election details</ng-template>
 
         
@@ -132,10 +132,10 @@
     <!-- Fourth group of stepper payment -->
     <mat-step>
       <ng-template matStepLabel>Payment</ng-template>
-      <p>Pay the election payment</p>
-      <p>Enter your card informaion</p>
+      <p class="mx-auto" style="width: 600px;">Pay the election payment</p>
+      <p class="mx-auto" style="width: 600px;">Enter your card informaion</p>
 
-      <form>
+      <form class="mx-auto" style="width: 600px;">
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
 
           <mat-button-toggle value="viza">
@@ -173,7 +173,7 @@
         </div>
       </form>
 
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <button mat-raised-button color="primary" class="m-2" matStepperPrevious>Back</button>
         <button mat-raised-button color="primary" class="m-2" (click)="createNewPayment(username,password)" matStepperNext>Pay</button>
         <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
@@ -183,9 +183,9 @@
     <!-- sixth step of stepper add the voters email -->
     <mat-step>
       <ng-template matStepLabel>Add candidates</ng-template>
-      <p>Add candidates details</p>
+      <p class="mx-auto" style="width: 600px;">Add candidates details</p>
 
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <table class="table table-striped table-bordered w-50">
           <thead>
             <tr>
@@ -218,7 +218,7 @@
         <button mat-stroked-button color="primary" class="m-2" (click)="deleteCandidte()">Delete candidate</button>
       </div>
 
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <button mat-raised-button color="primary" class="m-2" matStepperPrevious>Back</button>
         <button mat-raised-button color="primary" class="m-2" (click)="createNewCandidates(username,password)" matStepperNext>Next</button>
       </div>
@@ -227,9 +227,9 @@
     <!-- sixth step of stepper add the voters email -->
     <mat-step>
       <ng-template matStepLabel>Add voters</ng-template>
-      <p>Add voters Emails</p>
+      <p class="mx-auto" style="width: 600px;">Add voters Emails</p>
 
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <table class="table table-striped table-bordered w-50">
           <thead>
             <tr>
@@ -259,7 +259,7 @@
         <button mat-stroked-button color="primary" class="m-2" (click)="deleteVoter()">Delete voter</button>
       </div>
 
-      <div>
+      <div class="mx-auto" style="width: 600px;">
         <button mat-raised-button color="primary" class="m-2" matStepperPrevious>Back</button>
         <button mat-raised-button color="primary" class="m-2" (click)="createNewVoters(username,password)" matStepperNext>Finish</button>
       </div>
