@@ -53,12 +53,16 @@ export class Votepage2Component implements OnInit {
     }
 
 
-    this.voteService.getElectionDetails(this.email,this.password,id).subscribe(
-      res => {
-        this.electionData =res;
-        console.log(this.electionData);
-      } 
-    )
+   
+      this.voteService.getElectionDetails(this.email,this.password,id).subscribe(
+        res => {
+          this.electionData =res;
+          console.log(this.electionData);
+        } 
+      )
+   
+
+    
   }
 
   // private getVotes(){
