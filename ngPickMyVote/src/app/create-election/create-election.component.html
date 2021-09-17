@@ -21,7 +21,7 @@
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
               <mat-panel-title>
-                If required organization haven't in above list. Create a new organization.
+                If required organization haven't in the above list. Create a new organization.
               </mat-panel-title>
               <mat-panel-description>
                 
@@ -265,6 +265,7 @@
           <button mat-stroked-button color="primary" class="m-2" (click)="addVoter(voterEmail)">Add voter</button>
           <button mat-stroked-button color="primary" class="m-2" (click)="deleteVoter()">Delete voter</button><br><br>
 
+          <p class="ms-2">If you need to upload csv file. choose that file and press upload button.</p>
           <input type="file" accept=".csv" (change)="csvFileUploadListner($event)" class="m-2">
           <button mat-stroked-button color="primary" class="m-2" (click)="uploadAndConvertCSVIntoVotersArray()">Upload</button>
         </div>
