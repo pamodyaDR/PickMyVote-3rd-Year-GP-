@@ -3,7 +3,11 @@ package com.pickMyVote.pickMyVote.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.pickMyVote.pickMyVote.model.*;
+import com.pickMyVote.pickMyVote.repository.OrganizationRepository;
+import com.pickMyVote.pickMyVote.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,12 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pickMyVote.pickMyVote.model.Candidate;
-import com.pickMyVote.pickMyVote.model.Election;
-import com.pickMyVote.pickMyVote.model.TmpInvisVote;
 import com.pickMyVote.pickMyVote.repository.CandidateRepository;
 import com.pickMyVote.pickMyVote.repository.ElectionRepository;
 import com.pickMyVote.pickMyVote.repository.TmpInvisVoteRepository;
+
+import javax.mail.MessagingException;
+import java.util.*;
 
 
 @RestController
@@ -34,6 +38,14 @@ public class TmpVoteController {
 	@Autowired
 	private TmpInvisVoteRepository tmpInvisRepo;
 
+	@Autowired
+	private VoteService service;
+
+	@Autowired
+	private OrganizationRepository orgrepo;
+
+
+
 	//check access for election
     @GetMapping("/vote/{em_key}/{elec_id}")
     public String verifyVoter(@PathVariable Long elec_id,@PathVariable String em_key) {
@@ -44,7 +56,8 @@ public class TmpVoteController {
     	else {
     		return "Access Denied";
     	}
-		
+
+
     }
     
 	//Get election by id
@@ -71,8 +84,21 @@ public class TmpVoteController {
     //add voters to election 
     @PostMapping("/createVoters")
     public List<TmpInvisVote> createVoters(@RequestBody List<TmpInvisVote> voters) throws Exception{
+    	int i;
     	List<TmpInvisVote> retVoters = null;
     	retVoters = tmpInvisRepo.saveAll(voters);
+
+
+    	for(i=0;i< retVoters.size();i++) {
+			Optional<Election> elecObj = elrepo.findById(retVoters.get(i).getElecID());
+			Optional<Organization> orgObj = orgrepo.findById(elecObj.get().getOrgid());
+			//retVoters.get(i).getPrivateKey();
+			service.sendVoterEmail(retVoters.get(i),elecObj.get(),orgObj.get());
+		}
     	return retVoters;
     }
+
+
+
+
 }

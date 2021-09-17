@@ -9,6 +9,7 @@ import { Payment } from '../payment';
 import { DatePipe } from '@angular/common';
 import { Candidate } from '../candidate';
 import { Voter } from '../voter.model';
+import { EncrDecrServiceService } from '../services/encr-decr-service.service';
 
 @Component({
   selector: 'app-create-election',
@@ -44,9 +45,12 @@ export class CreateElectionComponent implements OnInit {
   newVotersArray : Array<Voter> = [];
   voterEmail : string;
 
+  newKeyArray : Array<Voter> = [];
+  emailEncrypt : string;
+
   csvFile : File;
 
-  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe) { }
+  constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
 
@@ -141,6 +145,7 @@ export class CreateElectionComponent implements OnInit {
     let nv = new Voter();
     nv.emkey = voterEmail;
     nv.elecID = this.newElecId;
+    nv.privateKey = this.EncrDecr.hash(voterEmail);
     nv.count  = 0;
     this.newVotersArray.push(nv);
     this.voterEmail = "";
@@ -179,6 +184,7 @@ export class CreateElectionComponent implements OnInit {
   createNewVoters(username:any, password:any){
     this._service.createNewVoters(username, password, this.newVotersArray).subscribe(data => {
       console.log(data);
+    
     },
     error => console.log(error));
   }

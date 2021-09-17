@@ -3,5 +3,6 @@ export class Voter {
     emkey:string;
     elecID:number;
     count:number;
+    privateKey:string;
     constructor(){}
 }

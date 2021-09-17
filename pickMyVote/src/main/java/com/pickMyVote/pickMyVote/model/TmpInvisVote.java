@@ -1,10 +1,6 @@
 package com.pickMyVote.pickMyVote.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "invis_vote")
@@ -16,15 +12,18 @@ public class TmpInvisVote {
 	private String emkey;
 	private Long elecID;
 	private int count;
+	@Column(name = "privateKey", length = 64)
+	private String privateKey;
 
 	public TmpInvisVote() {
 	}
 
-	public TmpInvisVote(Long voteID, String emkey, Long elecID, int count) {
+	public TmpInvisVote(Long voteID, String emkey, Long elecID, int count,String privateKey) {
 		this.voteID = voteID;
 		this.emkey = emkey;
 		this.elecID = elecID;
 		this.count = count;
+		this.privateKey = privateKey;
 	}
 
 	public Long getVoteID() {
@@ -58,6 +57,15 @@ public class TmpInvisVote {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
 
+
+
+
+	public String getPrivateKey() {
+		return privateKey;
+	}
+
+	public void setPrivateKey(String privateKey) {
+		this.privateKey = privateKey;
+	}
 }
