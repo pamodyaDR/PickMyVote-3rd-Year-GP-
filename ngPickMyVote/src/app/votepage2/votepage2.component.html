@@ -11,18 +11,18 @@
             <img src="./assets/img/2progress.png" alt="Progress bar" style="width: 780px; height: 70px; padding-left: 30px;">
             
             <br><br><br><br><br><br>
-            <form #votepage2="ngForm">
+            <form >
             <table class="votetable">
                 <tr>
                     <td>Date:</td>
-                    <td>Election No:</td>
+                    <td>Election No:<label> {{votes.id}} </label></td>
                 </tr>
                 <tr>
-                    <td colspan="2">Election Title: <label [(ngModel)]="votes.title" ></label></td>
+                    <td colspan="2">Election Title: <label>{{votes.title}}</label></td>
                 </tr>
                 <tr>
-                    <td>Start Time/Date: </td>
-                    <td>End Time/Date:</td>
+                    <td>Start Time/Date: <label> {{votes.start_date_time}}</label></td>
+                    <td>End Time/Date: <label> {{votes.end_date_time}}</label></td>
                 </tr>
                 <tr>
                     <td colspan="2">Position:</td>
