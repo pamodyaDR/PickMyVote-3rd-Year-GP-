@@ -50,6 +50,8 @@ export class CreateElectionComponent implements OnInit {
 
   csvFile : File;
 
+  panelOpenState = false;
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
