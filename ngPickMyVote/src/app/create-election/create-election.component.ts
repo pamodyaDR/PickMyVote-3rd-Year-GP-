@@ -52,11 +52,15 @@ export class CreateElectionComponent implements OnInit {
 
   panelOpenState = false;
 
+  hiddenVariable = "d-none";
+  userId = 0;
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
 
     const id = this._route.snapshot.params['id'];
+    this.userId = id;
     //console.log(id);
 
     this.getOrganization(this.username, this.password, id)
@@ -192,6 +196,12 @@ export class CreateElectionComponent implements OnInit {
     
     },
     error => console.log(error));
+
+    this.hiddenVariable = ""; //for show the election creation success messaged
+  }
+
+  electionCreationFinishAndGoBackEle(){
+    this._router.navigate(['/elections',this.userId])
   }
 
 }

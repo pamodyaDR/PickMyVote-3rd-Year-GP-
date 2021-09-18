@@ -278,3 +278,10 @@
       </div>
     </mat-step>
   </mat-stepper>
+
+  <div class="position-absolute bottom-50 start-50 translate-middle {{hiddenVariable}} w-50">
+    <div class="alert alert-success shadow-lg p-3 rounded" role="alert">
+      <h2 class="">Election creation is successfully</h2>
+      <button mat-raised-button (click)="electionCreationFinishAndGoBackEle()" class="ms-2">Ok</button>
+    </div>
+  </div>
