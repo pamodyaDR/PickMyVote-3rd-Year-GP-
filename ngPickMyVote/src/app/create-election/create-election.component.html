@@ -110,15 +110,15 @@
         <form>
           <div>          
             <mat-form-field appearance="fill">            
-              <mat-label>Election start date</mat-label>
-              <input matInput type="date" placeholder="Election start date" [(ngModel)] = "newElection.startdatetime" name="newElecStartDate" required>            
+              <mat-label>Election start date and time</mat-label>
+              <input matInput type="datetime-local" placeholder="Election start date" [(ngModel)] = "newElection.startdatetime" name="newElecStartDate" required>            
             </mat-form-field>
           </div>
 
           <div>          
             <mat-form-field appearance="fill">            
-              <mat-label>Election end date</mat-label>
-              <input matInput type="date" placeholder="Election end date" [(ngModel)] = "newElection.enddatetime" name="newElecEndDate" required>            
+              <mat-label>Election end date and time</mat-label>
+              <input matInput type="datetime-local" placeholder="Election end date" [(ngModel)] = "newElection.enddatetime" name="newElecEndDate" required>            
             </mat-form-field>
           </div>
 
