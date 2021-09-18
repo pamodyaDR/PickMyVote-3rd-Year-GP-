@@ -1,9 +1,11 @@
 package com.pickMyVote.pickMyVote.service;
 
+import com.pickMyVote.pickMyVote.model.Candidate;
 import com.pickMyVote.pickMyVote.model.Election;
 import com.pickMyVote.pickMyVote.model.Organization;
 import com.pickMyVote.pickMyVote.model.TmpInvisVote;
 import com.pickMyVote.pickMyVote.model.User;
+import com.pickMyVote.pickMyVote.repository.CandidateRepository;
 import com.pickMyVote.pickMyVote.repository.TmpInvisVoteRepository;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 
 
@@ -22,6 +25,9 @@ public class VoteService {
 
     @Autowired
     private TmpInvisVoteRepository tmp;
+    
+    @Autowired
+    private CandidateRepository candrep;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -58,5 +64,21 @@ public class VoteService {
 
         mailSender.send(message);
 
+    }
+    
+    public void addVoteCount(String em_key,Long elecid) {
+    	TmpInvisVote tmpvote = tmp.findByElecIDAndEmkey(elecid, em_key);
+    	int tmpcount = tmpvote.getCount();
+    	tmpcount = tmpcount+1;
+    	tmpvote.setCount(tmpcount);
+    	tmp.save(tmpvote);
+    }
+    
+    public void addCandidateVote(Long cand_id) {
+    	Optional<Candidate> tmpcand = candrep.findById(cand_id);
+    	int votes = tmpcand.get().getVotes();
+    	votes = votes+1;
+    	tmpcand.get().setVotes(votes);
+    	candrep.save(tmpcand.get());
     }
 }
