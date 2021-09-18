@@ -147,7 +147,7 @@ export class CreateElectionComponent implements OnInit {
     let nv = new Voter();
     nv.emkey = voterEmail;
     nv.elecID = this.newElecId;
-    nv.privateKey = this.EncrDecr.set('pickmyvote', nv.emkey);
+    nv.privateKey = this.EncrDecr.set('123456$#@$^@1ERF', nv.emkey);
     nv.count  = 0;
     this.newVotersArray.push(nv);
     this.voterEmail = "";
@@ -177,7 +177,8 @@ export class CreateElectionComponent implements OnInit {
         let nv = new Voter();
         nv.emkey = oneEmail;
         nv.elecID = this.newElecId;
-        nv.privateKey = this.EncrDecr.set('pickmyvote', nv.emkey);
+        console.log(nv.emkey);
+        nv.privateKey = this.EncrDecr.set('123456$#@$^@1ERF', nv.emkey);
         nv.count  = 0;
         this.newVotersArray.push(nv);
       }
@@ -185,6 +186,7 @@ export class CreateElectionComponent implements OnInit {
   }
 
   createNewVoters(username:any, password:any){
+
     this._service.createNewVoters(username, password, this.newVotersArray).subscribe(data => {
       console.log(data);
     
