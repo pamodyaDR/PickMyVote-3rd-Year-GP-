@@ -190,7 +190,6 @@ export class CreateElectionComponent implements OnInit {
         //console.log(oneEmail)
         let nv = new Voter();
         nv.emkey = oneEmail;
-        nv.elecID = this.newElecId;
         console.log(nv.emkey);
         nv.privateKey = this.EncrDecr.set('123456$#@$^@1ERF', nv.emkey);
         nv.count  = 0;
