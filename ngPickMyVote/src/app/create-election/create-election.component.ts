@@ -55,6 +55,11 @@ export class CreateElectionComponent implements OnInit {
   hiddenVariable = "d-none";
   userId = 0;
 
+  electionVotersCapacity = 0;
+
+  electionCapacityValidationBorderColor = "";
+  electionCapacityValidationText = "d-none";
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
@@ -217,4 +222,25 @@ export class CreateElectionComponent implements OnInit {
     this._router.navigate(['/elections',this.userId])
   }
 
+  selectElectionAndPressNextButton(){
+    if(this.newElection.type == 1){
+      this.electionVotersCapacity = 500;
+    }
+    else if(this.newElection.type == 2){
+      this.electionVotersCapacity = 1000;
+    }
+
+    console.log(this.electionVotersCapacity)
+  }
+
+  electionCapacityInputValidation(){
+    if(this.newElection.capacity > this.electionVotersCapacity){
+      this.electionCapacityValidationBorderColor = "warn";
+      this.electionCapacityValidationText = "ms-2 text-danger";
+    }
+    else{
+      this.electionCapacityValidationBorderColor = "";
+      this.electionCapacityValidationText = "d-none";
+    }
+  }
 }
