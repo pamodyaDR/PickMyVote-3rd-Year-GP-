@@ -163,18 +163,25 @@
                                    </mat-form-field>
                               </div>
                               <br><br>
-                              <button class="btn1" (click)="sendOTP()" matStepperNext>Send OTP</button>
+                              <div class="row" *ngIf="showotpmsg">
+                                   <div class="col-xs-12">
+                                       <p class="alert alert-success">
+                                           <strong class="text-danger">{{sendotp}}</strong>
+                                       </p>
+                                   </div>
+                               </div>
+                              <button class="btn1" *ngIf="userObj.giveta1 && userObj.giveta2" (click)="sendOTP()" matStepperNext>Send OTP</button>
                               <br><br>
                               <div *ngIf="isShown">
                                    <mat-form-field appearance="fill">
                                         <mat-label>OTP</mat-label>
-                                        <input matInput formControlName="secondCtrl3" placeholder="OTP" required>
+                                        <input matInput formControlName="secondCtrl3" placeholder="OTP" [(ngModel)]="userObj.enteredverificationcode" required>
                                    </mat-form-field>
                               </div>
                               <br><br>
                               <div>
                                    <button class="btn1" matStepperPrevious>Back</button>
-                                   <button *ngIf="isShown" class="btn1 mx-5" matStepperSubmit>Submit</button>
+                                   <button *ngIf="isShown" class="btn1 mx-5" (click)="submit()" matStepperSubmit>Submit</button>
                               </div>
                          </form>
                          <!-- <div>

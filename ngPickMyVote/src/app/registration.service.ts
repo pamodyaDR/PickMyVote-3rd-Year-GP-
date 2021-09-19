@@ -45,7 +45,7 @@ export class RegistrationService {
     return this._http.get<any>("http://localhost:8080/getUserbyEmail/"+ email, {headers});
   }
 
-  sendotp(username:string,password:string,user:User):Observable<any>{
+  sendotp(username:any,password:any,user:User):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post<any>("http://localhost:8080/sendotp",user,{headers})
   }

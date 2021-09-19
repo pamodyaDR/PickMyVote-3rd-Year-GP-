@@ -41,12 +41,17 @@ export class Votepage1Component implements OnInit {
   errormsg = '';
   msg = '';
   submitmsg = '';
+  sendotp = '';
+  showotpmsg:Boolean;
   showerrormsg: Boolean;
   showmsg: Boolean;
 
   elecObj: Election = new Election();
   orgObj: Organization = new Organization();
   userObj: User = new User();
+  userObj1: User = new User();
+  user: User = new User();
+  user2: User = new User();
   candidateObj: Candidate[];
   tmpcandidateObj: Candidate[];
   positions: Array<Positions>=[];
@@ -54,6 +59,8 @@ export class Votepage1Component implements OnInit {
   access:Boolean;
   election: Boolean;
   isShown: boolean;
+
+  otpcode ='';
 
 
   constructor(private vote_service: VoteService, private elec_service: ElectionService, private org_service: OrganizationService, private reg_service: RegistrationService, private _formBuilder: FormBuilder, private EncrDecr: EncrDecrServiceService, private observer: BreakpointObserver, private _router: Router, private _route: ActivatedRoute) { }
@@ -71,6 +78,7 @@ export class Votepage1Component implements OnInit {
     this.access = false;
     this.election = false;
     this.isShown = false;
+    this.showotpmsg = false;
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
@@ -244,23 +252,6 @@ export class Votepage1Component implements OnInit {
     
     console.log(this.positions);
 
-    // for(let i=0; i<this.positions.length; i++){
-    //   if(this.positions[i].vote_id){
-    //     this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id).subscribe(
-    //       res => {
-    //         if(res) {
-    //           this.submitmsg = "You were voted successfully! Thank you for being with us."
-    //           console.log(this.errormsg);
-    //         }else {
-    //           this.submitmsg = "Something went wrong! Your vote was unsuccessful."
-    //           console.log(this.errormsg);
-    //         }
-    //       }
-    //     );
-        
-    //   }
-    // }    
-
     if(emkeyDecrypted == this.email){
       this.reg_service.getUserbyEmail(this.email, this.password, emkeyDecrypted).subscribe(
         res => {
@@ -270,29 +261,85 @@ export class Votepage1Component implements OnInit {
           }
         }
       );
-
     }
   }
 
   sendOTP() {
-    this.isShown = ! this.isShown;
 
-    const id = this._route.snapshot.params['id'];
+    if((this.userObj.giveta1 == this.userObj.a1) && (this.userObj.giveta2 == this.userObj.a2)) {
+      this.showotpmsg = false;
+      this.isShown = true;
+      this.sendotp = "Answers are correct!"
+      console.log(this.sendotp);
 
-    // this._service.sendotp(this.user.email, this.user.password, this.user).subscribe(
-    //   res=> {
-    //     this.otpcode = res;
-    //   }
-    // );
-    // console.log(this.otpcode);
+      var emkeyDecrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.invisVote.private_key);
 
-    // this._service.getUserFromRemote(this.email,this.password,id).subscribe(
-    //   res => {
-    //     this.user2 = res;
-    //     console.log(this.user2);
-    //   } 
-    // )
+      this.reg_service.getUserbyEmail(this.email, this.password, emkeyDecrypted).subscribe(
+        res => {
+          this.user = res;
+          if(this.user) {
+            console.log(this.user);
+          }
 
+          this.reg_service.sendotp(this.email, this.password, this.user).subscribe(
+            res=> {
+                this.otpcode = res;
+            }
+          );
+        }
+      );
+
+    }else {
+      this.showotpmsg = true;
+      this.isShown = false;
+      this.sendotp = "Invalid answers!"
+      console.log(this.sendotp);
+
+    }
+    
+  }
+
+  submit() {
+    var emkeyDecrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.invisVote.private_key);
+
+    if(emkeyDecrypted == this.email){
+      this.reg_service.getUserbyEmail(this.email, this.password, emkeyDecrypted).subscribe(
+        res => {
+          this.user2 = res;
+          if(this.user2) {
+            console.log("this.user2");
+            console.log(this.user2);
+          }
+
+          if(this.userObj.enteredverificationcode == this.user2.otpcode) {
+            console.log("Valid OTP!");
+    
+            for(let i=0; i<this.positions.length; i++){
+              if(this.positions[i].vote_id){
+                this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id).subscribe(
+                  res => {
+                    if(res) {
+                      this.submitmsg = "You were voted successfully! Thank you for being with us."
+                      console.log(this.errormsg);
+                    }else {
+                      this.submitmsg = "Something went wrong! Your vote was unsuccessful."
+                      console.log(this.errormsg);
+                    }
+                  }
+                );
+                
+              }
+            }
+    
+          }else {
+            this.showotpmsg = true;
+            this.sendotp = "Invalid OTP!"
+            console.log("Invalid OTP!");
+    
+          }     
+        }
+      ); 
+    }
   }
 
   nextStep(){
