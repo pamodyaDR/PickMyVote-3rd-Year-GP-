@@ -100,6 +100,8 @@ export class CreateElectionComponent implements OnInit {
       console.log(data);
     },
     error => console.log(error));
+
+    this.createNewPayment(username,password)
   }
 
   createNewPayment(username:any, password:any){
@@ -123,6 +125,8 @@ export class CreateElectionComponent implements OnInit {
       },
       error => console.log(error));
     }
+
+    this.createNewCandidates(username,password)
   }
 
   addCandidate(cName:string, cPosition:string){
@@ -144,6 +148,8 @@ export class CreateElectionComponent implements OnInit {
       console.log(data);
     },
     error => console.log(error));
+
+    this.createNewVoters(username,password)
   }
 
   //new Voters add functions for the election
