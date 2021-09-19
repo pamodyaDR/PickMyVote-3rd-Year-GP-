@@ -13,6 +13,7 @@ import { Organization } from '../organization';
 import { Candidate } from '../candidate';
 import { Positions } from '../positions';
 
+
 @Component({
   selector: 'app-votepage1',
   templateUrl: './votepage1.component.html',
@@ -143,76 +144,76 @@ export class Votepage1Component implements OnInit {
             this.msg = "Authentication Successful! Access Granted. Click Next to continue."
             this.access = true;
             console.log("Authentication Successful! Access Granted.");
+            
 
+            //get election data
             this.elec_service.getElectionById(this.email, this.password, this.invisVote.elecid).subscribe(
               res => {
                 this.elecObj = res;
                 if(this.elecObj) {
                   this.election = true;
                   console.log(this.elecObj);
+      
+                  //get organization data
                   this.org_service.getOrganizationName(this.email, this.password, this.elecObj.orgid).subscribe(
                     resorg => {
                       this.orgObj = resorg;
                       console.log(this.orgObj);
-                    }
-                  );
 
-                  this.elec_service.getcandidatesByEId(this.email, this.password, this.invisVote.elecid).subscribe(
-                    resc => {
-                      this.candidateObj = resc;
-                      this.tmpcandidateObj = resc;
-                      console.log(this.candidateObj);
-
-                      let pos = new Positions();
-                      pos.name =this.candidateObj[0].position;
-                      this.positions.push(pos);
-
-                      for(let i=1; i<this.candidateObj.length; i++){
-
-                        // if(!this.positions){
-                        //   let pos = new Positions();
-                        //     pos.name =this.candidateObj[0].position;
-                        //     this.positions.push(pos);
-                            
-                        // }
-                        
-                        // this.positions.forEach((ele) =>{
-
-                        //   if(this.candidateObj[i].position != ele.name) {
-                        //     let pos = new Positions();
-                        //     pos.name =this.candidateObj[i].position;
-                        //     this.positions.push(pos);
-                              
-                        //   }
-                        // }
-
-                        // )
-                      
-                        for(let j=0; j<this.positions.length; j++) {
+                      //get candidates data
+                      this.elec_service.getcandidatesByEId(this.email, this.password, this.invisVote.elecid).subscribe(
+                        resc => {
+                          this.candidateObj = resc;
+                          this.tmpcandidateObj = resc;
+                          console.log(this.candidateObj);
+          
+                          //group by positions
+                            //initial position
                           let pos = new Positions();
-                          pos.name =this.candidateObj[i].position;
+                          pos.name =this.candidateObj[0].position;
                           this.positions.push(pos);
+                          console.log(this.positions);
+          
+                            //group positions except 1st one
+                          for(let i=1; i<this.candidateObj.length; i++){
+                            var loop = true;
+                            this.positions.forEach((ele) =>{
+                              if(loop){
+                                if(this.candidateObj[i].position != ele.name) {
+                                  let pos = new Positions();
+                                  pos.name =this.candidateObj[i].position;
+                                  this.positions.push(pos);
+                                  loop=false;
+                                }
+                              }
+                              
+                            }
+          
+                            )
+                          
+                          console.log(this.positions);
+                          
                         }
-                          
-                          
                       }
-                      
-                      console.log(this.positions);
-                      
+                      );
+
+
                     }
                   );
-
+    
+                  
                 } else {
                   this.election = false;
                 }  
               }
+    
             );
                 
           }else {
             this.showerrormsg = true;
             this.errormsg = "Access Denied!"
             console.log("Access Denied!");
-
+           
           }
   
         },
