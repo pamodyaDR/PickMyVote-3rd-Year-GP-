@@ -13,7 +13,6 @@ import { Organization } from '../organization';
 import { Candidate } from '../candidate';
 import { Positions } from '../positions';
 
-
 @Component({
   selector: 'app-votepage1',
   templateUrl: './votepage1.component.html',
@@ -179,21 +178,24 @@ export class Votepage1Component implements OnInit {
                             var loop = true;
                             this.positions.forEach((ele) =>{
                               if(loop){
-                                if(this.candidateObj[i].position != ele.name) {
-                                  let pos = new Positions();
-                                  pos.name =this.candidateObj[i].position;
-                                  this.positions.push(pos);
+                                if(this.candidateObj[i].position == ele.name) {
+                                  // let pos = new Positions();
+                                  // pos.name =this.candidateObj[i].position;
+                                  // this.positions.push(pos);
                                   loop=false;
                                 }
                               }
                               
                             }
-          
                             )
-                          
-                          console.log(this.positions);
-                          
+                            if(loop){
+                              let pos = new Positions();
+                                  pos.name =this.candidateObj[i].position;
+                                  this.positions.push(pos);
+                            }
+                        
                         }
+                        console.log(this.positions);
                       }
                       );
 
