@@ -71,16 +71,18 @@
         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" formControlName="secondCtrl" [(ngModel)]="newElection.type">
 
           <mat-button-toggle [value]="1">
-            <div class="m-3">
-              <p>Election package 1</p>
-              <p>Prize 8$</p>
+            <div class="m-3 p-3 border">
+              <h2>Election starter package</h2>
+              <h3>Prize 6$</h3>
+              <p>You can do election with upto 500 voters.</p>
             </div>
           </mat-button-toggle>
 
           <mat-button-toggle [value]="2">
-            <div class="m-3">
-              <p>Election package 2</p>
-              <p>Prize 6$</p>
+            <div class="m-3 p-3 border">
+              <h2>Election standard package</h2>
+              <h3>Prize 10$</h3>
+              <p>You can do election with upto 1000 voters.</p>
             </div>
           </mat-button-toggle>
         </mat-button-toggle-group>
