@@ -193,6 +193,19 @@ p {
     margin-bottom: 5%;
 }
   
+.vote {
+    font-size: x-large;
+    font-weight: bold;
+    color: #071f3a;
+}
+
+.ques {
+    font-size: medium;
+    font-weight: bold;
+    color: #130335;
+}
+
+
 /* ::ng-deep .mat-step-header .mat-step-icon {
       background-color: #c4c4c4;
       color: #130335;

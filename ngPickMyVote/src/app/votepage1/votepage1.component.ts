@@ -12,6 +12,8 @@ import { OrganizationService } from '../services/organization.service';
 import { Organization } from '../organization';
 import { Candidate } from '../candidate';
 import { Positions } from '../positions';
+import { RegistrationService } from '../registration.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-votepage1',
@@ -38,21 +40,23 @@ export class Votepage1Component implements OnInit {
 
   errormsg = '';
   msg = '';
+  submitmsg = '';
   showerrormsg: Boolean;
   showmsg: Boolean;
 
   elecObj: Election = new Election();
   orgObj: Organization = new Organization();
+  userObj: User = new User();
   candidateObj: Candidate[];
   tmpcandidateObj: Candidate[];
   positions: Array<Positions>=[];
   
-
   access:Boolean;
-
   election: Boolean;
+  isShown: boolean;
 
-  constructor(private vote_service: VoteService, private elec_service: ElectionService, private org_service: OrganizationService, private _formBuilder: FormBuilder, private EncrDecr: EncrDecrServiceService, private observer: BreakpointObserver, private _router: Router, private _route: ActivatedRoute) { }
+
+  constructor(private vote_service: VoteService, private elec_service: ElectionService, private org_service: OrganizationService, private reg_service: RegistrationService, private _formBuilder: FormBuilder, private EncrDecr: EncrDecrServiceService, private observer: BreakpointObserver, private _router: Router, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
@@ -66,13 +70,16 @@ export class Votepage1Component implements OnInit {
     this.showmsg = false;
     this.access = false;
     this.election = false;
+    this.isShown = false;
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
       firstCtrl2: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['', Validators.required],
+      secondCtrl2: ['', Validators.required],
+      secondCtrl3: ['', Validators.required]
     });
 
   }
@@ -230,6 +237,62 @@ export class Votepage1Component implements OnInit {
 
     }
     
+  }
+
+  vote() {
+    var emkeyDecrypted = this.EncrDecr.get('123456$#@$^@1ERF', this.invisVote.private_key);
+    
+    console.log(this.positions);
+
+    // for(let i=0; i<this.positions.length; i++){
+    //   if(this.positions[i].vote_id){
+    //     this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id).subscribe(
+    //       res => {
+    //         if(res) {
+    //           this.submitmsg = "You were voted successfully! Thank you for being with us."
+    //           console.log(this.errormsg);
+    //         }else {
+    //           this.submitmsg = "Something went wrong! Your vote was unsuccessful."
+    //           console.log(this.errormsg);
+    //         }
+    //       }
+    //     );
+        
+    //   }
+    // }    
+
+    if(emkeyDecrypted == this.email){
+      this.reg_service.getUserbyEmail(this.email, this.password, emkeyDecrypted).subscribe(
+        res => {
+          this.userObj = res;
+          if(this.userObj) {
+            console.log(this.userObj);
+          }
+        }
+      );
+
+    }
+  }
+
+  sendOTP() {
+    this.isShown = ! this.isShown;
+
+    const id = this._route.snapshot.params['id'];
+
+    // this._service.sendotp(this.user.email, this.user.password, this.user).subscribe(
+    //   res=> {
+    //     this.otpcode = res;
+    //   }
+    // );
+    // console.log(this.otpcode);
+
+    // this._service.getUserFromRemote(this.email,this.password,id).subscribe(
+    //   res => {
+    //     this.user2 = res;
+    //     console.log(this.user2);
+    //   } 
+    // )
+
   }
 
   nextStep(){
