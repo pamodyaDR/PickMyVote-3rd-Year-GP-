@@ -60,6 +60,8 @@ export class CreateElectionComponent implements OnInit {
   electionCapacityValidationBorderColor = "";
   electionCapacityValidationText = "d-none";
 
+  hiddenVariableVoterCountError = "d-none";
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
@@ -99,14 +101,20 @@ export class CreateElectionComponent implements OnInit {
 
   createNewElection(username:any, password:any){
     //console.log(this.newElection);
-    this._service.createNewElection(username, password, this.newElection).subscribe(data => {
-      this.newElecId = data.id;
-      this.newElecType = data.type;
-      console.log(data);
-
-      this.createNewPayment(username,password);
-    },
-    error => console.log(error));
+    if(this.newVotersArray.length <= this.electionVotersCapacity){
+      this._service.createNewElection(username, password, this.newElection).subscribe(data => {
+        this.newElecId = data.id;
+        this.newElecType = data.type;
+        console.log(data);
+  
+        this.createNewPayment(username,password);
+      },
+      error => console.log(error));
+    }
+    else{
+      console.log("voter count error");
+      this.hiddenVariableVoterCountError = "";
+    }   
   }
 
   createNewPayment(username:any, password:any){
@@ -242,5 +250,9 @@ export class CreateElectionComponent implements OnInit {
       this.electionCapacityValidationBorderColor = "";
       this.electionCapacityValidationText = "d-none";
     }
+  }
+
+  electionFinishVoterCountError(){
+    this.hiddenVariableVoterCountError = "d-none";
   }
 }
