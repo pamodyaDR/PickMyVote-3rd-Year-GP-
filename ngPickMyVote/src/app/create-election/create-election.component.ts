@@ -55,6 +55,13 @@ export class CreateElectionComponent implements OnInit {
   hiddenVariable = "d-none";
   userId = 0;
 
+  electionVotersCapacity = 0;
+
+  electionCapacityValidationBorderColor = "";
+  electionCapacityValidationText = "d-none";
+
+  hiddenVariableVoterCountError = "d-none";
+
   constructor(private _service: ElectionService, private _router : Router, private _route: ActivatedRoute, private _formBuilder: FormBuilder,public datepipe: DatePipe,private EncrDecr: EncrDecrServiceService) { }
 
   ngOnInit(): void {
@@ -94,14 +101,20 @@ export class CreateElectionComponent implements OnInit {
 
   createNewElection(username:any, password:any){
     //console.log(this.newElection);
-    this._service.createNewElection(username, password, this.newElection).subscribe(data => {
-      this.newElecId = data.id;
-      this.newElecType = data.type;
-      console.log(data);
-
-      this.createNewPayment(username,password);
-    },
-    error => console.log(error));
+    if(this.newVotersArray.length <= this.electionVotersCapacity){
+      this._service.createNewElection(username, password, this.newElection).subscribe(data => {
+        this.newElecId = data.id;
+        this.newElecType = data.type;
+        console.log(data);
+  
+        this.createNewPayment(username,password);
+      },
+      error => console.log(error));
+    }
+    else{
+      console.log("voter count error");
+      this.hiddenVariableVoterCountError = "";
+    }   
   }
 
   createNewPayment(username:any, password:any){
@@ -217,4 +230,29 @@ export class CreateElectionComponent implements OnInit {
     this._router.navigate(['/elections',this.userId])
   }
 
+  selectElectionAndPressNextButton(){
+    if(this.newElection.type == 1){
+      this.electionVotersCapacity = 500;
+    }
+    else if(this.newElection.type == 2){
+      this.electionVotersCapacity = 1000;
+    }
+
+    console.log(this.electionVotersCapacity)
+  }
+
+  electionCapacityInputValidation(){
+    if(this.newElection.capacity > this.electionVotersCapacity){
+      this.electionCapacityValidationBorderColor = "warn";
+      this.electionCapacityValidationText = "ms-2 text-danger";
+    }
+    else{
+      this.electionCapacityValidationBorderColor = "";
+      this.electionCapacityValidationText = "d-none";
+    }
+  }
+
+  electionFinishVoterCountError(){
+    this.hiddenVariableVoterCountError = "d-none";
+  }
 }
