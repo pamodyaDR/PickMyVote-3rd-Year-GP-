@@ -134,7 +134,6 @@ export class CreateElectionComponent implements OnInit {
     let cd = new Candidate();
     cd.name = cName;
     cd.position = cPosition;
-    cd.elecid = this.newElecId;
     this.newCandidatesArray.push(cd);
     //console.log(this.newCandidatesArray);
     this.candidateName = ""; this.candidatePosition = "";
@@ -145,6 +144,10 @@ export class CreateElectionComponent implements OnInit {
   }
 
   createNewCandidates(username:any, password:any){
+    for (var candidate of this.newCandidatesArray) {
+      candidate.elecid = this.newElecId;
+    }
+
     this._service.createNewCandidates(username, password, this.newCandidatesArray).subscribe(data => {
       console.log(data);
     },
@@ -197,6 +200,10 @@ export class CreateElectionComponent implements OnInit {
   }
 
   createNewVoters(username:any, password:any){
+
+    for (var voter of this.newVotersArray) {
+      voter.elecID = this.newElecId;
+    }
 
     this._service.createNewVoters(username, password, this.newVotersArray).subscribe(data => {
       console.log(data);
