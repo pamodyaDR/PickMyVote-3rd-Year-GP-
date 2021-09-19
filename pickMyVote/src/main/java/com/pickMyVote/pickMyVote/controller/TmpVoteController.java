@@ -76,7 +76,7 @@ public class TmpVoteController {
     
     //add vote by em key
     @PostMapping("/vote/add/{em_key}/{elec_id}/{cand_id}")
-    public void addVote(@PathVariable Long cand_id,@PathVariable String em_key, @PathVariable Long elec_id) {
+    public void addVote(@PathVariable String em_key, @PathVariable Long elec_id, @PathVariable Long cand_id) {
     	//add vote to emkey on invis_vote table
     	service.addVoteCount(em_key, elec_id);
     	//add vote to candidate

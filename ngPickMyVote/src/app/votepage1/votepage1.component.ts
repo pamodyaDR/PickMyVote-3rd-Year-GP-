@@ -316,17 +316,18 @@ export class Votepage1Component implements OnInit {
     
             for(let i=0; i<this.positions.length; i++){
               if(this.positions[i].vote_id){
-                this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id).subscribe(
-                  res => {
-                    if(res) {
-                      this.submitmsg = "You were voted successfully! Thank you for being with us."
-                      console.log(this.errormsg);
-                    }else {
-                      this.submitmsg = "Something went wrong! Your vote was unsuccessful."
-                      console.log(this.errormsg);
-                    }
-                  }
-                );
+                this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id)
+                // .subscribe(
+                //   res => {
+                //     if(res) {
+                //       this.submitmsg = "You were voted successfully! Thank you for being with us."
+                //       console.log(this.errormsg);
+                //     }else {
+                //       this.submitmsg = "Something went wrong! Your vote was unsuccessful."
+                //       console.log(this.errormsg);
+                //     }
+                //   }
+                // );
                 
               }
             }
