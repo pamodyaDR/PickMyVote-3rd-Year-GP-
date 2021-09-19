@@ -48,14 +48,16 @@ public class TmpVoteController {
 
 	//check access for election
     @GetMapping("/vote/{em_key}/{elec_id}")
-    public boolean verifyVoter(@PathVariable String em_key, @PathVariable Long elec_id) {
+    public String verifyVoter(@PathVariable Long elec_id,@PathVariable String em_key) {
     	TmpInvisVote grantedVoter = tmpInvisRepo.findByElecIDAndEmkey(elec_id, em_key);
     	if(grantedVoter != null) {
-    		return true;
+    		return "Access Granted";
     	}
     	else {
-    		return false;
+    		return "Access Denied";
     	}
+
+
     }
     
 	//Get election by id

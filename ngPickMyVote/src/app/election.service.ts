@@ -54,14 +54,4 @@ export class ElectionService {
     return this._http.post<any>("http://localhost:8080/createVoters",voters,{headers})
   }
 
-  getElectionById(username:any,password:any,elecid:number):Observable<Election>{
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this._http.get<Election>("http://localhost:8080/vote/"+elecid,{headers})
-  }
-
-  getcandidatesByEId(username:any,password:any,elecid:number):Observable<Candidate[]>{
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this._http.get<Candidate[]>("http://localhost:8080/vote/candidates/"+elecid,{headers})
-  }
-
 }

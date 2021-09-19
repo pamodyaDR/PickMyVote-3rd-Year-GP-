@@ -1,186 +1,4 @@
-<mat-toolbar class="mat-elevation-z8">
-     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-          <mat-icon *ngIf="!sidenav.opened">
-               menu
-          </mat-icon>
-          <mat-icon *ngIf="sidenav.opened">
-               close
-          </mat-icon>
-     </button>
-
-     <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
-     <span class="navbarselections"></span>
-
-     <div class="topnav">
-          <a class="active" (click)="logout()">
-               <mat-icon>logout</mat-icon>
-          </a>
-     </div>
-</mat-toolbar>
-
-<mat-sidenav-container>
-     <mat-sidenav #sidenav="matSidenav" mode="side" opened>
-
-          <button mat-button class="menu-button active">
-               <mat-icon>home</mat-icon>
-               <span><a (click)="viewHome()">Home</a></span>
-          </button>
-          <button mat-button class="menu-button">
-               <mat-icon>person</mat-icon>
-               <span><a (click)="viewUser()">Profile</a></span>
-          </button>
-          <button mat-button class="menu-button">
-               <mat-icon>done</mat-icon>
-               <span><a (click)="viewElection()">Elections</a></span>
-          </button>
-
-          <button mat-button class="menu-button">
-               <mat-icon>corporate_fare</mat-icon>
-               <span><a (click)="viewOrganization()">Organizations</a></span>
-          </button>
-
-          <mat-divider></mat-divider>
-     </mat-sidenav>
-
-     <mat-sidenav-content>
-
-          <div style="overflow: auto">
-
-               <mat-stepper [linear]="true" #stepper>
-                    <mat-step [stepControl]="firstFormGroup">
-                         <form [formGroup]="firstFormGroup" class="mx-auto" style="width: 600px;">
-                              <ng-template matStepLabel>Authentication</ng-template>
-                              <br><br>
-                              <p>If you are invited person to an election then you have a mail with authentication
-                                   details for election.</p>
-                              <br><br>
-                              <p>Please Enter Your Election Id</p>
-                              <br><br>
-                              <div>
-                                   <mat-form-field appearance="fill">
-                                        <mat-label>Election ID</mat-label>
-                                        <input matInput placeholder="Election ID" formControlName="firstCtrl"
-                                             [(ngModel)]="invisVote.elecid" name="elec_id" required>
-                                   </mat-form-field>
-                              </div>
-                              <br>
-                              <p>Please Enter Your Private Key</p>
-                              <br><br>
-                              <div>
-                                   <mat-form-field appearance="fill">
-                                        <mat-label>Private Key</mat-label>
-                                        <input matInput placeholder="Private Key" formControlName="firstCtrl2"
-                                             [(ngModel)]="invisVote.private_key" name="private_key" required>
-                                   </mat-form-field>
-                              </div>
-                              <br>
-
-                              <div class="row my-3" *ngIf="showerrormsg">
-                                   <div class="col-xs-12">
-                                        <p class="alert alert-success">
-                                             <strong>{{errormsg}}</strong>
-
-                                        </p>
-                                   </div>
-                              </div>
-                              <div class="row my-3 " *ngIf="showmsg">
-                                   <div class="col-xs-12">
-                                        <p class="alert alert-success">
-                                             <strong>{{msg}}</strong>
-
-                                        </p>
-                                   </div>
-                              </div>
-
-                              <div>
-                                   <button class="btn1" *ngIf="!access" (click)=authentication()>Authenticate</button>
-                              </div>
-
-                              <div *ngIf="access">
-                                   <button class="btn1" matStepperNext>Next</button>
-                              </div>
-                         </form>
-                    </mat-step>
-
-                    <mat-step label="Vote">
-                         <div *ngIf="!election">
-                              <h4 class="elec d-flex justify-content-center">Please Complete the Authentication step
-                                   first.</h4>
-                         </div>
-                         <form *ngIf="election" class="mx-auto" style="width: 600px;">
-                              <div class="mt-5">
-                                   <h3 class="htitle d-flex justify-content-center">{{orgObj.name}} - {{elecObj.title}}
-                                   </h3>
-                                   <h5 class="hdate d-flex justify-content-center">{{elecObj.startdatetime}} -
-                                        {{elecObj.enddatetime}}</h5>
-                                   <br>
-                              </div>
-                              <div>
-                                   <div *ngFor="let candidate of candidateObj">
-                                        <label id="example-radio-group-label">Put your Vote</label><br>
-                                        <mat-radio-group aria-labelledby="example-radio-group-label" name="candidateid" class="example-radio-group" [(ngModel)]="candidate.id">
-                                             <mat-radio-button class="example-radio-button"
-                                                  *ngFor="let candidate of candidateObj" [value]="candidate.id">
-                                                  {{candidate.name}}
-                                             </mat-radio-button>
-                                        </mat-radio-group>
-
-                                        <!-- <mat-label>{{candidate.position}}</mat-label>
-                                        <input type="radio" matInput formControlName="secondCtrl" [value]="candidate.id" [(ngModel)]="candidate.id" required>{{candidate.name}} -->
-                                   </div>
-                              </div>
-
-                              <div>
-                                   <button mat-button matStepperPrevious>Back</button>
-                                   <button mat-button matStepperNext>Next</button>
-                              </div>
-                         </form>
-                    </mat-step>
-
-                    <mat-step>
-                         <ng-template matStepLabel>Submit</ng-template>
-                         <form [formGroup]="secondFormGroup" class="mx-auto" style="width: 600px;">
-                              <P>To Verify the voter, plese be kind to answer the following personal questions.</P>
-                              <br><br>
-                              <div>
-                                   <mat-form-field appearance="fill">
-                                        <mat-label>Answer</mat-label>
-                                        <input matInput formControlName="secondCtrl" placeholder="Answer Here" required>
-                                   </mat-form-field>
-                              </div>
-                              <br><br>
-                              <div>
-                                   <mat-form-field appearance="fill">
-                                        <mat-label>Answer</mat-label>
-                                        <input matInput formControlName="secondCtrl" placeholder="Answer Here" required>
-                                   </mat-form-field>
-                              </div>
-                              <br><br>
-                              <button class="btn1" matStepperNext>Send OTP</button>
-                              <br><br>
-                              <div>
-                                   <mat-form-field appearance="fill">
-                                        <mat-label>Question 1</mat-label>
-                                        <input matInput formControlName="secondCtrl" placeholder="Answer Here" required>
-                                   </mat-form-field>
-                              </div>
-                              <br><br>
-                              <div>
-                                   <button class="btn1" matStepperPrevious>Back</button>
-                                   <button class="btn1" matStepperSubmit>Submit</button>
-                              </div>
-                         </form>
-                         <!-- <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="stepper.reset()">Reset</button>
-                      </div> -->
-                    </mat-step>
-               </mat-stepper>
-          </div>
-     </mat-sidenav-content>
-</mat-sidenav-container>
-
-<!-- <div class="vote">
+<div class="vote">
     <app-usertoolbar></app-usertoolbar>
 
 
@@ -198,23 +16,23 @@
                 <button class="button" type="submit">Submit</button>
            </div> -->
 
-<!-- <p class="p2"> Enter the Election ID</p>
-<div class="input1">
-     <input type="text" class="form-control text-center my-3 p-1" placeholder="Election ID" name="electID"
-          [(ngModel)]="electionID">
-</div>
-<p class="p2"> Enter the Private Key</p>
-<div class="input1">
-     <input type="text" class="form-control text-center my-3 p-1" placeholder="Private Key" name="prvKey">
-</div>
+           <p class="p2"> Enter the Election ID</p> 
+           <div class="input1">
+                <input type="text" class="form-control text-center my-3 p-1" placeholder="Election ID" name="electID" [(ngModel)]="electionID">
+           </div>
+           <p class="p2"> Enter the Private Key</p> 
+           <div class="input1">
+                <input type="text" class="form-control text-center my-3 p-1" placeholder="Private Key" name="prvKey">
+           </div>
 
-<p class="p3"> *If you haven't feed with these details please contact you organization staff.</p>
+           <p class="p3"> *If you haven't feed with these details please contact you organization staff.</p> 
+           
+           <div class="btn1">
+                <button class="button" type="submit" (click)="nextStep()">Verify</button>
+           </div>
+        </div>
+        
+    </div>
 
-<div class="btn1">
-     <button class="button" type="submit" (click)="nextStep()">Verify</button>
 </div>
-</div>
-
-</div>
-
-</div> -->
+    
