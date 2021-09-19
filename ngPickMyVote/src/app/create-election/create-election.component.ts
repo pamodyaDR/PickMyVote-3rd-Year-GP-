@@ -98,13 +98,14 @@ export class CreateElectionComponent implements OnInit {
       this.newElecId = data.id;
       this.newElecType = data.type;
       console.log(data);
+
+      this.createNewPayment(username,password);
     },
     error => console.log(error));
-
-    this.createNewPayment(username,password)
   }
 
   createNewPayment(username:any, password:any){
+    console.log(this.newElecId);
     if(this.newElecId != 0){
       if(this.newElecType == 1){
         this.newPayment.amount = 8;
