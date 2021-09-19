@@ -60,7 +60,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { DatePipe } from '@angular/common';
 import { NewPasswordValidatorDirective } from './adminprofile/new-password-validator.directive';
 import { EncrDecrServiceService } from './services/encr-decr-service.service';
-import {MatExpansionModule} from '@angular/material/expansion'
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -119,7 +120,8 @@ import {MatExpansionModule} from '@angular/material/expansion'
     MatSelectModule,
     ChartsModule,
     MatButtonToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatRadioModule
   ],
   providers: [RegistrationService,ResultService,VoteService,DatePipe,EncrDecrServiceService],
   bootstrap: [AppComponent]
