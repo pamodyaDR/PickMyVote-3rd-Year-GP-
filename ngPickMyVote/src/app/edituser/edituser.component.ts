@@ -107,7 +107,7 @@ export class EdituserComponent implements OnInit {
   
   viewOrganization() {
     const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/organizations', id]);
+    this._router.navigate(['/organization', id]);
   }
 
   logout(){

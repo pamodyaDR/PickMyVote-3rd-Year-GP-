@@ -124,23 +124,19 @@ export class Votepage1Component implements OnInit {
   }
 
   viewHome() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/userprofile', id]);
+    this._router.navigate(['/userprofile', this.user3.id]);
   }
 
   viewUser() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/edituser', id]);
+    this._router.navigate(['/edituser', this.user3.id]);
   }
 
   viewElection() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/elections', id]);
+    this._router.navigate(['/elections', this.user3.id]);
   }
 
   viewOrganization() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/organization', id]);
+    this._router.navigate(['/organization', this.user3.id]);
   }
 
   logout() {
