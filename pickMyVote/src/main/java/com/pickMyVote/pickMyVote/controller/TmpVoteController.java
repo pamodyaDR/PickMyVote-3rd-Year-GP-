@@ -111,7 +111,12 @@ public class TmpVoteController {
     	return retVoters;
     }
 
-
+  //Get voters by election ID
+  	@GetMapping("/vote/getvoters/{elecid}")
+  	public List <TmpInvisVote> getInvitedVoters(@PathVariable Long elecid) {
+  		List<TmpInvisVote> voters = tmpInvisRepo.findByElecID(elecid);
+  		return voters;
+  	}
 
 
 }

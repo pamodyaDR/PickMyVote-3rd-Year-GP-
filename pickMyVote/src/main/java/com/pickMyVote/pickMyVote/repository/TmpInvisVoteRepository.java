@@ -15,6 +15,8 @@ public interface TmpInvisVoteRepository extends JpaRepository<TmpInvisVote, Long
 	public TmpInvisVote findByElecIDAndEmkey(Long elecID, String emkey);
 
 	List<TmpInvisVote> findByEmkey(String email);
+	
+	List<TmpInvisVote> findByElecID(Long elecID);
 }
 
 
