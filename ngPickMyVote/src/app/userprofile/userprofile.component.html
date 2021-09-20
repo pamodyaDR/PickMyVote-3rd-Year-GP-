@@ -15,12 +15,7 @@
         <a class="active" (click)="logout()">
             <mat-icon>logout</mat-icon>
         </a>
-        <!-- <a href="#news"> <img src="./assets/img/baseline_settings_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a>
-        <a href="#contact"><img src="./assets/img/baseline_chat_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a>
-        <a href="#about"><img src="./assets/img/baseline_notifications_white_24dp.png" alt=""
-                style="width: 20px; height: 20px;"></a> -->
+        
     </div>
 </mat-toolbar>
 
@@ -50,47 +45,29 @@
 
     <mat-sidenav-content>
 
-        <div class="content mat-elevation-z8" >
+        <div class="content mat-elevation-z8" style="overflow: auto">
            
-            <!-- <div class="row" class="d-flex justify-content-center" style="overflow: auto">
+           
 
-                <div class="col-lg-8 "> -->
-                    <!-- <br><br>
-                    <p class="d-flex justify-content-center">Elections due this week</p>
-
-                    <div class="mx-5">
-                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let elections of elections1">
+            <div >
+                <br>
+                <p class="d-flex justify-content-center mb-4">Past Elections</p>
+                <div class="d-flex justify-content-center">
+                    <div class="mx-5 col-lg-5" >
+                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let elec of election">
                             <p></p>
                             <br>
-                            <mat-grid-tile text-align="left" align-items="left">{{ elections.startdatetime }} - {{elections.orgname}} - {{ elections.title }} </mat-grid-tile><br>
+                            <mat-grid-tile text-align="left" align-items="left"><a (click)="viewResult(elec.id)">{{ elec.title }}</a>  </mat-grid-tile><br>
                             
                           
                           </mat-grid-list>
                     </div>
-
-                    <br>
-               <div>
-                <p class="d-flex justify-content-center">News feed</p>
-                <div class="mx-5">
-                     <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let organization of org">
-                         <p></p>
-                         <br>
-                         <mat-grid-tile text-align="left" align-items="left">{{ organization.name }} - {{organization.notices}} </mat-grid-tile><br>
-                         
-                       
-                       </mat-grid-list>
-                 </div>
-               </div>
-                   
-
                 </div>
                
+               </div>
+            
+            
 
-            </div> -->
-            <app-result></app-result>
-<div *ngfor="let invis of invisvote">
-    <app-result></app-result>
-</div>
       
 
         </div>

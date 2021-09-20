@@ -63,6 +63,7 @@ import { EncrDecrServiceService } from './services/encr-decr-service.service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
+import { UserresultComponent } from './userresult/userresult.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { FooterComponent } from './footer/footer.component';
     RegistrationverifyComponent,
     AdminprofileComponent,
     NewPasswordValidatorDirective,
-    FooterComponent
+    FooterComponent,
+    UserresultComponent
   ],
   imports: [
     BrowserModule,

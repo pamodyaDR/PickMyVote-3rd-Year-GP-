@@ -6,8 +6,10 @@ import { ElectionService } from '../election.service';
 import { InvisVote } from '../invis-vote';
 import { Organization } from '../organization';
 import { Positions } from '../positions';
+import { RegistrationService } from '../registration.service';
 import { OrganizationService } from '../services/organization.service';
 import { ResultService } from '../services/result.service';
+import { User } from '../user';
 import { VoteService } from '../vote.service';
 
 @Component({
@@ -32,6 +34,7 @@ export class ResultComponent implements OnInit {
 
   votes:any[] = [];
   names:any[] = [];
+  user = new User;
 
   pie_valid_voters:any[]= [];
   // ADD CHART OPTIONS. 
@@ -72,7 +75,7 @@ export class ResultComponent implements OnInit {
   
 
 
-  constructor(private vote_service: VoteService, private Res_service: ResultService, private _router : Router, private _route: ActivatedRoute, private elec_service: ElectionService, private org_service: OrganizationService) { }
+  constructor(private Reg_service: RegistrationService,private vote_service: VoteService, private Res_service: ResultService, private _router : Router, private _route: ActivatedRoute, private elec_service: ElectionService, private org_service: OrganizationService) { }
 
   ngOnInit(): void {
 
@@ -186,9 +189,14 @@ export class ResultComponent implements OnInit {
     this._router.navigate(['/organization', this.uid]);
   }
 
-  logout(){
-    sessionStorage.clear();
-    this._router.navigate(['/']);
+  userprofile(){
+    this.Reg_service.getUserbyEmail(this.email,this.password,this.email).subscribe(
+      res =>{
+        this.user = res;
+        console.log( this.user.id);
+        this._router.navigate(['/userprofile',this.user.id ]);
+      })
+    
   }
 
 }

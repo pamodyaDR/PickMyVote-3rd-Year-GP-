@@ -101,6 +101,11 @@ export class UserprofileComponent implements OnInit {
     this._router.navigate(['/organization', id]);
   }
 
+  viewResult(id:number) {
+    
+    this._router.navigate(['/result', id]);
+  }
+
   logout(){
     sessionStorage.clear();
     this._router.navigate(['/']);
