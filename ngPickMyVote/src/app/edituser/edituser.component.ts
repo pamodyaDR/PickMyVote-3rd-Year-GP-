@@ -48,7 +48,8 @@ export class EdituserComponent implements OnInit {
   ngOnInit(): void {
     const id = this._route.snapshot.params['id'];
     console.log(id);
-
+    console.log(this.email);
+    
     if(!this.email){
       this._router.navigate(['/login'])
     }

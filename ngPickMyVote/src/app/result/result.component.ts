@@ -50,11 +50,13 @@ export class ResultComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.email = sessionStorage.getItem('session_username');
+    this.password = sessionStorage.getItem('session_password');
     const id = this._route.snapshot.params['elecid'];
-    //console.log(id);
+    console.log(sessionStorage.getItem('session_username'));
 
     if(!this.email){
-      this._router.navigate(['/login'])
+     // this._router.navigate(['/login'])
     }
       
     this.Res_service.getResult(this.email,this.password,id).subscribe(
@@ -66,6 +68,31 @@ export class ResultComponent implements OnInit {
 
     
 
+  }
+
+  viewHome(){
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/userprofile', id]);
+  }
+
+  viewUser() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/edituser', id]);
+  }
+
+  viewElection() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/elections', id]);
+  }
+
+  viewOrganization() {
+    const id = this._route.snapshot.params['id'];
+    this._router.navigate(['/organization', id]);
+  }
+
+  logout(){
+    sessionStorage.clear();
+    this._router.navigate(['/']);
   }
 
 }
