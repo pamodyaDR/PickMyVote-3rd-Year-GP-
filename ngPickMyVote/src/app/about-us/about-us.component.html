@@ -1,1 +1,72 @@
-<p>about-us works!</p>
+<app-navbar></app-navbar>
+  <head>
+    <style>
+    .item1 { grid-area: header; }
+    .item2 { grid-area: menu; }
+    .item3 { grid-area: main; }
+    /* .item4 { grid-area: right; } */
+    .item5 { grid-area: footer; }
+    
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        'right header header header header header'
+        'menu main main main main main'
+        'menu footer footer footer footer footer';
+        
+      grid-gap: 10px;
+      background-color: white;
+      padding: 10px;
+    }
+    
+    .grid-container > div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+
+   
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  padding: 10px;
+}
+.grid-item1 {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(255, 255, 255, 0.8); */
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+    </style>
+    </head>
+    <body>
+    
+    
+    
+    <div class="grid-container">
+      <div class="item1"><b>Setup to Support
+        to Full Service.</b></div>
+      <div class="item2"><img src="../../assets/img/service.jpg" ></div>
+      <div class="item3">Not every election or every organization can run their election by themselves. That’s why we offer a suite of services that facilitate elections with 100,000+ voters, ensure compliance to standards, and provide third-party independence. You can have the confidence that you’re getting the results you need. </div>  
+      <!-- <div class="item4">Right</div> -->
+      <div class="item5"><b>Run-It-Yourself or Fully Managed Elections
+        Powerful, Easy-To-Use, and Amazingly Flexible</b></div>
+    </div>
+    <div class="grid-container1">
+        <div class="grid-item1"><b>High-integrity voting</b><br>
+            Voter can only vote once and voting choices remain anonymous. Each ballot has one, secure voting key and the vote is auditable, verifiable and can be independently observed.</div>
+        <div class="grid-item1"><b>Improve voter engagement</b><br>
+            Notify voters through email, mail, text message or with your own systems. Receive undeliverable notice alerts and schedule reminders. Voters vote by phone, computer, mail or in person.</div>
+            <div class="grid-item1"><b>Improve voter engagement</b><br>
+                Notify voters through email, mail, text message or with your own systems. Receive undeliverable notice alerts and schedule reminders. Voters vote by phone, computer, mail or in person.</div>
+         
+      </div>
+      
+    
+    </body>
+
+    <app-footer></app-footer>
