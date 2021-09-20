@@ -51,7 +51,10 @@ public class TmpVoteController {
 	public boolean verifyVoter(@PathVariable String em_key, @PathVariable Long elec_id) {
     	TmpInvisVote grantedVoter = tmpInvisRepo.findByElecIDAndEmkey(elec_id, em_key);
     	if(grantedVoter != null) {
-			return true;
+    		if(grantedVoter.getCount()<1)
+    			return true;
+    		else
+    			return false;
     	}
     	else {
 			return false;
