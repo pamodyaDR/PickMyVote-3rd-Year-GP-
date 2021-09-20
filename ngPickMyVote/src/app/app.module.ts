@@ -62,6 +62,7 @@ import { NewPasswordValidatorDirective } from './adminprofile/new-password-valid
 import { EncrDecrServiceService } from './services/encr-decr-service.service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import {MatRadioModule} from '@angular/material/radio';
     Votepage5Component,
     RegistrationverifyComponent,
     AdminprofileComponent,
-    NewPasswordValidatorDirective
+    NewPasswordValidatorDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
