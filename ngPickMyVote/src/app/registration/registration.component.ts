@@ -19,9 +19,17 @@ export class RegistrationComponent implements OnInit {
 
   hide = true;
 
-  question1 = ['Q1-a','Q1-b','Q1-c','Q1-d'];
+  question1 = ['What was the make and model of your first car?',
+              'What was the house number and street name you lived in as a child?',
+              'What were the last four digits of your childhood telephone number?',
+              'What is the last name of the teacher who gave you your first failing grade?',
+              'What primary school did you attend?'];
 
-  question2 = ['Q2-a','Q2-b','Q2-c','Q2-d'];
+  question2 = ['What was the name of your elementary / primary school?',
+              'In what city or town does your nearest sibling live?',
+              'What was the name of your first stuffed animal, doll, or action figure?',
+              'What time of the day were you born? (hh:mm)',
+              'What was your favorite place to visit as a child?'];
 
   roles = "ROLE_USER";
 

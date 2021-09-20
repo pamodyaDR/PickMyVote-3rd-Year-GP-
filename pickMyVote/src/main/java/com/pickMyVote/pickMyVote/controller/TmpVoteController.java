@@ -51,7 +51,10 @@ public class TmpVoteController {
 	public boolean verifyVoter(@PathVariable String em_key, @PathVariable Long elec_id) {
     	TmpInvisVote grantedVoter = tmpInvisRepo.findByElecIDAndEmkey(elec_id, em_key);
     	if(grantedVoter != null) {
-			return true;
+    		if(grantedVoter.getCount()<1)
+    			return true;
+    		else
+    			return false;
     	}
     	else {
 			return false;
@@ -82,12 +85,13 @@ public class TmpVoteController {
 	}
     
     //add vote by em key
-    @PostMapping("/vote/add/{em_key}/{elec_id}/{cand_id}")
-    public void addVote(@PathVariable String em_key, @PathVariable Long elec_id, @PathVariable Long cand_id) {
+    @GetMapping("/vote/add/{em_key}/{elec_id}/{cand_id}")
+    public boolean addVote(@PathVariable String em_key, @PathVariable Long elec_id, @PathVariable Long cand_id) {
     	//add vote to emkey on invis_vote table
     	service.addVoteCount(em_key, elec_id);
     	//add vote to candidate
     	service.addCandidateVote(cand_id);
+    	return true;
     }
     
     //add voters to election 

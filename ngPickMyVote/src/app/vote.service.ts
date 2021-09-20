@@ -22,9 +22,9 @@ export class VoteService {
     return this._http.get<any>("http://localhost:8080/vote/"+ emkey_decrypted + "/" + elecid, {headers});
   }
 
-  addVote(username:any,password:any,emkey_decrypted:any,elecid:any,candidateid:any){
+  addVote(username:any,password:any,emkey_decrypted:any,elecid:any,candidateid:any):Observable<any>{
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this._http.post("http://localhost:8080/vote/add/"+ emkey_decrypted + "/" + elecid + "/" + candidateid,{headers})
+    return this._http.get<any>("http://localhost:8080/vote/add/"+ emkey_decrypted + "/" + elecid + "/" + candidateid,{headers});
   }
 
   getInvisVoteByEmail(username:any,password:any):Observable<InvisVote[]>{
