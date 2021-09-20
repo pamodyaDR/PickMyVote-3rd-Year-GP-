@@ -73,6 +73,13 @@ public class TmpVoteController {
     	List<Candidate> cand = candrepo.findByElecid(elec_id);
     	return cand;
     }
+
+	//Get elections by email
+	@GetMapping("/vote/getelections/{email}")
+	public List <TmpInvisVote> getInvisvote(@PathVariable String email) {
+		List<TmpInvisVote> elec = tmpInvisRepo.findByEmkey(email);
+		return elec;
+	}
     
     //add vote by em key
     @PostMapping("/vote/add/{em_key}/{elec_id}/{cand_id}")

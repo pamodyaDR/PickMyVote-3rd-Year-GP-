@@ -8,6 +8,8 @@ import { Election } from '../election';
 import { ElectionService } from '../election.service';
 import { OrganizationService } from '../services/organization.service';
 import { Organization } from '../organization';
+import { VoteService } from '../vote.service';
+import { InvisVote } from '../invis-vote';
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
@@ -22,7 +24,7 @@ export class UserprofileComponent implements OnInit {
   password = sessionStorage.getItem('session_password');
   uRole = sessionStorage.getItem('user_role');
 
-  constructor(private UserElc_service: UserelectionService, private _router: Router, private _route: ActivatedRoute, private Election_service: ElectionService,private Organization_service: OrganizationService) { }
+  constructor(private UserElc_service: UserelectionService, private _router: Router, private _route: ActivatedRoute, private Election_service: ElectionService,private Organization_service: OrganizationService,private Vote_service: VoteService) { }
 
   organizations: OrgSubscribedUser[] = [];
   elections: Election[][] = [];
@@ -30,6 +32,8 @@ export class UserprofileComponent implements OnInit {
   oranizationname = '';
   notice = '';
   org: Organization[] = [];
+  invisvote :InvisVote[]=[];
+  election : Election[] = [];
 
   ngOnInit(): void {
 
@@ -39,6 +43,28 @@ export class UserprofileComponent implements OnInit {
 
     }
     this.getElections();
+
+    this.Vote_service.getInvisVoteByEmail(this.email,this.password).subscribe(
+      data => {
+        this.invisvote = data;
+        console.log(this.invisvote);
+        // this.invisvote.forEach((el) => {
+        //   console.log(el.elecID);
+        // })
+        
+        for(let i=0;i<this.invisvote.length;i++){
+          console.log(this.invisvote[i].elecID);
+          this.Election_service.getElectionById(this.email,this.password,this.invisvote[i].elecID).subscribe(
+            data1 => {
+              this.election[i] = data1;
+
+            }
+
+         // this._router.navigate(['/result', this.invisvote[i].elecID]);
+          )
+        }
+      }
+    )
 
   }
 
@@ -118,5 +144,7 @@ export class UserprofileComponent implements OnInit {
       }
     );
   }
+
+
 
 }

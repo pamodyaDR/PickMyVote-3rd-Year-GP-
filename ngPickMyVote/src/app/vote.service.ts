@@ -1,6 +1,7 @@
 import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { InvisVote } from './invis-vote';
 import { Votes } from './votes';
 
 
@@ -24,5 +25,10 @@ export class VoteService {
   addVote(username:any,password:any,emkey_decrypted:any,elecid:any,candidateid:any){
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.post("http://localhost:8080/vote/add/"+ emkey_decrypted + "/" + elecid + "/" + candidateid,{headers})
+  }
+
+  getInvisVoteByEmail(username:any,password:any):Observable<InvisVote[]>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<InvisVote[]>("http://localhost:8080/vote/getelections/"+username,{headers});
   }
 }

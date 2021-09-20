@@ -52,10 +52,10 @@
 
         <div class="content mat-elevation-z8" >
            
-            <div class="row" class="d-flex justify-content-center" style="overflow: auto">
+            <!-- <div class="row" class="d-flex justify-content-center" style="overflow: auto">
 
-                <div class="col-lg-8 ">
-                    <br><br>
+                <div class="col-lg-8 "> -->
+                    <!-- <br><br>
                     <p class="d-flex justify-content-center">Elections due this week</p>
 
                     <div class="mx-5">
@@ -86,9 +86,12 @@
                 </div>
                
 
-            </div>
-
-
+            </div> -->
+            <app-result></app-result>
+<div *ngfor="let invis of invisvote">
+    <app-result></app-result>
+</div>
+      
 
         </div>
     </mat-sidenav-content>

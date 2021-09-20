@@ -149,7 +149,7 @@ export class Votepage1Component implements OnInit {
       console.log("Valid Private Key");
       console.log(emkeyDecrypted);
 
-      this.vote_service.getInvisVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid).subscribe(
+      this.vote_service.getInvisVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecID).subscribe(
         data => {
           console.log(data);
 
@@ -161,7 +161,7 @@ export class Votepage1Component implements OnInit {
             
 
             //get election data
-            this.elec_service.getElectionById(this.email, this.password, this.invisVote.elecid).subscribe(
+            this.elec_service.getElectionById(this.email, this.password, this.invisVote.elecID).subscribe(
               res => {
                 this.elecObj = res;
                 if(this.elecObj) {
@@ -175,7 +175,7 @@ export class Votepage1Component implements OnInit {
                       console.log(this.orgObj);
 
                       //get candidates data
-                      this.elec_service.getcandidatesByEId(this.email, this.password, this.invisVote.elecid).subscribe(
+                      this.elec_service.getcandidatesByEId(this.email, this.password, this.invisVote.elecID).subscribe(
                         resc => {
                           this.candidateObj = resc;
                           this.tmpcandidateObj = resc;
@@ -316,7 +316,7 @@ export class Votepage1Component implements OnInit {
     
             for(let i=0; i<this.positions.length; i++){
               if(this.positions[i].vote_id){
-                this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecid, this.positions[i].vote_id)
+                this.vote_service.addVote(this.email, this.password, emkeyDecrypted, this.invisVote.elecID, this.positions[i].vote_id)
                 // .subscribe(
                 //   res => {
                 //     if(res) {
