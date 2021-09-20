@@ -107,15 +107,18 @@
                               <h4 class="elec d-flex justify-content-center">Please Complete the Authentication step
                                    first.</h4>
                          </div>
+                         <div *ngIf="elec_Status">
+                              <h4 class="elec d-flex justify-content-center">{{electionStatusMsg}}</h4>
+                         </div>
                          <form *ngIf="election" class="mx-auto" style="width: 600px;">
-                              <div class="mt-5">
+                              <div *ngIf="ongoing" class="mt-5">
                                    <h3 class="htitle d-flex justify-content-center">{{orgObj.name}} - {{elecObj.title}}
                                    </h3>
                                    <h5 class="hdate d-flex justify-content-center">{{elecObj.startdatetime}} -
                                         {{elecObj.enddatetime}}</h5>
                                    <br>
                               </div>
-                              <div>
+                              <div *ngIf="ongoing">
                                    <label id="example-radio-group-label" class="my-4 d-flex justify-content-center vote">Put your Vote</label>
                                    <div *ngFor="let posi of positions">
                                         <p class="my-5" style="font-size: x-large;">Position : {{posi.name}}</p>
@@ -137,7 +140,7 @@
 
                               <div class="my-5">
                                    <button class="btn1 " matStepperPrevious>Back</button>
-                                   <button class="btn1 mx-5" (click)=vote() matStepperNext>Next</button>
+                                   <button *ngIf="ongoing" class="btn1 mx-5" (click)=vote() matStepperNext>Next</button>
                               </div>
                          </form>
                     </mat-step>
@@ -190,9 +193,25 @@
                       </div> -->
                     </mat-step>
                </mat-stepper>
+               <div *ngIf="submitSuccess" class="position-absolute bottom-50 start-50 translate-middle">
+                    <div class="alert alert-success shadow-lg p-3 rounded" role="alert">
+                      <h2 style="font-size: large;">You were voted successfully! Thank you for being with us.</h2>
+                      <button mat-raised-button class="ms-2" (click)="gotohome()">Ok</button>
+                    </div>
+               </div>
+               
+               <div *ngIf="submitUnsuccess" class="position-absolute bottom-50 start-50 translate-middle">
+                    <div class="alert alert-success shadow-lg p-3 rounded" role="alert">
+                      <h2 style="font-size: large;">Something went wrong! Your vote was unsuccessful.</h2>
+                      <button mat-raised-button class="ms-2" (click)="gotohome()">Ok</button>
+                    </div>
+               </div>
           </div>
+          
      </mat-sidenav-content>
 </mat-sidenav-container>
+
+
 
 <!-- <div class="vote">
     <app-usertoolbar></app-usertoolbar>
