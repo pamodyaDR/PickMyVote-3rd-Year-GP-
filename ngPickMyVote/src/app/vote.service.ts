@@ -31,4 +31,9 @@ export class VoteService {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.get<InvisVote[]>("http://localhost:8080/vote/getelections/"+username,{headers});
   }
+
+  getTotalVoters(username:any,password:any,elecid:any):Observable<InvisVote[]>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<InvisVote[]>("http://localhost:8080/vote/getvoters/"+elecid,{headers});
+  }
 }

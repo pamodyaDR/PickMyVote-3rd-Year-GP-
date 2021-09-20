@@ -48,17 +48,22 @@
       <mat-divider></mat-divider>
     </mat-sidenav>
   
+    
     <mat-sidenav-content>
-  
-      <div class="content mat-elevation-z8">
+      <div class="content mat-elevation-z9">
   
         <div class="row" style="overflow: auto">
   
-          <div class="topic">
-            <h2>My Organizations</h2><br>
-          </div><br>
+            <div class="mt-5">
+                <h3 class="htitle d-flex justify-content-center">{{orgObj.name}} - {{elecObj.title}} | Results
+                </h3>
+                <h5 class="hdate d-flex justify-content-center">{{elecObj.startdatetime}} -
+                     {{elecObj.enddatetime}}</h5>
+                <br>
+           </div><br>
           <div class="col-lg-10 mx-5">
-            
+            <h4 class="htitle d-flex justify-content">Votes of all candidates
+            </h4>
           <div>
             <canvas
                 baseChart
@@ -70,13 +75,80 @@
                 [colors]="colors">
             </canvas>
           </div>
-        
+          <h3 class="htitle d-flex justify-content">Votes by position
+        </h3>
+          <div *ngFor="let posi of positions">
+            
+            <h4 class="htitle d-flex justify-content">Position : {{posi.name}}
+            </h4>
+            <table class="table table-striped" style="font-size: small;">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+    <th scope="col" >Name</th>
+    <th scope="col">Votes</th>
+  </tr>
+  </thead><tbody>
+
+    <tr *ngFor="let candidate of candidateObj">
+        <th scope="row" *ngIf="posi.name == candidate.position"></th>
+        <td *ngIf="posi.name == candidate.position">
+          {{ candidate.name }}
+        </td>
+        <td *ngIf="posi.name == candidate.position">{{candidate.votes}}</td>
+      </tr>
+                </tbody>
+              </table>   
+            <!-- <div *ngFor="let candidate of candidateObj">
+                <label *ngIf="posi.name == candidate.position" class="mb-5">{{candidate.position}}</label> -->
+                <!-- <div *ngIf="posi.name == candidate.position">
+                    <h5 class="htitle d-flex justify-content">{{candidate.name}} - {{candidate.votes}}
+                    </h5>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>{{candidate.name}}</td>
+                            <td>{{candidate.votes}}</td>
+                        </tr>
+                      </table>
+                </div>
+           </div> --> 
+    
+            
+            
+    
+            <!-- <mat-label>{{candidate.position}}</mat-label>
+            <input type="radio" matInput formControlName="secondCtrl" [value]="candidate.id" [(ngModel)]="candidate.id" required>{{candidate.name}} -->
+       </div>
+
+          <div class="mt-5">
+            <h3 class="htitle d-flex justify-content">Voters count summary
+            </h3>
+            <h4 class="htitle d-flex justify-content">Total Invited Voters: {{invited_voters.length}}
+            </h4>
+            <h4 class="htitle d-flex justify-content">Valid Voters: {{valid_voters}}
+            </h4>
+            <br>
+       </div><br>
+
+       <div>
+        <canvas
+            baseChart
+            [chartType]="'pie'"
+            [datasets]="pie_chartData"
+            [labels]="pie_labels"
+            [options]="chartOptions"
+            [legend]="true"
+            [colors]="pie_colors">
+        </canvas>
+      </div>
+
+
           </div>
         </div>
   
       </div>
-      
-    </mat-sidenav-content>
+      </mat-sidenav-content>
+    
   </mat-sidenav-container>
   
 

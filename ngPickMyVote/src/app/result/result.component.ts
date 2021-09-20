@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Candidate } from '../candidate';
-import { RegistrationService } from '../registration.service';
+import { Election } from '../election';
+import { ElectionService } from '../election.service';
+import { InvisVote } from '../invis-vote';
+import { Organization } from '../organization';
+import { Positions } from '../positions';
+import { OrganizationService } from '../services/organization.service';
 import { ResultService } from '../services/result.service';
+import { VoteService } from '../vote.service';
 
 @Component({
   selector: 'app-result',
@@ -12,13 +18,22 @@ import { ResultService } from '../services/result.service';
 export class ResultComponent implements OnInit {
 
   email = sessionStorage.getItem('session_username');
+  uid = sessionStorage.getItem('session_uid');
   password = sessionStorage.getItem('session_password');
   //candidates = Candidate:[];
   List!: Array<Candidate>;
+  elecObj: Election = new Election();
+  orgObj: Organization = new Organization();
+  invited_voters!: Array<InvisVote>;
+  valid_voters: number = 0;
+  candidateObj: Candidate[];
+  tmpcandidateObj: Candidate[];
+  positions: Array<Positions>=[];
 
   votes:any[] = [];
   names:any[] = [];
 
+  pie_valid_voters:any[]= [];
   // ADD CHART OPTIONS. 
   chartOptions = {
     responsive: true    // THIS WILL MAKE THE CHART RESPONSIVE (VISIBLE IN ANY DEVICE).
@@ -33,20 +48,31 @@ export class ResultComponent implements OnInit {
     }
   ];
 
+  pie_labels = ["Valid Voters","Inactive Voters"];
+
+  pie_chartData = [{data:this.pie_valid_voters}];
+  
 
   // CHART COLOR.
   colors = [
     { // 1st Year.
-      backgroundColor: 'rgba(77,83,96,0.2)'
+      backgroundColor: 'rgba(13, 11, 147,0.2)'
     },
     { // 2nd Year.
-      backgroundColor: 'rgba(30, 169, 224, 0.8)'
+      backgroundColor: 'rgba(190, 14, 20, 0.8)'
     }
   ]
+
+  pie_colors = [
+    { // 1st Year.
+      backgroundColor: ['rgba(13, 11, 147,0.2)','rgba(190, 14, 20,0.2)']
+    }
+  ]
+
   
 
 
-  constructor(private Reg_service: RegistrationService, private Res_service: ResultService, private _router : Router, private _route: ActivatedRoute) { }
+  constructor(private vote_service: VoteService, private Res_service: ResultService, private _router : Router, private _route: ActivatedRoute, private elec_service: ElectionService, private org_service: OrganizationService) { }
 
   ngOnInit(): void {
 
@@ -56,9 +82,85 @@ export class ResultComponent implements OnInit {
     console.log(sessionStorage.getItem('session_username'));
 
     if(!this.email){
-     // this._router.navigate(['/login'])
+     this._router.navigate(['/login'])
     }
       
+    //get election data
+    this.elec_service.getElectionById(this.email, this.password, id).subscribe(
+      res => {
+        this.elecObj = res;
+        if(this.elecObj) {
+          console.log(this.elecObj);
+
+          //get organization data
+          this.org_service.getOrganizationName(this.email, this.password, this.elecObj.orgid).subscribe(
+            resorg => {
+              this.orgObj = resorg;
+              console.log(this.orgObj);
+            }
+          )
+
+          //get total invited voters
+          this.vote_service.getTotalVoters(this.email, this.password, id).subscribe(
+            res => {
+              this.invited_voters = res;
+              //console.log(this.invited_voters.length);
+              this.invited_voters.forEach((ele)=>{
+                if(ele.count>0){
+                  this.valid_voters=+1;
+                }
+                  
+              })
+              this.pie_valid_voters[0]=this.valid_voters;
+              this.pie_valid_voters[1]=this.invited_voters.length;  
+            }
+          )
+
+        }
+      }
+    )
+
+    //get candidates data
+    this.elec_service.getcandidatesByEId(this.email, this.password, id).subscribe(
+      resc => {
+        this.candidateObj = resc;
+        this.tmpcandidateObj = resc;
+        console.log(this.candidateObj);
+
+        //group by positions
+          //initial position
+        let pos = new Positions();
+        pos.name =this.candidateObj[0].position;
+        this.positions.push(pos);
+        console.log(this.positions);
+
+          //group positions except 1st one
+        for(let i=1; i<this.candidateObj.length; i++){
+          var loop = true;
+          this.positions.forEach((ele) =>{
+            if(loop){
+              if(this.candidateObj[i].position == ele.name) {
+                // let pos = new Positions();
+                // pos.name =this.candidateObj[i].position;
+                // this.positions.push(pos);
+                loop=false;
+              }
+            }
+            
+          }
+          )
+          if(loop){
+            let pos = new Positions();
+                pos.name =this.candidateObj[i].position;
+                this.positions.push(pos);
+          }
+      
+      }
+      
+      console.log(this.positions);
+    }
+    );
+
     this.Res_service.getResult(this.email,this.password,id).subscribe(
       res => {this.List =res;
         this.List.forEach((el) => this.votes.push(el.votes));
@@ -66,28 +168,22 @@ export class ResultComponent implements OnInit {
       } 
     )
 
-    
-
   }
 
   viewHome(){
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/userprofile', id]);
+    this._router.navigate(['/userprofile', this.uid]);
   }
 
   viewUser() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/edituser', id]);
+    this._router.navigate(['/edituser', this.uid]);
   }
 
   viewElection() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/elections', id]);
+    this._router.navigate(['/elections', this.uid]);
   }
 
   viewOrganization() {
-    const id = this._route.snapshot.params['id'];
-    this._router.navigate(['/organization', id]);
+    this._router.navigate(['/organization', this.uid]);
   }
 
   logout(){
