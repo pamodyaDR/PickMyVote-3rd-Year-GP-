@@ -115,7 +115,7 @@ export class ResultComponent implements OnInit {
                   
               })
               this.pie_valid_voters[0]=this.valid_voters;
-              this.pie_valid_voters[1]=this.invited_voters.length;  
+              this.pie_valid_voters[1]=this.invited_voters.length-this.valid_voters;  
             }
           )
 
