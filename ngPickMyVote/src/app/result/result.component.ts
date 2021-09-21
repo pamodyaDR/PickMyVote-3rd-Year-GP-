@@ -110,7 +110,7 @@ export class ResultComponent implements OnInit {
               //console.log(this.invited_voters.length);
               this.invited_voters.forEach((ele)=>{
                 if(ele.count>0){
-                  this.valid_voters=+1;
+                  this.valid_voters=this.valid_voters+1;
                 }
                   
               })
