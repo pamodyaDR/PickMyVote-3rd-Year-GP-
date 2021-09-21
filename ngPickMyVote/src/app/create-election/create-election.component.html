@@ -1,4 +1,17 @@
-<app-usertoolbar></app-usertoolbar>
+<mat-toolbar class="mat-elevation-z8">
+
+
+  <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
+  <span class="navbarselections"></span>
+
+  <div class="topnav">
+      
+      <a class="active" (click)="viewHome()">
+          <mat-icon>arrow_back</mat-icon>
+      </a>
+
+  </div>
+</mat-toolbar>
 
 <mat-stepper #stepper class="m-4">
     <!--1st Form group-->

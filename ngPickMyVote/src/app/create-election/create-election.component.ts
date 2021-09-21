@@ -23,6 +23,7 @@ export class CreateElectionComponent implements OnInit {
 
   username = sessionStorage.getItem('session_username');
   password = sessionStorage.getItem('session_password');
+  uid = sessionStorage.getItem('session_uid');
 
   organizations : Organization[];
 
@@ -254,5 +255,9 @@ export class CreateElectionComponent implements OnInit {
 
   electionFinishVoterCountError(){
     this.hiddenVariableVoterCountError = "d-none";
+  }
+
+  viewHome(){
+    this._router.navigate(['/userprofile', this.uid]);
   }
 }
