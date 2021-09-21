@@ -1,0 +1,38 @@
+<mat-toolbar class="mat-elevation-z8">
+
+
+    <span><a class="linkstyle" [routerLink]="['/']" style="font-size: xx-large;">PickMyVote</a></span>
+    <span class="navbarselections"></span>
+
+    <div class="topnav">
+        
+        <a class="active" (click)="userprofile()">
+            <mat-icon>arrow_back</mat-icon>
+        </a>
+
+    </div>
+</mat-toolbar>
+<mat-sidenav-container>
+    
+    <mat-sidenav-content>
+
+        <div class="content mat-elevation-z8" style="overflow: auto">
+            <div >
+                <br>
+                <p class="d-flex justify-content-center mb-4">Past Elections</p>
+                <div class="d-flex justify-content-center">
+                    <div class="mx-5 col-lg-5" >
+                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let orgelec of orgelecend">
+                            <p></p>
+                            <br>
+                            <mat-grid-tile text-align="left" align-items="left"><a (click)="viewOrgElecResult(orgelec.id)">{{ orgelec.title }}</a>  </mat-grid-tile><br>
+                            
+                          
+                          </mat-grid-list>
+                    </div>
+                </div>
+               
+               </div>
+            </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

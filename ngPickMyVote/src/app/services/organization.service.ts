@@ -19,4 +19,9 @@ export class OrganizationService {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
     return this._http.get<Organization[]>("http://localhost:8080/getOrganizations",{headers})
   }
+
+  public getOrgByOwnerId(username:any, password:any, ownerId:Number):Observable<Organization[]>{
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    return this._http.get<Organization[]>("http://localhost:8080/api/v1/getOrgsOfOwner/"+ ownerId,{headers});
+  }
 }

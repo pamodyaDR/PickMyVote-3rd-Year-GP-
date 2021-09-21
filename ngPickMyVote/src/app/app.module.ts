@@ -64,6 +64,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import { FooterComponent } from './footer/footer.component';
 import { UserresultComponent } from './userresult/userresult.component';
+import { OrgelectionsComponent } from './orgelections/orgelections.component';
+import { OrgelecresultComponent } from './orgelecresult/orgelecresult.component';
 
 
 @NgModule({
@@ -101,7 +103,9 @@ import { UserresultComponent } from './userresult/userresult.component';
     AdminprofileComponent,
     NewPasswordValidatorDirective,
     FooterComponent,
-    UserresultComponent
+    UserresultComponent,
+    OrgelectionsComponent,
+    OrgelecresultComponent
   ],
   imports: [
     BrowserModule,

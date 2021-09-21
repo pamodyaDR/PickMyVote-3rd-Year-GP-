@@ -58,31 +58,26 @@
         <div class="topic">
           <h2>My Organizations</h2><br>
         </div><br>
-
-        <div class="col-lg-5 mx-5">
-          <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor="let organization of org">
-            <p></p>
+        <div class="d-flex justify-content-center">
+        <h2 *ngIf="isshown" >{{message}}</h2>
+       </div>
+       <div class="d-flex justify-content-center">
+          <div class="col-lg-5 mx-5">
+            <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor="let organization of org">
+              <p></p>
+              <br>
+              <mat-grid-tile text-align="left" align-items="left"><a (click)="viewElec(organization.id)">{{ organization.name }}</a></mat-grid-tile><br>
+            </mat-grid-list>
+  
+            <br><br>
             <br>
-            <mat-grid-tile text-align="left" align-items="left">{{ organization.name }}</mat-grid-tile><br>
-          </mat-grid-list>
-
-          <br><br>
-          <br>
-          <div *ngFor="let orga of org">
-            <p>As a Organizer</p>
-            
-            <br>
-          <br>
-
           </div>
-          
-          <p>As a Member</p>
-          
         </div>
+      
       </div>
 
     </div>
-    
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 

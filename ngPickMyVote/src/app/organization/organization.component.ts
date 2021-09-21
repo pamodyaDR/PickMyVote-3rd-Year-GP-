@@ -18,11 +18,13 @@ export class OrganizationComponent implements OnInit {
 
   org: Organization[] = [];
   organizations: OrgSubscribedUser[] = [];
+  message = '';
+  isshown : Boolean;
 
 
   constructor(private Organization_service: OrganizationService, private UserElc_service: UserelectionService, private _route: ActivatedRoute, private _router: Router) { }
-  
-  
+
+
   ngOnInit(): void {
 
     //check browser session for admin login
@@ -30,11 +32,11 @@ export class OrganizationComponent implements OnInit {
       this._router.navigate(['/login'])
 
     }
-
+    this.isshown=false;
     this.getElections();
   }
 
-  viewHome(){
+  viewHome() {
     const id = this._route.snapshot.params['id'];
     this._router.navigate(['/userprofile', id]);
   }
@@ -54,7 +56,7 @@ export class OrganizationComponent implements OnInit {
     this._router.navigate(['/organization', id]);
   }
 
-  logout(){
+  logout() {
     sessionStorage.clear();
     this._router.navigate(['/']);
   }
@@ -62,22 +64,23 @@ export class OrganizationComponent implements OnInit {
   private getElections() {
     const id = this._route.snapshot.params['id'];
 
-    this.UserElc_service.getOrganizations(this.email, this.password, id).subscribe(
-      res => {
-        this.organizations = res;
-        
-          for(let i = 0; i <= this.organizations.length; i++) {
-            
-            this.Organization_service.getOrganizationName(this.email,this.password, res[i].orgid).subscribe(
-              name => {
-                this.org[i] = name;
-              }
-            );
 
-            
-          }
+    this.Organization_service.getOrgByOwnerId(this.email, this.password, id).subscribe(
+      res => {
+        this.org = res;
+        console.log(this.org);
+        if(this.org.length==0){
+          this.isshown=true;
+          this.message ="You are not an owner of an Organization"
+          console.log(this.message);
+        }
       }
     );
+  }
+
+  viewElec(id:Number){
+    
+    this._router.navigate(['/orgelections', id]);
   }
 
 }

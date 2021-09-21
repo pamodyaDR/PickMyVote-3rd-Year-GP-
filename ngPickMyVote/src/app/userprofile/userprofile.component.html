@@ -46,15 +46,12 @@
     <mat-sidenav-content>
 
         <div class="content mat-elevation-z8" style="overflow: auto">
-           
-           
-
             <div >
                 <br>
                 <p class="d-flex justify-content-center mb-4">Past Elections</p>
                 <div class="d-flex justify-content-center">
                     <div class="mx-5 col-lg-5" >
-                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let elec of election">
+                        <mat-grid-list cols="1" rowHeight="60px" gutterSize="10px" *ngFor = "let elec of elecclose">
                             <p></p>
                             <br>
                             <mat-grid-tile text-align="left" align-items="left"><a (click)="viewResult(elec.id)">{{ elec.title }}</a>  </mat-grid-tile><br>
@@ -65,11 +62,6 @@
                 </div>
                
                </div>
-            
-            
-
-      
-
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
