@@ -135,16 +135,18 @@ export class EdituserComponent implements OnInit {
     this._service.sendotp(this.user.email, this.user.password, this.user).subscribe(
       res=> {
         this.otpcode = res;
+
+        this._service.getUserFromRemote(this.email,this.password,id).subscribe(
+          res => {
+            this.user2 = res;
+            console.log(this.user2);
+          } 
+        )
       }
     );
     console.log(this.otpcode);
 
-    this._service.getUserFromRemote(this.email,this.password,id).subscribe(
-      res => {
-        this.user2 = res;
-        console.log(this.user2);
-      } 
-    )
+    
 
   }
 
@@ -168,18 +170,20 @@ export class EdituserComponent implements OnInit {
       this._service.sendotp(this.user.email, this.user.password, this.user).subscribe(
         res => {
           this.otpcode = res;
+
+          this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
+            res => {
+              this.user3 = res;
+              console.log(this.user3);
+            }
+          )
         }
       );
       console.log("Valid Current Password.");
       console.log(this.otpcode);
     }
 
-    this._service.getUserbyEmail(this.email, this.password, this.email).subscribe(
-      res => {
-        this.user3 = res;
-        console.log(this.user3);
-      }
-    )
+    
 
   }
 
