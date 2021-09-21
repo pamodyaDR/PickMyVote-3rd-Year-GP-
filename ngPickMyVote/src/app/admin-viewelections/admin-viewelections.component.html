@@ -55,7 +55,6 @@
                         <th> Start Date & Time </th>
                         <th> End Date & Time </th>
                         <th> Capacity </th>
-                        <th> Type </th>
                         <th> organization </th>
                     </tr>
                 </thead>
@@ -66,8 +65,6 @@
                         <td> {{ elections.startdatetime }} </td>
                         <td> {{ elections.enddatetime }} </td>
                         <td> {{ elections.capacity }} </td>
-                        <td *ngIf="elections.type == 1"> Secure Election </td>
-                        <td *ngIf="elections.type == 0"> Public Election </td>
                         <td> {{ elections.orgname}} </td>
                     </tr>
                 </tbody>
