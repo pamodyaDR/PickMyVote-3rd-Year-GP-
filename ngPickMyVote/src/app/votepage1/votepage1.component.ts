@@ -355,6 +355,7 @@ export class Votepage1Component implements OnInit {
           }
 
           if (this.userObj.enteredverificationcode == this.user2.otpcode) {
+            this.showotpmsg = false;
             console.log("Valid OTP!");
 
             for (let i = 0; i < this.positions.length; i++) {
