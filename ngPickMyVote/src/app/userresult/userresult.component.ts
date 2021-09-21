@@ -105,12 +105,12 @@ export class UserresultComponent implements OnInit {
               //console.log(this.invited_voters.length);
               this.invited_voters.forEach((ele)=>{
                 if(ele.count>0){
-                  this.valid_voters=+1;
+                  this.valid_voters=this.valid_voters+1;
                 }
                   
               })
               this.pie_valid_voters[0]=this.valid_voters;
-              this.pie_valid_voters[1]=this.invited_voters.length;  
+              this.pie_valid_voters[1]=this.invited_voters.length-this.valid_voters;  
             }
           )
 
