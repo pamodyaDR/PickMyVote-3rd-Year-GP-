@@ -11,6 +11,7 @@ import { ElectionshomeComponent} from './electionshome/electionshome.component';
 import { AboutUsComponent} from './about-us/about-us.component';
 import { CreateElectionComponent } from './create-election/create-election.component';
 import { ResultComponent } from './result/result.component';
+import { UserresultComponent } from './userresult/userresult.component';
 import { PaymentchartComponent } from './paymentchart/paymentchart.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminViewelectionsComponent } from './admin-viewelections/admin-viewelections.component'; 
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'about-us',component:AboutUsComponent},
   {path:'createElection/:id',component:CreateElectionComponent},
   {path:'result/:elecid',component:ResultComponent},
+  {path:'userresult/:elecid',component:UserresultComponent},
   {path:'paymentchart' , component:PaymentchartComponent},
   {path:'admin' , component:AdminhomeComponent},
   {path:'admin/viewElections', component:AdminViewelectionsComponent},
